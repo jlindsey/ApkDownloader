@@ -1,6 +1,6 @@
 # ApkDownloader
 
-Simply and easily directly download an APK from the Google Play store.
+Simply and easily download an APK file from the Google Play store.
 
 ## Installation
 
@@ -36,7 +36,7 @@ Then simply call `ApkDownloader.download! '<package name>', '<destiation file>'`
 
 ### Notes and Warnings ###
 
-This gem works by way of spoofing a series of requests to the private Google Play API (normally only avaiable to the Play store app) by pretending to be an Android device running that app. This is – as far as the API is concerned – a real app purchase request from the configured device/account, which means that in addition to downloading locally to the file you specify in the `download!` call it will also automatically download on that device.
+This gem works by way of spoofing a series of requests to the private Google Play API (normally only available to the Play store app) by pretending to be an Android device running that app. This is – as far as the API is concerned – a real app purchase request from the configured device/account, which means that in addition to downloading locally to the file you specify in the `download!` call it will also automatically download on that device.
 
 I've only ever tried this for free apps. I have no idea what will happen if you attempt to download a non-free app with this gem.
 
