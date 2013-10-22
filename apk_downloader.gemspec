@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["josh@core-apps.com"]
   spec.description   = %q{Downloads APK files directly from the Play store}
   spec.summary       = %q{Uses a spoofed request to trick the Play store into thinking you're an Android device, allowing you to download APK files directly}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/jlindsey/ApkDownloader"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
