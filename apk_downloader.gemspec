@@ -18,9 +18,12 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "protobuf", "~> 2.8.6"
+  spec.add_dependency "ruby-protocol-buffers"
+  spec.add_dependency "varint"
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "pry-debugger"
 end
