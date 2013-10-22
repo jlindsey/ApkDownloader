@@ -1,5 +1,5 @@
 # ApkDownloader
-
+[![Gem Version](https://badge.fury.io/rb/apk_downloader.png)](http://badge.fury.io/rb/apk_downloader)
 Simply and easily download an APK file from the Google Play store.
 
 ## Installation
