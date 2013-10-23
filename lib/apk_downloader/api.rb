@@ -34,7 +34,7 @@ module ApkDownloader
         "sdk_version" => "16"
       }
 
-      login_http = Net::HTTP.new LoginUri.hostname, LoginUri.port
+      login_http = Net::HTTP.new LoginUri.host, LoginUri.port
       login_http.use_ssl = true
 
       post = Net::HTTP::Post.new LoginUri
@@ -79,7 +79,7 @@ module ApkDownloader
     def recursive_apk_fetch url, cookie, tries = 5
       raise ArgumentError, 'HTTP redirect too deep' if tries == 0
 
-      http = Net::HTTP.new url.hostname, url.port
+      http = Net::HTTP.new url.host, url.port
       req = Net::HTTP::Get.new url
       req['Accept-Encoding'] = ''
       req['User-Agent'] = 'AndroidDownloadManager/4.1.1 (Linux; U; Android 4.1.1; Nexus S Build/JRO03E)'
@@ -99,7 +99,7 @@ module ApkDownloader
 
     def api_request type, path, data = {}
       if @http.nil?
-        @http = Net::HTTP.new GoogleApiUri.hostname, GoogleApiUri.port
+        @http = Net::HTTP.new GoogleApiUri.host, GoogleApiUri.port
         @http.use_ssl = true
       end
 
