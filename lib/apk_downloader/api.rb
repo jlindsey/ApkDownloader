@@ -72,7 +72,6 @@ module ApkDownloader
 
       resp = recursive_apk_fetch(url, cookie)
 
-      binding.pry
       return resp.body
     end
 
@@ -135,7 +134,7 @@ module ApkDownloader
       api_headers.each { |k, v| req[k] = v }
 
       resp = @http.request req
-      return ResponseWrapper.new.parse(resp.body)
+      return ApkDownloader::ProtocolBuffers::ResponseWrapper.new.parse(resp.body)
     end
   end
 end

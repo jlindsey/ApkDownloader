@@ -1,3 +1,5 @@
+package ApkDownloader.ProtocolBuffers;
+
 message AckNotificationResponse {
 }
 message AndroidAppDeliveryData {

@@ -3,2974 +3,2978 @@
 
 require 'protocol_buffers'
 
-# forward declarations
-class AckNotificationResponse < ::ProtocolBuffers::Message; end
-class AndroidAppDeliveryData < ::ProtocolBuffers::Message; end
-class AndroidAppPatchData < ::ProtocolBuffers::Message; end
-class AppFileMetadata < ::ProtocolBuffers::Message; end
-class EncryptionParams < ::ProtocolBuffers::Message; end
-class HttpCookie < ::ProtocolBuffers::Message; end
-class Address < ::ProtocolBuffers::Message; end
-class BookAuthor < ::ProtocolBuffers::Message; end
-class BookDetails < ::ProtocolBuffers::Message; end
-class BookSubject < ::ProtocolBuffers::Message; end
-class BrowseLink < ::ProtocolBuffers::Message; end
-class BrowseResponse < ::ProtocolBuffers::Message; end
-class AddressChallenge < ::ProtocolBuffers::Message; end
-class AuthenticationChallenge < ::ProtocolBuffers::Message; end
-class BuyResponse < ::ProtocolBuffers::Message; end
-class Challenge < ::ProtocolBuffers::Message; end
-class FormCheckbox < ::ProtocolBuffers::Message; end
-class LineItem < ::ProtocolBuffers::Message; end
-class Money < ::ProtocolBuffers::Message; end
-class PurchaseNotificationResponse < ::ProtocolBuffers::Message; end
-class PurchaseStatusResponse < ::ProtocolBuffers::Message; end
-class CheckInstrumentResponse < ::ProtocolBuffers::Message; end
-class UpdateInstrumentRequest < ::ProtocolBuffers::Message; end
-class UpdateInstrumentResponse < ::ProtocolBuffers::Message; end
-class InitiateAssociationResponse < ::ProtocolBuffers::Message; end
-class VerifyAssociationResponse < ::ProtocolBuffers::Message; end
-class AddCreditCardPromoOffer < ::ProtocolBuffers::Message; end
-class AvailablePromoOffer < ::ProtocolBuffers::Message; end
-class CheckPromoOfferResponse < ::ProtocolBuffers::Message; end
-class RedeemedPromoOffer < ::ProtocolBuffers::Message; end
-class Docid < ::ProtocolBuffers::Message; end
-class Install < ::ProtocolBuffers::Message; end
-class Offer < ::ProtocolBuffers::Message; end
-class OwnershipInfo < ::ProtocolBuffers::Message; end
-class RentalTerms < ::ProtocolBuffers::Message; end
-class SubscriptionTerms < ::ProtocolBuffers::Message; end
-class TimePeriod < ::ProtocolBuffers::Message; end
-class BillingAddressSpec < ::ProtocolBuffers::Message; end
-class CarrierBillingCredentials < ::ProtocolBuffers::Message; end
-class CarrierBillingInstrument < ::ProtocolBuffers::Message; end
-class CarrierBillingInstrumentStatus < ::ProtocolBuffers::Message; end
-class CarrierTos < ::ProtocolBuffers::Message; end
-class CarrierTosEntry < ::ProtocolBuffers::Message; end
-class CreditCardInstrument < ::ProtocolBuffers::Message; end
-class EfeParam < ::ProtocolBuffers::Message; end
-class InputValidationError < ::ProtocolBuffers::Message; end
-class Instrument < ::ProtocolBuffers::Message; end
-class PasswordPrompt < ::ProtocolBuffers::Message; end
-class ContainerMetadata < ::ProtocolBuffers::Message; end
-class FlagContentResponse < ::ProtocolBuffers::Message; end
-class DebugInfo < ::ProtocolBuffers::Message; end
-class DeliveryResponse < ::ProtocolBuffers::Message; end
-class BulkDetailsEntry < ::ProtocolBuffers::Message; end
-class BulkDetailsRequest < ::ProtocolBuffers::Message; end
-class BulkDetailsResponse < ::ProtocolBuffers::Message; end
-class DetailsResponse < ::ProtocolBuffers::Message; end
-class DeviceConfigurationProto < ::ProtocolBuffers::Message; end
-class Document < ::ProtocolBuffers::Message; end
-class DocumentVariant < ::ProtocolBuffers::Message; end
-class Image < ::ProtocolBuffers::Message; end
-class TranslatedText < ::ProtocolBuffers::Message; end
-class Badge < ::ProtocolBuffers::Message; end
-class ContainerWithBanner < ::ProtocolBuffers::Message; end
-class DealOfTheDay < ::ProtocolBuffers::Message; end
-class EditorialSeriesContainer < ::ProtocolBuffers::Message; end
-class Link < ::ProtocolBuffers::Message; end
-class PlusOneData < ::ProtocolBuffers::Message; end
-class PlusPerson < ::ProtocolBuffers::Message; end
-class PromotedDoc < ::ProtocolBuffers::Message; end
-class Reason < ::ProtocolBuffers::Message; end
-class SectionMetadata < ::ProtocolBuffers::Message; end
-class SeriesAntenna < ::ProtocolBuffers::Message; end
-class Template < ::ProtocolBuffers::Message; end
-class TileTemplate < ::ProtocolBuffers::Message; end
-class Warning < ::ProtocolBuffers::Message; end
-class AlbumDetails < ::ProtocolBuffers::Message; end
-class AppDetails < ::ProtocolBuffers::Message; end
-class ArtistDetails < ::ProtocolBuffers::Message; end
-class ArtistExternalLinks < ::ProtocolBuffers::Message; end
-class DocumentDetails < ::ProtocolBuffers::Message; end
-class FileMetadata < ::ProtocolBuffers::Message; end
-class MagazineDetails < ::ProtocolBuffers::Message; end
-class MusicDetails < ::ProtocolBuffers::Message; end
-class SongDetails < ::ProtocolBuffers::Message; end
-class SubscriptionDetails < ::ProtocolBuffers::Message; end
-class Trailer < ::ProtocolBuffers::Message; end
-class TvEpisodeDetails < ::ProtocolBuffers::Message; end
-class TvSeasonDetails < ::ProtocolBuffers::Message; end
-class TvShowDetails < ::ProtocolBuffers::Message; end
-class VideoCredit < ::ProtocolBuffers::Message; end
-class VideoDetails < ::ProtocolBuffers::Message; end
-class VideoRentalTerm < ::ProtocolBuffers::Message; end
-class Bucket < ::ProtocolBuffers::Message; end
-class ListResponse < ::ProtocolBuffers::Message; end
-class DocV1 < ::ProtocolBuffers::Message; end
-class Annotations < ::ProtocolBuffers::Message; end
-class DocV2 < ::ProtocolBuffers::Message; end
-class EncryptedSubscriberInfo < ::ProtocolBuffers::Message; end
-class Availability < ::ProtocolBuffers::Message; end
-class FilterEvaluationInfo < ::ProtocolBuffers::Message; end
-class Rule < ::ProtocolBuffers::Message; end
-class RuleEvaluation < ::ProtocolBuffers::Message; end
-class LibraryAppDetails < ::ProtocolBuffers::Message; end
-class LibraryMutation < ::ProtocolBuffers::Message; end
-class LibrarySubscriptionDetails < ::ProtocolBuffers::Message; end
-class LibraryUpdate < ::ProtocolBuffers::Message; end
-class ClientLibraryState < ::ProtocolBuffers::Message; end
-class LibraryReplicationRequest < ::ProtocolBuffers::Message; end
-class LibraryReplicationResponse < ::ProtocolBuffers::Message; end
-class ClickLogEvent < ::ProtocolBuffers::Message; end
-class LogRequest < ::ProtocolBuffers::Message; end
-class LogResponse < ::ProtocolBuffers::Message; end
-class AndroidAppNotificationData < ::ProtocolBuffers::Message; end
-class InAppNotificationData < ::ProtocolBuffers::Message; end
-class LibraryDirtyData < ::ProtocolBuffers::Message; end
-class Notification < ::ProtocolBuffers::Message; end
-class PurchaseDeclinedData < ::ProtocolBuffers::Message; end
-class PurchaseRemovalData < ::ProtocolBuffers::Message; end
-class UserNotificationData < ::ProtocolBuffers::Message; end
-class PlusOneResponse < ::ProtocolBuffers::Message; end
-class RateSuggestedContentResponse < ::ProtocolBuffers::Message; end
-class AggregateRating < ::ProtocolBuffers::Message; end
-class DirectPurchase < ::ProtocolBuffers::Message; end
-class ResolveLinkResponse < ::ProtocolBuffers::Message; end
-class Payload < ::ProtocolBuffers::Message; end
-class PreFetch < ::ProtocolBuffers::Message; end
-class ResponseWrapper < ::ProtocolBuffers::Message; end
-class ServerCommands < ::ProtocolBuffers::Message; end
-class GetReviewsResponse < ::ProtocolBuffers::Message; end
-class Review < ::ProtocolBuffers::Message; end
-class ReviewResponse < ::ProtocolBuffers::Message; end
-class RevokeResponse < ::ProtocolBuffers::Message; end
-class RelatedSearch < ::ProtocolBuffers::Message; end
-class SearchResponse < ::ProtocolBuffers::Message; end
-class CorpusMetadata < ::ProtocolBuffers::Message; end
-class Experiments < ::ProtocolBuffers::Message; end
-class TocResponse < ::ProtocolBuffers::Message; end
-class UserSettings < ::ProtocolBuffers::Message; end
-class AcceptTosResponse < ::ProtocolBuffers::Message; end
-class AckNotificationsRequestProto < ::ProtocolBuffers::Message; end
-class AckNotificationsResponseProto < ::ProtocolBuffers::Message; end
-class AddressProto < ::ProtocolBuffers::Message; end
-class AppDataProto < ::ProtocolBuffers::Message; end
-class AppSuggestionProto < ::ProtocolBuffers::Message; end
-class AssetIdentifierProto < ::ProtocolBuffers::Message; end
-class AssetsRequestProto < ::ProtocolBuffers::Message; end
-class AssetsResponseProto < ::ProtocolBuffers::Message; end
-class BillingEventRequestProto < ::ProtocolBuffers::Message; end
-class BillingEventResponseProto < ::ProtocolBuffers::Message; end
-class BillingParameterProto < ::ProtocolBuffers::Message; end
-class CarrierBillingCredentialsProto < ::ProtocolBuffers::Message; end
-class CategoryProto < ::ProtocolBuffers::Message; end
-class CheckForNotificationsRequestProto < ::ProtocolBuffers::Message; end
-class CheckForNotificationsResponseProto < ::ProtocolBuffers::Message; end
-class CheckLicenseRequestProto < ::ProtocolBuffers::Message; end
-class CheckLicenseResponseProto < ::ProtocolBuffers::Message; end
-class CommentsRequestProto < ::ProtocolBuffers::Message; end
-class CommentsResponseProto < ::ProtocolBuffers::Message; end
-class ContentSyncRequestProto < ::ProtocolBuffers::Message; end
-class ContentSyncResponseProto < ::ProtocolBuffers::Message; end
-class DataMessageProto < ::ProtocolBuffers::Message; end
-class DownloadInfoProto < ::ProtocolBuffers::Message; end
-class ExternalAssetProto < ::ProtocolBuffers::Message; end
-class ExternalBadgeImageProto < ::ProtocolBuffers::Message; end
-class ExternalBadgeProto < ::ProtocolBuffers::Message; end
-class ExternalCarrierBillingInstrumentProto < ::ProtocolBuffers::Message; end
-class ExternalCommentProto < ::ProtocolBuffers::Message; end
-class ExternalCreditCard < ::ProtocolBuffers::Message; end
-class ExternalPaypalInstrumentProto < ::ProtocolBuffers::Message; end
-class FileMetadataProto < ::ProtocolBuffers::Message; end
-class GetAddressSnippetRequestProto < ::ProtocolBuffers::Message; end
-class GetAddressSnippetResponseProto < ::ProtocolBuffers::Message; end
-class GetAssetRequestProto < ::ProtocolBuffers::Message; end
-class GetAssetResponseProto < ::ProtocolBuffers::Message; end
-class GetCarrierInfoRequestProto < ::ProtocolBuffers::Message; end
-class GetCarrierInfoResponseProto < ::ProtocolBuffers::Message; end
-class GetCategoriesRequestProto < ::ProtocolBuffers::Message; end
-class GetCategoriesResponseProto < ::ProtocolBuffers::Message; end
-class GetImageRequestProto < ::ProtocolBuffers::Message; end
-class GetImageResponseProto < ::ProtocolBuffers::Message; end
-class GetMarketMetadataRequestProto < ::ProtocolBuffers::Message; end
-class GetMarketMetadataResponseProto < ::ProtocolBuffers::Message; end
-class GetSubCategoriesRequestProto < ::ProtocolBuffers::Message; end
-class GetSubCategoriesResponseProto < ::ProtocolBuffers::Message; end
-class InAppPurchaseInformationRequestProto < ::ProtocolBuffers::Message; end
-class InAppPurchaseInformationResponseProto < ::ProtocolBuffers::Message; end
-class InAppRestoreTransactionsRequestProto < ::ProtocolBuffers::Message; end
-class InAppRestoreTransactionsResponseProto < ::ProtocolBuffers::Message; end
-class ModifyCommentRequestProto < ::ProtocolBuffers::Message; end
-class ModifyCommentResponseProto < ::ProtocolBuffers::Message; end
-class PaypalCountryInfoProto < ::ProtocolBuffers::Message; end
-class PaypalCreateAccountRequestProto < ::ProtocolBuffers::Message; end
-class PaypalCreateAccountResponseProto < ::ProtocolBuffers::Message; end
-class PaypalCredentialsProto < ::ProtocolBuffers::Message; end
-class PaypalMassageAddressRequestProto < ::ProtocolBuffers::Message; end
-class PaypalMassageAddressResponseProto < ::ProtocolBuffers::Message; end
-class PaypalPreapprovalCredentialsRequestProto < ::ProtocolBuffers::Message; end
-class PaypalPreapprovalCredentialsResponseProto < ::ProtocolBuffers::Message; end
-class PaypalPreapprovalDetailsRequestProto < ::ProtocolBuffers::Message; end
-class PaypalPreapprovalDetailsResponseProto < ::ProtocolBuffers::Message; end
-class PaypalPreapprovalRequestProto < ::ProtocolBuffers::Message; end
-class PaypalPreapprovalResponseProto < ::ProtocolBuffers::Message; end
-class PendingNotificationsProto < ::ProtocolBuffers::Message; end
-class PrefetchedBundleProto < ::ProtocolBuffers::Message; end
-class PurchaseCartInfoProto < ::ProtocolBuffers::Message; end
-class PurchaseInfoProto < ::ProtocolBuffers::Message; end
-class PurchaseMetadataRequestProto < ::ProtocolBuffers::Message; end
-class PurchaseMetadataResponseProto < ::ProtocolBuffers::Message; end
-class PurchaseOrderRequestProto < ::ProtocolBuffers::Message; end
-class PurchaseOrderResponseProto < ::ProtocolBuffers::Message; end
-class PurchasePostRequestProto < ::ProtocolBuffers::Message; end
-class PurchasePostResponseProto < ::ProtocolBuffers::Message; end
-class PurchaseProductRequestProto < ::ProtocolBuffers::Message; end
-class PurchaseProductResponseProto < ::ProtocolBuffers::Message; end
-class PurchaseResultProto < ::ProtocolBuffers::Message; end
-class QuerySuggestionProto < ::ProtocolBuffers::Message; end
-class QuerySuggestionRequestProto < ::ProtocolBuffers::Message; end
-class QuerySuggestionResponseProto < ::ProtocolBuffers::Message; end
-class RateCommentRequestProto < ::ProtocolBuffers::Message; end
-class RateCommentResponseProto < ::ProtocolBuffers::Message; end
-class ReconstructDatabaseRequestProto < ::ProtocolBuffers::Message; end
-class ReconstructDatabaseResponseProto < ::ProtocolBuffers::Message; end
-class RefundRequestProto < ::ProtocolBuffers::Message; end
-class RefundResponseProto < ::ProtocolBuffers::Message; end
-class RemoveAssetRequestProto < ::ProtocolBuffers::Message; end
-class RequestPropertiesProto < ::ProtocolBuffers::Message; end
-class RequestProto < ::ProtocolBuffers::Message; end
-class RequestSpecificPropertiesProto < ::ProtocolBuffers::Message; end
-class ResponsePropertiesProto < ::ProtocolBuffers::Message; end
-class ResponseProto < ::ProtocolBuffers::Message; end
-class RestoreApplicationsRequestProto < ::ProtocolBuffers::Message; end
-class RestoreApplicationsResponseProto < ::ProtocolBuffers::Message; end
-class RiskHeaderInfoProto < ::ProtocolBuffers::Message; end
-class SignatureHashProto < ::ProtocolBuffers::Message; end
-class SignedDataProto < ::ProtocolBuffers::Message; end
-class SingleRequestProto < ::ProtocolBuffers::Message; end
-class SingleResponseProto < ::ProtocolBuffers::Message; end
-class StatusBarNotificationProto < ::ProtocolBuffers::Message; end
-class UninstallReasonRequestProto < ::ProtocolBuffers::Message; end
-class UninstallReasonResponseProto < ::ProtocolBuffers::Message; end
-
-class AckNotificationResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AckNotificationResponse"
-
-end
-
-class AndroidAppDeliveryData < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AndroidAppDeliveryData"
-
-  optional :int64, :downloadSize, 1
-  optional :string, :signature, 2
-  optional :string, :downloadUrl, 3
-  repeated ::AppFileMetadata, :additionalFile, 4
-  repeated ::HttpCookie, :downloadAuthCookie, 5
-  optional :bool, :forwardLocked, 6
-  optional :int64, :refundTimeout, 7
-  optional :bool, :serverInitiated, 8
-  optional :int64, :postInstallRefundWindowMillis, 9
-  optional :bool, :immediateStartNeeded, 10
-  optional ::AndroidAppPatchData, :patchData, 11
-  optional ::EncryptionParams, :encryptionParams, 12
-end
-
-class AndroidAppPatchData < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AndroidAppPatchData"
-
-  optional :int32, :baseVersionCode, 1
-  optional :string, :baseSignature, 2
-  optional :string, :downloadUrl, 3
-  optional :int32, :patchFormat, 4
-  optional :int64, :maxPatchSize, 5
-end
-
-class AppFileMetadata < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AppFileMetadata"
-
-  optional :int32, :fileType, 1
-  optional :int32, :versionCode, 2
-  optional :int64, :size, 3
-  optional :string, :downloadUrl, 4
-end
-
-class EncryptionParams < ::ProtocolBuffers::Message
-  set_fully_qualified_name "EncryptionParams"
-
-  optional :int32, :version, 1
-  optional :string, :encryptionKey, 2
-  optional :string, :hmacKey, 3
-end
-
-class HttpCookie < ::ProtocolBuffers::Message
-  set_fully_qualified_name "HttpCookie"
-
-  optional :string, :name, 1
-  optional :string, :value, 2
-end
-
-class Address < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Address"
-
-  optional :string, :name, 1
-  optional :string, :addressLine1, 2
-  optional :string, :addressLine2, 3
-  optional :string, :city, 4
-  optional :string, :state, 5
-  optional :string, :postalCode, 6
-  optional :string, :postalCountry, 7
-  optional :string, :dependentLocality, 8
-  optional :string, :sortingCode, 9
-  optional :string, :languageCode, 10
-  optional :string, :phoneNumber, 11
-  optional :bool, :isReduced, 12
-  optional :string, :firstName, 13
-  optional :string, :lastName, 14
-  optional :string, :email, 15
-end
-
-class BookAuthor < ::ProtocolBuffers::Message
-  set_fully_qualified_name "BookAuthor"
-
-  optional :string, :name, 1
-  optional :string, :deprecatedQuery, 2
-  optional ::Docid, :docid, 3
-end
-
-class BookDetails < ::ProtocolBuffers::Message
-  # forward declarations
-  class Identifier < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "BookDetails"
-
-  # nested messages
-  class Identifier < ::ProtocolBuffers::Message
-    set_fully_qualified_name "BookDetails.Identifier"
-
-    optional :int32, :type, 19
-    optional :string, :identifier, 20
-  end
-
-  repeated ::BookSubject, :subject, 3
-  optional :string, :publisher, 4
-  optional :string, :publicationDate, 5
-  optional :string, :isbn, 6
-  optional :int32, :numberOfPages, 7
-  optional :string, :subtitle, 8
-  repeated ::BookAuthor, :author, 9
-  optional :string, :readerUrl, 10
-  optional :string, :downloadEpubUrl, 11
-  optional :string, :downloadPdfUrl, 12
-  optional :string, :acsEpubTokenUrl, 13
-  optional :string, :acsPdfTokenUrl, 14
-  optional :bool, :epubAvailable, 15
-  optional :bool, :pdfAvailable, 16
-  optional :string, :aboutTheAuthor, 17
-  repeated ::BookDetails::Identifier, :identifier, 18, :group => true
-end
-
-class BookSubject < ::ProtocolBuffers::Message
-  set_fully_qualified_name "BookSubject"
-
-  optional :string, :name, 1
-  optional :string, :query, 2
-  optional :string, :subjectId, 3
-end
-
-class BrowseLink < ::ProtocolBuffers::Message
-  set_fully_qualified_name "BrowseLink"
-
-  optional :string, :name, 1
-  optional :string, :dataUrl, 3
-end
-
-class BrowseResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "BrowseResponse"
-
-  optional :string, :contentsUrl, 1
-  optional :string, :promoUrl, 2
-  repeated ::BrowseLink, :category, 3
-  repeated ::BrowseLink, :breadcrumb, 4
-end
-
-class AddressChallenge < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AddressChallenge"
-
-  optional :string, :responseAddressParam, 1
-  optional :string, :responseCheckboxesParam, 2
-  optional :string, :title, 3
-  optional :string, :descriptionHtml, 4
-  repeated ::FormCheckbox, :checkbox, 5
-  optional ::Address, :address, 6
-  repeated ::InputValidationError, :errorInputField, 7
-  optional :string, :errorHtml, 8
-  repeated :int32, :requiredField, 9
-end
-
-class AuthenticationChallenge < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AuthenticationChallenge"
-
-  optional :int32, :authenticationType, 1
-  optional :string, :responseAuthenticationTypeParam, 2
-  optional :string, :responseRetryCountParam, 3
-  optional :string, :pinHeaderText, 4
-  optional :string, :pinDescriptionTextHtml, 5
-  optional :string, :gaiaHeaderText, 6
-  optional :string, :gaiaDescriptionTextHtml, 7
-end
-
-class BuyResponse < ::ProtocolBuffers::Message
-  # forward declarations
-  class CheckoutInfo < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "BuyResponse"
-
-  # nested messages
-  class CheckoutInfo < ::ProtocolBuffers::Message
+module ApkDownloader
+  module ProtocolBuffers
     # forward declarations
-    class CheckoutOption < ::ProtocolBuffers::Message; end
+    class AckNotificationResponse < ::ProtocolBuffers::Message; end
+    class AndroidAppDeliveryData < ::ProtocolBuffers::Message; end
+    class AndroidAppPatchData < ::ProtocolBuffers::Message; end
+    class AppFileMetadata < ::ProtocolBuffers::Message; end
+    class EncryptionParams < ::ProtocolBuffers::Message; end
+    class HttpCookie < ::ProtocolBuffers::Message; end
+    class Address < ::ProtocolBuffers::Message; end
+    class BookAuthor < ::ProtocolBuffers::Message; end
+    class BookDetails < ::ProtocolBuffers::Message; end
+    class BookSubject < ::ProtocolBuffers::Message; end
+    class BrowseLink < ::ProtocolBuffers::Message; end
+    class BrowseResponse < ::ProtocolBuffers::Message; end
+    class AddressChallenge < ::ProtocolBuffers::Message; end
+    class AuthenticationChallenge < ::ProtocolBuffers::Message; end
+    class BuyResponse < ::ProtocolBuffers::Message; end
+    class Challenge < ::ProtocolBuffers::Message; end
+    class FormCheckbox < ::ProtocolBuffers::Message; end
+    class LineItem < ::ProtocolBuffers::Message; end
+    class Money < ::ProtocolBuffers::Message; end
+    class PurchaseNotificationResponse < ::ProtocolBuffers::Message; end
+    class PurchaseStatusResponse < ::ProtocolBuffers::Message; end
+    class CheckInstrumentResponse < ::ProtocolBuffers::Message; end
+    class UpdateInstrumentRequest < ::ProtocolBuffers::Message; end
+    class UpdateInstrumentResponse < ::ProtocolBuffers::Message; end
+    class InitiateAssociationResponse < ::ProtocolBuffers::Message; end
+    class VerifyAssociationResponse < ::ProtocolBuffers::Message; end
+    class AddCreditCardPromoOffer < ::ProtocolBuffers::Message; end
+    class AvailablePromoOffer < ::ProtocolBuffers::Message; end
+    class CheckPromoOfferResponse < ::ProtocolBuffers::Message; end
+    class RedeemedPromoOffer < ::ProtocolBuffers::Message; end
+    class Docid < ::ProtocolBuffers::Message; end
+    class Install < ::ProtocolBuffers::Message; end
+    class Offer < ::ProtocolBuffers::Message; end
+    class OwnershipInfo < ::ProtocolBuffers::Message; end
+    class RentalTerms < ::ProtocolBuffers::Message; end
+    class SubscriptionTerms < ::ProtocolBuffers::Message; end
+    class TimePeriod < ::ProtocolBuffers::Message; end
+    class BillingAddressSpec < ::ProtocolBuffers::Message; end
+    class CarrierBillingCredentials < ::ProtocolBuffers::Message; end
+    class CarrierBillingInstrument < ::ProtocolBuffers::Message; end
+    class CarrierBillingInstrumentStatus < ::ProtocolBuffers::Message; end
+    class CarrierTos < ::ProtocolBuffers::Message; end
+    class CarrierTosEntry < ::ProtocolBuffers::Message; end
+    class CreditCardInstrument < ::ProtocolBuffers::Message; end
+    class EfeParam < ::ProtocolBuffers::Message; end
+    class InputValidationError < ::ProtocolBuffers::Message; end
+    class Instrument < ::ProtocolBuffers::Message; end
+    class PasswordPrompt < ::ProtocolBuffers::Message; end
+    class ContainerMetadata < ::ProtocolBuffers::Message; end
+    class FlagContentResponse < ::ProtocolBuffers::Message; end
+    class DebugInfo < ::ProtocolBuffers::Message; end
+    class DeliveryResponse < ::ProtocolBuffers::Message; end
+    class BulkDetailsEntry < ::ProtocolBuffers::Message; end
+    class BulkDetailsRequest < ::ProtocolBuffers::Message; end
+    class BulkDetailsResponse < ::ProtocolBuffers::Message; end
+    class DetailsResponse < ::ProtocolBuffers::Message; end
+    class DeviceConfigurationProto < ::ProtocolBuffers::Message; end
+    class Document < ::ProtocolBuffers::Message; end
+    class DocumentVariant < ::ProtocolBuffers::Message; end
+    class Image < ::ProtocolBuffers::Message; end
+    class TranslatedText < ::ProtocolBuffers::Message; end
+    class Badge < ::ProtocolBuffers::Message; end
+    class ContainerWithBanner < ::ProtocolBuffers::Message; end
+    class DealOfTheDay < ::ProtocolBuffers::Message; end
+    class EditorialSeriesContainer < ::ProtocolBuffers::Message; end
+    class Link < ::ProtocolBuffers::Message; end
+    class PlusOneData < ::ProtocolBuffers::Message; end
+    class PlusPerson < ::ProtocolBuffers::Message; end
+    class PromotedDoc < ::ProtocolBuffers::Message; end
+    class Reason < ::ProtocolBuffers::Message; end
+    class SectionMetadata < ::ProtocolBuffers::Message; end
+    class SeriesAntenna < ::ProtocolBuffers::Message; end
+    class Template < ::ProtocolBuffers::Message; end
+    class TileTemplate < ::ProtocolBuffers::Message; end
+    class Warning < ::ProtocolBuffers::Message; end
+    class AlbumDetails < ::ProtocolBuffers::Message; end
+    class AppDetails < ::ProtocolBuffers::Message; end
+    class ArtistDetails < ::ProtocolBuffers::Message; end
+    class ArtistExternalLinks < ::ProtocolBuffers::Message; end
+    class DocumentDetails < ::ProtocolBuffers::Message; end
+    class FileMetadata < ::ProtocolBuffers::Message; end
+    class MagazineDetails < ::ProtocolBuffers::Message; end
+    class MusicDetails < ::ProtocolBuffers::Message; end
+    class SongDetails < ::ProtocolBuffers::Message; end
+    class SubscriptionDetails < ::ProtocolBuffers::Message; end
+    class Trailer < ::ProtocolBuffers::Message; end
+    class TvEpisodeDetails < ::ProtocolBuffers::Message; end
+    class TvSeasonDetails < ::ProtocolBuffers::Message; end
+    class TvShowDetails < ::ProtocolBuffers::Message; end
+    class VideoCredit < ::ProtocolBuffers::Message; end
+    class VideoDetails < ::ProtocolBuffers::Message; end
+    class VideoRentalTerm < ::ProtocolBuffers::Message; end
+    class Bucket < ::ProtocolBuffers::Message; end
+    class ListResponse < ::ProtocolBuffers::Message; end
+    class DocV1 < ::ProtocolBuffers::Message; end
+    class Annotations < ::ProtocolBuffers::Message; end
+    class DocV2 < ::ProtocolBuffers::Message; end
+    class EncryptedSubscriberInfo < ::ProtocolBuffers::Message; end
+    class Availability < ::ProtocolBuffers::Message; end
+    class FilterEvaluationInfo < ::ProtocolBuffers::Message; end
+    class Rule < ::ProtocolBuffers::Message; end
+    class RuleEvaluation < ::ProtocolBuffers::Message; end
+    class LibraryAppDetails < ::ProtocolBuffers::Message; end
+    class LibraryMutation < ::ProtocolBuffers::Message; end
+    class LibrarySubscriptionDetails < ::ProtocolBuffers::Message; end
+    class LibraryUpdate < ::ProtocolBuffers::Message; end
+    class ClientLibraryState < ::ProtocolBuffers::Message; end
+    class LibraryReplicationRequest < ::ProtocolBuffers::Message; end
+    class LibraryReplicationResponse < ::ProtocolBuffers::Message; end
+    class ClickLogEvent < ::ProtocolBuffers::Message; end
+    class LogRequest < ::ProtocolBuffers::Message; end
+    class LogResponse < ::ProtocolBuffers::Message; end
+    class AndroidAppNotificationData < ::ProtocolBuffers::Message; end
+    class InAppNotificationData < ::ProtocolBuffers::Message; end
+    class LibraryDirtyData < ::ProtocolBuffers::Message; end
+    class Notification < ::ProtocolBuffers::Message; end
+    class PurchaseDeclinedData < ::ProtocolBuffers::Message; end
+    class PurchaseRemovalData < ::ProtocolBuffers::Message; end
+    class UserNotificationData < ::ProtocolBuffers::Message; end
+    class PlusOneResponse < ::ProtocolBuffers::Message; end
+    class RateSuggestedContentResponse < ::ProtocolBuffers::Message; end
+    class AggregateRating < ::ProtocolBuffers::Message; end
+    class DirectPurchase < ::ProtocolBuffers::Message; end
+    class ResolveLinkResponse < ::ProtocolBuffers::Message; end
+    class Payload < ::ProtocolBuffers::Message; end
+    class PreFetch < ::ProtocolBuffers::Message; end
+    class ResponseWrapper < ::ProtocolBuffers::Message; end
+    class ServerCommands < ::ProtocolBuffers::Message; end
+    class GetReviewsResponse < ::ProtocolBuffers::Message; end
+    class Review < ::ProtocolBuffers::Message; end
+    class ReviewResponse < ::ProtocolBuffers::Message; end
+    class RevokeResponse < ::ProtocolBuffers::Message; end
+    class RelatedSearch < ::ProtocolBuffers::Message; end
+    class SearchResponse < ::ProtocolBuffers::Message; end
+    class CorpusMetadata < ::ProtocolBuffers::Message; end
+    class Experiments < ::ProtocolBuffers::Message; end
+    class TocResponse < ::ProtocolBuffers::Message; end
+    class UserSettings < ::ProtocolBuffers::Message; end
+    class AcceptTosResponse < ::ProtocolBuffers::Message; end
+    class AckNotificationsRequestProto < ::ProtocolBuffers::Message; end
+    class AckNotificationsResponseProto < ::ProtocolBuffers::Message; end
+    class AddressProto < ::ProtocolBuffers::Message; end
+    class AppDataProto < ::ProtocolBuffers::Message; end
+    class AppSuggestionProto < ::ProtocolBuffers::Message; end
+    class AssetIdentifierProto < ::ProtocolBuffers::Message; end
+    class AssetsRequestProto < ::ProtocolBuffers::Message; end
+    class AssetsResponseProto < ::ProtocolBuffers::Message; end
+    class BillingEventRequestProto < ::ProtocolBuffers::Message; end
+    class BillingEventResponseProto < ::ProtocolBuffers::Message; end
+    class BillingParameterProto < ::ProtocolBuffers::Message; end
+    class CarrierBillingCredentialsProto < ::ProtocolBuffers::Message; end
+    class CategoryProto < ::ProtocolBuffers::Message; end
+    class CheckForNotificationsRequestProto < ::ProtocolBuffers::Message; end
+    class CheckForNotificationsResponseProto < ::ProtocolBuffers::Message; end
+    class CheckLicenseRequestProto < ::ProtocolBuffers::Message; end
+    class CheckLicenseResponseProto < ::ProtocolBuffers::Message; end
+    class CommentsRequestProto < ::ProtocolBuffers::Message; end
+    class CommentsResponseProto < ::ProtocolBuffers::Message; end
+    class ContentSyncRequestProto < ::ProtocolBuffers::Message; end
+    class ContentSyncResponseProto < ::ProtocolBuffers::Message; end
+    class DataMessageProto < ::ProtocolBuffers::Message; end
+    class DownloadInfoProto < ::ProtocolBuffers::Message; end
+    class ExternalAssetProto < ::ProtocolBuffers::Message; end
+    class ExternalBadgeImageProto < ::ProtocolBuffers::Message; end
+    class ExternalBadgeProto < ::ProtocolBuffers::Message; end
+    class ExternalCarrierBillingInstrumentProto < ::ProtocolBuffers::Message; end
+    class ExternalCommentProto < ::ProtocolBuffers::Message; end
+    class ExternalCreditCard < ::ProtocolBuffers::Message; end
+    class ExternalPaypalInstrumentProto < ::ProtocolBuffers::Message; end
+    class FileMetadataProto < ::ProtocolBuffers::Message; end
+    class GetAddressSnippetRequestProto < ::ProtocolBuffers::Message; end
+    class GetAddressSnippetResponseProto < ::ProtocolBuffers::Message; end
+    class GetAssetRequestProto < ::ProtocolBuffers::Message; end
+    class GetAssetResponseProto < ::ProtocolBuffers::Message; end
+    class GetCarrierInfoRequestProto < ::ProtocolBuffers::Message; end
+    class GetCarrierInfoResponseProto < ::ProtocolBuffers::Message; end
+    class GetCategoriesRequestProto < ::ProtocolBuffers::Message; end
+    class GetCategoriesResponseProto < ::ProtocolBuffers::Message; end
+    class GetImageRequestProto < ::ProtocolBuffers::Message; end
+    class GetImageResponseProto < ::ProtocolBuffers::Message; end
+    class GetMarketMetadataRequestProto < ::ProtocolBuffers::Message; end
+    class GetMarketMetadataResponseProto < ::ProtocolBuffers::Message; end
+    class GetSubCategoriesRequestProto < ::ProtocolBuffers::Message; end
+    class GetSubCategoriesResponseProto < ::ProtocolBuffers::Message; end
+    class InAppPurchaseInformationRequestProto < ::ProtocolBuffers::Message; end
+    class InAppPurchaseInformationResponseProto < ::ProtocolBuffers::Message; end
+    class InAppRestoreTransactionsRequestProto < ::ProtocolBuffers::Message; end
+    class InAppRestoreTransactionsResponseProto < ::ProtocolBuffers::Message; end
+    class ModifyCommentRequestProto < ::ProtocolBuffers::Message; end
+    class ModifyCommentResponseProto < ::ProtocolBuffers::Message; end
+    class PaypalCountryInfoProto < ::ProtocolBuffers::Message; end
+    class PaypalCreateAccountRequestProto < ::ProtocolBuffers::Message; end
+    class PaypalCreateAccountResponseProto < ::ProtocolBuffers::Message; end
+    class PaypalCredentialsProto < ::ProtocolBuffers::Message; end
+    class PaypalMassageAddressRequestProto < ::ProtocolBuffers::Message; end
+    class PaypalMassageAddressResponseProto < ::ProtocolBuffers::Message; end
+    class PaypalPreapprovalCredentialsRequestProto < ::ProtocolBuffers::Message; end
+    class PaypalPreapprovalCredentialsResponseProto < ::ProtocolBuffers::Message; end
+    class PaypalPreapprovalDetailsRequestProto < ::ProtocolBuffers::Message; end
+    class PaypalPreapprovalDetailsResponseProto < ::ProtocolBuffers::Message; end
+    class PaypalPreapprovalRequestProto < ::ProtocolBuffers::Message; end
+    class PaypalPreapprovalResponseProto < ::ProtocolBuffers::Message; end
+    class PendingNotificationsProto < ::ProtocolBuffers::Message; end
+    class PrefetchedBundleProto < ::ProtocolBuffers::Message; end
+    class PurchaseCartInfoProto < ::ProtocolBuffers::Message; end
+    class PurchaseInfoProto < ::ProtocolBuffers::Message; end
+    class PurchaseMetadataRequestProto < ::ProtocolBuffers::Message; end
+    class PurchaseMetadataResponseProto < ::ProtocolBuffers::Message; end
+    class PurchaseOrderRequestProto < ::ProtocolBuffers::Message; end
+    class PurchaseOrderResponseProto < ::ProtocolBuffers::Message; end
+    class PurchasePostRequestProto < ::ProtocolBuffers::Message; end
+    class PurchasePostResponseProto < ::ProtocolBuffers::Message; end
+    class PurchaseProductRequestProto < ::ProtocolBuffers::Message; end
+    class PurchaseProductResponseProto < ::ProtocolBuffers::Message; end
+    class PurchaseResultProto < ::ProtocolBuffers::Message; end
+    class QuerySuggestionProto < ::ProtocolBuffers::Message; end
+    class QuerySuggestionRequestProto < ::ProtocolBuffers::Message; end
+    class QuerySuggestionResponseProto < ::ProtocolBuffers::Message; end
+    class RateCommentRequestProto < ::ProtocolBuffers::Message; end
+    class RateCommentResponseProto < ::ProtocolBuffers::Message; end
+    class ReconstructDatabaseRequestProto < ::ProtocolBuffers::Message; end
+    class ReconstructDatabaseResponseProto < ::ProtocolBuffers::Message; end
+    class RefundRequestProto < ::ProtocolBuffers::Message; end
+    class RefundResponseProto < ::ProtocolBuffers::Message; end
+    class RemoveAssetRequestProto < ::ProtocolBuffers::Message; end
+    class RequestPropertiesProto < ::ProtocolBuffers::Message; end
+    class RequestProto < ::ProtocolBuffers::Message; end
+    class RequestSpecificPropertiesProto < ::ProtocolBuffers::Message; end
+    class ResponsePropertiesProto < ::ProtocolBuffers::Message; end
+    class ResponseProto < ::ProtocolBuffers::Message; end
+    class RestoreApplicationsRequestProto < ::ProtocolBuffers::Message; end
+    class RestoreApplicationsResponseProto < ::ProtocolBuffers::Message; end
+    class RiskHeaderInfoProto < ::ProtocolBuffers::Message; end
+    class SignatureHashProto < ::ProtocolBuffers::Message; end
+    class SignedDataProto < ::ProtocolBuffers::Message; end
+    class SingleRequestProto < ::ProtocolBuffers::Message; end
+    class SingleResponseProto < ::ProtocolBuffers::Message; end
+    class StatusBarNotificationProto < ::ProtocolBuffers::Message; end
+    class UninstallReasonRequestProto < ::ProtocolBuffers::Message; end
+    class UninstallReasonResponseProto < ::ProtocolBuffers::Message; end
 
-    set_fully_qualified_name "BuyResponse.CheckoutInfo"
+    class AckNotificationResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AckNotificationResponse"
 
-    # nested messages
-    class CheckoutOption < ::ProtocolBuffers::Message
-      set_fully_qualified_name "BuyResponse.CheckoutInfo.CheckoutOption"
-
-      optional :string, :formOfPayment, 6
-      optional :string, :encodedAdjustedCart, 7
-      optional :string, :instrumentId, 15
-      repeated ::LineItem, :item, 16
-      repeated ::LineItem, :subItem, 17
-      optional ::LineItem, :total, 18
-      repeated :string, :footerHtml, 19
-      optional :int32, :instrumentFamily, 29
-      repeated :int32, :deprecatedInstrumentInapplicableReason, 30
-      optional :bool, :selectedInstrument, 32
-      optional ::LineItem, :summary, 33
-      repeated :string, :footnoteHtml, 35
-      optional ::Instrument, :instrument, 43
-      optional :string, :purchaseCookie, 45
-      repeated :string, :disabledReason, 48
     end
 
-    optional ::LineItem, :item, 3
-    repeated ::LineItem, :subItem, 4
-    repeated ::BuyResponse::CheckoutInfo::CheckoutOption, :checkoutoption, 5, :group => true
-    optional :string, :deprecatedCheckoutUrl, 10
-    optional :string, :addInstrumentUrl, 11
-    repeated :string, :footerHtml, 20
-    repeated :int32, :eligibleInstrumentFamily, 31
-    repeated :string, :footnoteHtml, 36
-    repeated ::Instrument, :eligibleInstrument, 44
-  end
-
-  optional ::PurchaseNotificationResponse, :purchaseResponse, 1
-  optional ::BuyResponse::CheckoutInfo, :checkoutinfo, 2, :group => true
-  optional :string, :continueViaUrl, 8
-  optional :string, :purchaseStatusUrl, 9
-  optional :string, :checkoutServiceId, 12
-  optional :bool, :checkoutTokenRequired, 13
-  optional :string, :baseCheckoutUrl, 14
-  repeated :string, :tosCheckboxHtml, 37
-  optional :int32, :iabPermissionError, 38
-  optional ::PurchaseStatusResponse, :purchaseStatusResponse, 39
-  optional :string, :purchaseCookie, 46
-  optional ::Challenge, :challenge, 49
-end
-
-class Challenge < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Challenge"
-
-  optional ::AddressChallenge, :addressChallenge, 1
-  optional ::AuthenticationChallenge, :authenticationChallenge, 2
-end
-
-class FormCheckbox < ::ProtocolBuffers::Message
-  set_fully_qualified_name "FormCheckbox"
-
-  optional :string, :description, 1
-  optional :bool, :checked, 2
-  optional :bool, :required, 3
-end
-
-class LineItem < ::ProtocolBuffers::Message
-  set_fully_qualified_name "LineItem"
-
-  optional :string, :name, 1
-  optional :string, :description, 2
-  optional ::Offer, :offer, 3
-  optional ::Money, :amount, 4
-end
-
-class Money < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Money"
-
-  optional :int64, :micros, 1
-  optional :string, :currencyCode, 2
-  optional :string, :formattedAmount, 3
-end
-
-class PurchaseNotificationResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchaseNotificationResponse"
-
-  optional :int32, :status, 1
-  optional ::DebugInfo, :debugInfo, 2
-  optional :string, :localizedErrorMessage, 3
-  optional :string, :purchaseId, 4
-end
-
-class PurchaseStatusResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchaseStatusResponse"
-
-  optional :int32, :status, 1
-  optional :string, :statusMsg, 2
-  optional :string, :statusTitle, 3
-  optional :string, :briefMessage, 4
-  optional :string, :infoUrl, 5
-  optional ::LibraryUpdate, :libraryUpdate, 6
-  optional ::Instrument, :rejectedInstrument, 7
-  optional ::AndroidAppDeliveryData, :appDeliveryData, 8
-end
-
-class CheckInstrumentResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CheckInstrumentResponse"
-
-  optional :bool, :userHasValidInstrument, 1
-  optional :bool, :checkoutTokenRequired, 2
-  repeated ::Instrument, :instrument, 4
-  repeated ::Instrument, :eligibleInstrument, 5
-end
-
-class UpdateInstrumentRequest < ::ProtocolBuffers::Message
-  set_fully_qualified_name "UpdateInstrumentRequest"
-
-  optional ::Instrument, :instrument, 1
-  optional :string, :checkoutToken, 2
-end
-
-class UpdateInstrumentResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "UpdateInstrumentResponse"
-
-  optional :int32, :result, 1
-  optional :string, :instrumentId, 2
-  optional :string, :userMessageHtml, 3
-  repeated ::InputValidationError, :errorInputField, 4
-  optional :bool, :checkoutTokenRequired, 5
-  optional ::RedeemedPromoOffer, :redeemedOffer, 6
-end
-
-class InitiateAssociationResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "InitiateAssociationResponse"
-
-  optional :string, :userToken, 1
-end
-
-class VerifyAssociationResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "VerifyAssociationResponse"
-
-  optional :int32, :status, 1
-  optional ::Address, :billingAddress, 2
-  optional ::CarrierTos, :carrierTos, 3
-end
-
-class AddCreditCardPromoOffer < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AddCreditCardPromoOffer"
-
-  optional :string, :headerText, 1
-  optional :string, :descriptionHtml, 2
-  optional ::Image, :image, 3
-  optional :string, :introductoryTextHtml, 4
-  optional :string, :offerTitle, 5
-  optional :string, :noActionDescription, 6
-  optional :string, :termsAndConditionsHtml, 7
-end
-
-class AvailablePromoOffer < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AvailablePromoOffer"
-
-  optional ::AddCreditCardPromoOffer, :addCreditCardOffer, 1
-end
-
-class CheckPromoOfferResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CheckPromoOfferResponse"
-
-  repeated ::AvailablePromoOffer, :availableOffer, 1
-  optional ::RedeemedPromoOffer, :redeemedOffer, 2
-  optional :bool, :checkoutTokenRequired, 3
-end
-
-class RedeemedPromoOffer < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RedeemedPromoOffer"
-
-  optional :string, :headerText, 1
-  optional :string, :descriptionHtml, 2
-  optional ::Image, :image, 3
-end
-
-class Docid < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Docid"
-
-  optional :string, :backendDocid, 1
-  optional :int32, :type, 2
-  optional :int32, :backend, 3
-end
-
-class Install < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Install"
-
-  optional :fixed64, :androidId, 1
-  optional :int32, :version, 2
-  optional :bool, :bundled, 3
-end
-
-class Offer < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Offer"
-
-  optional :int64, :micros, 1
-  optional :string, :currencyCode, 2
-  optional :string, :formattedAmount, 3
-  repeated ::Offer, :convertedPrice, 4
-  optional :bool, :checkoutFlowRequired, 5
-  optional :int64, :fullPriceMicros, 6
-  optional :string, :formattedFullAmount, 7
-  optional :int32, :offerType, 8
-  optional ::RentalTerms, :rentalTerms, 9
-  optional :int64, :onSaleDate, 10
-  repeated :string, :promotionLabel, 11
-  optional ::SubscriptionTerms, :subscriptionTerms, 12
-  optional :string, :formattedName, 13
-  optional :string, :formattedDescription, 14
-end
-
-class OwnershipInfo < ::ProtocolBuffers::Message
-  set_fully_qualified_name "OwnershipInfo"
-
-  optional :int64, :initiationTimestampMsec, 1
-  optional :int64, :validUntilTimestampMsec, 2
-  optional :bool, :autoRenewing, 3
-  optional :int64, :refundTimeoutTimestampMsec, 4
-  optional :int64, :postDeliveryRefundWindowMsec, 5
-end
-
-class RentalTerms < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RentalTerms"
-
-  optional :int32, :grantPeriodSeconds, 1
-  optional :int32, :activatePeriodSeconds, 2
-end
-
-class SubscriptionTerms < ::ProtocolBuffers::Message
-  set_fully_qualified_name "SubscriptionTerms"
-
-  optional ::TimePeriod, :recurringPeriod, 1
-  optional ::TimePeriod, :trialPeriod, 2
-end
-
-class TimePeriod < ::ProtocolBuffers::Message
-  set_fully_qualified_name "TimePeriod"
-
-  optional :int32, :unit, 1
-  optional :int32, :count, 2
-end
-
-class BillingAddressSpec < ::ProtocolBuffers::Message
-  set_fully_qualified_name "BillingAddressSpec"
-
-  optional :int32, :billingAddressType, 1
-  repeated :int32, :requiredField, 2
-end
-
-class CarrierBillingCredentials < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CarrierBillingCredentials"
-
-  optional :string, :value, 1
-  optional :int64, :expiration, 2
-end
-
-class CarrierBillingInstrument < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CarrierBillingInstrument"
-
-  optional :string, :instrumentKey, 1
-  optional :string, :accountType, 2
-  optional :string, :currencyCode, 3
-  optional :int64, :transactionLimit, 4
-  optional :string, :subscriberIdentifier, 5
-  optional ::EncryptedSubscriberInfo, :encryptedSubscriberInfo, 6
-  optional ::CarrierBillingCredentials, :credentials, 7
-  optional ::CarrierTos, :acceptedCarrierTos, 8
-end
-
-class CarrierBillingInstrumentStatus < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CarrierBillingInstrumentStatus"
-
-  optional ::CarrierTos, :carrierTos, 1
-  optional :bool, :associationRequired, 2
-  optional :bool, :passwordRequired, 3
-  optional ::PasswordPrompt, :carrierPasswordPrompt, 4
-  optional :int32, :apiVersion, 5
-  optional :string, :name, 6
-end
-
-class CarrierTos < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CarrierTos"
-
-  optional ::CarrierTosEntry, :dcbTos, 1
-  optional ::CarrierTosEntry, :piiTos, 2
-  optional :bool, :needsDcbTosAcceptance, 3
-  optional :bool, :needsPiiTosAcceptance, 4
-end
-
-class CarrierTosEntry < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CarrierTosEntry"
-
-  optional :string, :url, 1
-  optional :string, :version, 2
-end
-
-class CreditCardInstrument < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CreditCardInstrument"
-
-  optional :int32, :type, 1
-  optional :string, :escrowHandle, 2
-  optional :string, :lastDigits, 3
-  optional :int32, :expirationMonth, 4
-  optional :int32, :expirationYear, 5
-  repeated ::EfeParam, :escrowEfeParam, 6
-end
-
-class EfeParam < ::ProtocolBuffers::Message
-  set_fully_qualified_name "EfeParam"
-
-  optional :int32, :key, 1
-  optional :string, :value, 2
-end
-
-class InputValidationError < ::ProtocolBuffers::Message
-  set_fully_qualified_name "InputValidationError"
-
-  optional :int32, :inputField, 1
-  optional :string, :errorMessage, 2
-end
-
-class Instrument < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Instrument"
-
-  optional :string, :instrumentId, 1
-  optional ::Address, :billingAddress, 2
-  optional ::CreditCardInstrument, :creditCard, 3
-  optional ::CarrierBillingInstrument, :carrierBilling, 4
-  optional ::BillingAddressSpec, :billingAddressSpec, 5
-  optional :int32, :instrumentFamily, 6
-  optional ::CarrierBillingInstrumentStatus, :carrierBillingStatus, 7
-  optional :string, :displayTitle, 8
-end
-
-class PasswordPrompt < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PasswordPrompt"
-
-  optional :string, :prompt, 1
-  optional :string, :forgotPasswordUrl, 2
-end
-
-class ContainerMetadata < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ContainerMetadata"
-
-  optional :string, :browseUrl, 1
-  optional :string, :nextPageUrl, 2
-  optional :double, :relevance, 3
-  optional :int64, :estimatedResults, 4
-  optional :string, :analyticsCookie, 5
-  optional :bool, :ordered, 6
-end
-
-class FlagContentResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "FlagContentResponse"
-
-end
-
-class DebugInfo < ::ProtocolBuffers::Message
-  # forward declarations
-  class Timing < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "DebugInfo"
-
-  # nested messages
-  class Timing < ::ProtocolBuffers::Message
-    set_fully_qualified_name "DebugInfo.Timing"
-
-    optional :string, :name, 3
-    optional :double, :timeInMs, 4
-  end
-
-  repeated :string, :message, 1
-  repeated ::DebugInfo::Timing, :timing, 2, :group => true
-end
-
-class DeliveryResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "DeliveryResponse"
-
-  optional :int32, :status, 1
-  optional ::AndroidAppDeliveryData, :appDeliveryData, 2
-end
-
-class BulkDetailsEntry < ::ProtocolBuffers::Message
-  set_fully_qualified_name "BulkDetailsEntry"
-
-  optional ::DocV2, :doc, 1
-end
-
-class BulkDetailsRequest < ::ProtocolBuffers::Message
-  set_fully_qualified_name "BulkDetailsRequest"
-
-  repeated :string, :docid, 1
-  optional :bool, :includeChildDocs, 2
-end
-
-class BulkDetailsResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "BulkDetailsResponse"
-
-  repeated ::BulkDetailsEntry, :entry, 1
-end
-
-class DetailsResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "DetailsResponse"
-
-  optional ::DocV1, :docV1, 1
-  optional :string, :analyticsCookie, 2
-  optional ::Review, :userReview, 3
-  optional ::DocV2, :docV2, 4
-  optional :string, :footerHtml, 5
-end
-
-class DeviceConfigurationProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "DeviceConfigurationProto"
-
-  optional :int32, :touchScreen, 1
-  optional :int32, :keyboard, 2
-  optional :int32, :navigation, 3
-  optional :int32, :screenLayout, 4
-  optional :bool, :hasHardKeyboard, 5
-  optional :bool, :hasFiveWayNavigation, 6
-  optional :int32, :screenDensity, 7
-  optional :int32, :glEsVersion, 8
-  repeated :string, :systemSharedLibrary, 9
-  repeated :string, :systemAvailableFeature, 10
-  repeated :string, :nativePlatform, 11
-  optional :int32, :screenWidth, 12
-  optional :int32, :screenHeight, 13
-  repeated :string, :systemSupportedLocale, 14
-  repeated :string, :glExtension, 15
-  optional :int32, :deviceClass, 16
-  optional :int32, :maxApkDownloadSizeMb, 17
-end
-
-class Document < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Document"
-
-  optional ::Docid, :docid, 1
-  optional ::Docid, :fetchDocid, 2
-  optional ::Docid, :sampleDocid, 3
-  optional :string, :title, 4
-  optional :string, :url, 5
-  repeated :string, :snippet, 6
-  optional ::Offer, :priceDeprecated, 7
-  optional ::Availability, :availability, 9
-  repeated ::Image, :image, 10
-  repeated ::Document, :child, 11
-  optional ::AggregateRating, :aggregateRating, 13
-  repeated ::Offer, :offer, 14
-  repeated ::TranslatedText, :translatedSnippet, 15
-  repeated ::DocumentVariant, :documentVariant, 16
-  repeated :string, :categoryId, 17
-  repeated ::Document, :decoration, 18
-  repeated ::Document, :parent, 19
-  optional :string, :privacyPolicyUrl, 20
-end
-
-class DocumentVariant < ::ProtocolBuffers::Message
-  set_fully_qualified_name "DocumentVariant"
-
-  optional :int32, :variationType, 1
-  optional ::Rule, :rule, 2
-  optional :string, :title, 3
-  repeated :string, :snippet, 4
-  optional :string, :recentChanges, 5
-  repeated ::TranslatedText, :autoTranslation, 6
-  repeated ::Offer, :offer, 7
-  optional :int64, :channelId, 9
-  repeated ::Document, :child, 10
-  repeated ::Document, :decoration, 11
-end
-
-class Image < ::ProtocolBuffers::Message
-  # forward declarations
-  class Dimension < ::ProtocolBuffers::Message; end
-  class Citation < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "Image"
-
-  # nested messages
-  class Dimension < ::ProtocolBuffers::Message
-    set_fully_qualified_name "Image.Dimension"
-
-    optional :int32, :width, 3
-    optional :int32, :height, 4
-  end
-
-  class Citation < ::ProtocolBuffers::Message
-    set_fully_qualified_name "Image.Citation"
-
-    optional :string, :titleLocalized, 11
-    optional :string, :url, 12
-  end
-
-  optional :int32, :imageType, 1
-  optional ::Image::Dimension, :dimension, 2, :group => true
-  optional :string, :imageUrl, 5
-  optional :string, :altTextLocalized, 6
-  optional :string, :secureUrl, 7
-  optional :int32, :positionInSequence, 8
-  optional :bool, :supportsFifeUrlOptions, 9
-  optional ::Image::Citation, :citation, 10, :group => true
-end
-
-class TranslatedText < ::ProtocolBuffers::Message
-  set_fully_qualified_name "TranslatedText"
-
-  optional :string, :text, 1
-  optional :string, :sourceLocale, 2
-  optional :string, :targetLocale, 3
-end
-
-class Badge < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Badge"
-
-  optional :string, :title, 1
-  repeated ::Image, :image, 2
-  optional :string, :browseUrl, 3
-end
-
-class ContainerWithBanner < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ContainerWithBanner"
-
-  optional :string, :colorThemeArgb, 1
-end
-
-class DealOfTheDay < ::ProtocolBuffers::Message
-  set_fully_qualified_name "DealOfTheDay"
-
-  optional :string, :featuredHeader, 1
-  optional :string, :colorThemeArgb, 2
-end
-
-class EditorialSeriesContainer < ::ProtocolBuffers::Message
-  set_fully_qualified_name "EditorialSeriesContainer"
-
-  optional :string, :seriesTitle, 1
-  optional :string, :seriesSubtitle, 2
-  optional :string, :episodeTitle, 3
-  optional :string, :episodeSubtitle, 4
-  optional :string, :colorThemeArgb, 5
-end
-
-class Link < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Link"
-
-  optional :string, :uri, 1
-end
-
-class PlusOneData < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PlusOneData"
-
-  optional :bool, :setByUser, 1
-  optional :int64, :total, 2
-  optional :int64, :circlesTotal, 3
-  repeated ::PlusPerson, :circlesPeople, 4
-end
-
-class PlusPerson < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PlusPerson"
-
-  optional :string, :displayName, 2
-  optional :string, :profileImageUrl, 4
-end
-
-class PromotedDoc < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PromotedDoc"
-
-  optional :string, :title, 1
-  optional :string, :subtitle, 2
-  repeated ::Image, :image, 3
-  optional :string, :descriptionHtml, 4
-  optional :string, :detailsUrl, 5
-end
-
-class Reason < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Reason"
-
-  optional :string, :briefReason, 1
-  optional :string, :detailedReason, 2
-  optional :string, :uniqueId, 3
-end
-
-class SectionMetadata < ::ProtocolBuffers::Message
-  set_fully_qualified_name "SectionMetadata"
-
-  optional :string, :header, 1
-  optional :string, :listUrl, 2
-  optional :string, :browseUrl, 3
-  optional :string, :descriptionHtml, 4
-end
-
-class SeriesAntenna < ::ProtocolBuffers::Message
-  set_fully_qualified_name "SeriesAntenna"
-
-  optional :string, :seriesTitle, 1
-  optional :string, :seriesSubtitle, 2
-  optional :string, :episodeTitle, 3
-  optional :string, :episodeSubtitle, 4
-  optional :string, :colorThemeArgb, 5
-  optional ::SectionMetadata, :sectionTracks, 6
-  optional ::SectionMetadata, :sectionAlbums, 7
-end
-
-class Template < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Template"
-
-  optional ::SeriesAntenna, :seriesAntenna, 1
-  optional ::TileTemplate, :tileGraphic2X1, 2
-  optional ::TileTemplate, :tileGraphic4X2, 3
-  optional ::TileTemplate, :tileGraphicColoredTitle2X1, 4
-  optional ::TileTemplate, :tileGraphicUpperLeftTitle2X1, 5
-  optional ::TileTemplate, :tileDetailsReflectedGraphic2X2, 6
-  optional ::TileTemplate, :tileFourBlock4X2, 7
-  optional ::ContainerWithBanner, :containerWithBanner, 8
-  optional ::DealOfTheDay, :dealOfTheDay, 9
-  optional ::TileTemplate, :tileGraphicColoredTitle4X2, 10
-  optional ::EditorialSeriesContainer, :editorialSeriesContainer, 11
-end
-
-class TileTemplate < ::ProtocolBuffers::Message
-  set_fully_qualified_name "TileTemplate"
-
-  optional :string, :colorThemeArgb, 1
-  optional :string, :colorTextArgb, 2
-end
-
-class Warning < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Warning"
-
-  optional :string, :localizedMessage, 1
-end
-
-class AlbumDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AlbumDetails"
-
-  optional :string, :name, 1
-  optional ::MusicDetails, :details, 2
-  optional ::ArtistDetails, :displayArtist, 3
-end
-
-class AppDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AppDetails"
-
-  optional :string, :developerName, 1
-  optional :int32, :majorVersionNumber, 2
-  optional :int32, :versionCode, 3
-  optional :string, :versionString, 4
-  optional :string, :title, 5
-  repeated :string, :appCategory, 7
-  optional :int32, :contentRating, 8
-  optional :int64, :installationSize, 9
-  repeated :string, :permission, 10
-  optional :string, :developerEmail, 11
-  optional :string, :developerWebsite, 12
-  optional :string, :numDownloads, 13
-  optional :string, :packageName, 14
-  optional :string, :recentChangesHtml, 15
-  optional :string, :uploadDate, 16
-  repeated ::FileMetadata, :file, 17
-  optional :string, :appType, 18
-end
-
-class ArtistDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ArtistDetails"
-
-  optional :string, :detailsUrl, 1
-  optional :string, :name, 2
-  optional ::ArtistExternalLinks, :externalLinks, 3
-end
-
-class ArtistExternalLinks < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ArtistExternalLinks"
-
-  repeated :string, :websiteUrl, 1
-  optional :string, :googlePlusProfileUrl, 2
-  optional :string, :youtubeChannelUrl, 3
-end
-
-class DocumentDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "DocumentDetails"
-
-  optional ::AppDetails, :appDetails, 1
-  optional ::AlbumDetails, :albumDetails, 2
-  optional ::ArtistDetails, :artistDetails, 3
-  optional ::SongDetails, :songDetails, 4
-  optional ::BookDetails, :bookDetails, 5
-  optional ::VideoDetails, :videoDetails, 6
-  optional ::SubscriptionDetails, :subscriptionDetails, 7
-  optional ::MagazineDetails, :magazineDetails, 8
-  optional ::TvShowDetails, :tvShowDetails, 9
-  optional ::TvSeasonDetails, :tvSeasonDetails, 10
-  optional ::TvEpisodeDetails, :tvEpisodeDetails, 11
-end
-
-class FileMetadata < ::ProtocolBuffers::Message
-  set_fully_qualified_name "FileMetadata"
-
-  optional :int32, :fileType, 1
-  optional :int32, :versionCode, 2
-  optional :int64, :size, 3
-end
-
-class MagazineDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "MagazineDetails"
-
-  optional :string, :parentDetailsUrl, 1
-  optional :string, :deviceAvailabilityDescriptionHtml, 2
-  optional :string, :psvDescription, 3
-  optional :string, :deliveryFrequencyDescription, 4
-end
-
-class MusicDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "MusicDetails"
-
-  optional :int32, :censoring, 1
-  optional :int32, :durationSec, 2
-  optional :string, :originalReleaseDate, 3
-  optional :string, :label, 4
-  repeated ::ArtistDetails, :artist, 5
-  repeated :string, :genre, 6
-  optional :string, :releaseDate, 7
-  repeated :int32, :releaseType, 8
-end
-
-class SongDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "SongDetails"
-
-  optional :string, :name, 1
-  optional ::MusicDetails, :details, 2
-  optional :string, :albumName, 3
-  optional :int32, :trackNumber, 4
-  optional :string, :previewUrl, 5
-  optional ::ArtistDetails, :displayArtist, 6
-end
-
-class SubscriptionDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "SubscriptionDetails"
-
-  optional :int32, :subscriptionPeriod, 1
-end
-
-class Trailer < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Trailer"
-
-  optional :string, :trailerId, 1
-  optional :string, :title, 2
-  optional :string, :thumbnailUrl, 3
-  optional :string, :watchUrl, 4
-  optional :string, :duration, 5
-end
-
-class TvEpisodeDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "TvEpisodeDetails"
-
-  optional :string, :parentDetailsUrl, 1
-  optional :int32, :episodeIndex, 2
-  optional :string, :releaseDate, 3
-end
-
-class TvSeasonDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "TvSeasonDetails"
-
-  optional :string, :parentDetailsUrl, 1
-  optional :int32, :seasonIndex, 2
-  optional :string, :releaseDate, 3
-  optional :string, :broadcaster, 4
-end
-
-class TvShowDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "TvShowDetails"
-
-  optional :int32, :seasonCount, 1
-  optional :int32, :startYear, 2
-  optional :int32, :endYear, 3
-  optional :string, :broadcaster, 4
-end
-
-class VideoCredit < ::ProtocolBuffers::Message
-  set_fully_qualified_name "VideoCredit"
-
-  optional :int32, :creditType, 1
-  optional :string, :credit, 2
-  repeated :string, :name, 3
-end
-
-class VideoDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "VideoDetails"
-
-  repeated ::VideoCredit, :credit, 1
-  optional :string, :duration, 2
-  optional :string, :releaseDate, 3
-  optional :string, :contentRating, 4
-  optional :int64, :likes, 5
-  optional :int64, :dislikes, 6
-  repeated :string, :genre, 7
-  repeated ::Trailer, :trailer, 8
-  repeated ::VideoRentalTerm, :rentalTerm, 9
-end
-
-class VideoRentalTerm < ::ProtocolBuffers::Message
-  # forward declarations
-  class Term < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "VideoRentalTerm"
-
-  # nested messages
-  class Term < ::ProtocolBuffers::Message
-    set_fully_qualified_name "VideoRentalTerm.Term"
-
-    optional :string, :header, 5
-    optional :string, :body, 6
-  end
-
-  optional :int32, :offerType, 1
-  optional :string, :offerAbbreviation, 2
-  optional :string, :rentalHeader, 3
-  repeated ::VideoRentalTerm::Term, :term, 4, :group => true
-end
-
-class Bucket < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Bucket"
-
-  repeated ::DocV1, :document, 1
-  optional :bool, :multiCorpus, 2
-  optional :string, :title, 3
-  optional :string, :iconUrl, 4
-  optional :string, :fullContentsUrl, 5
-  optional :double, :relevance, 6
-  optional :int64, :estimatedResults, 7
-  optional :string, :analyticsCookie, 8
-  optional :string, :fullContentsListUrl, 9
-  optional :string, :nextPageUrl, 10
-  optional :bool, :ordered, 11
-end
-
-class ListResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ListResponse"
-
-  repeated ::Bucket, :bucket, 1
-  repeated ::DocV2, :doc, 2
-end
-
-class DocV1 < ::ProtocolBuffers::Message
-  set_fully_qualified_name "DocV1"
-
-  optional ::Document, :finskyDoc, 1
-  optional :string, :docid, 2
-  optional :string, :detailsUrl, 3
-  optional :string, :reviewsUrl, 4
-  optional :string, :relatedListUrl, 5
-  optional :string, :moreByListUrl, 6
-  optional :string, :shareUrl, 7
-  optional :string, :creator, 8
-  optional ::DocumentDetails, :details, 9
-  optional :string, :descriptionHtml, 10
-  optional :string, :relatedBrowseUrl, 11
-  optional :string, :moreByBrowseUrl, 12
-  optional :string, :relatedHeader, 13
-  optional :string, :moreByHeader, 14
-  optional :string, :title, 15
-  optional ::PlusOneData, :plusOneData, 16
-  optional :string, :warningMessage, 17
-end
-
-class Annotations < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Annotations"
-
-  optional ::SectionMetadata, :sectionRelated, 1
-  optional ::SectionMetadata, :sectionMoreBy, 2
-  optional ::PlusOneData, :plusOneData, 3
-  repeated ::Warning, :warning, 4
-  optional ::SectionMetadata, :sectionBodyOfWork, 5
-  optional ::SectionMetadata, :sectionCoreContent, 6
-  optional ::Template, :template, 7
-  repeated ::Badge, :badgeForCreator, 8
-  repeated ::Badge, :badgeForDoc, 9
-  optional ::Link, :link, 10
-  optional ::SectionMetadata, :sectionCrossSell, 11
-  optional ::SectionMetadata, :sectionRelatedDocType, 12
-  repeated ::PromotedDoc, :promotedDoc, 13
-  optional :string, :offerNote, 14
-  repeated ::DocV2, :subscription, 16
-  optional ::Reason, :reason, 17
-  optional :string, :privacyPolicyUrl, 18
-end
-
-class DocV2 < ::ProtocolBuffers::Message
-  set_fully_qualified_name "DocV2"
-
-  optional :string, :docid, 1
-  optional :string, :backendDocid, 2
-  optional :int32, :docType, 3
-  optional :int32, :backendId, 4
-  optional :string, :title, 5
-  optional :string, :creator, 6
-  optional :string, :descriptionHtml, 7
-  repeated ::Offer, :offer, 8
-  optional ::Availability, :availability, 9
-  repeated ::Image, :image, 10
-  repeated ::DocV2, :child, 11
-  optional ::ContainerMetadata, :containerMetadata, 12
-  optional ::DocumentDetails, :details, 13
-  optional ::AggregateRating, :aggregateRating, 14
-  optional ::Annotations, :annotations, 15
-  optional :string, :detailsUrl, 16
-  optional :string, :shareUrl, 17
-  optional :string, :reviewsUrl, 18
-  optional :string, :backendUrl, 19
-  optional :string, :purchaseDetailsUrl, 20
-  optional :bool, :detailsReusable, 21
-  optional :string, :subtitle, 22
-end
-
-class EncryptedSubscriberInfo < ::ProtocolBuffers::Message
-  set_fully_qualified_name "EncryptedSubscriberInfo"
-
-  optional :string, :data, 1
-  optional :string, :encryptedKey, 2
-  optional :string, :signature, 3
-  optional :string, :initVector, 4
-  optional :int32, :googleKeyVersion, 5
-  optional :int32, :carrierKeyVersion, 6
-end
-
-class Availability < ::ProtocolBuffers::Message
-  # forward declarations
-  class PerDeviceAvailabilityRestriction < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "Availability"
-
-  # nested messages
-  class PerDeviceAvailabilityRestriction < ::ProtocolBuffers::Message
-    set_fully_qualified_name "Availability.PerDeviceAvailabilityRestriction"
-
-    optional :fixed64, :androidId, 10
-    optional :int32, :deviceRestriction, 11
-    optional :int64, :channelId, 12
-    optional ::FilterEvaluationInfo, :filterInfo, 15
-  end
-
-  optional :int32, :restriction, 5
-  optional :int32, :offerType, 6
-  optional ::Rule, :rule, 7
-  repeated ::Availability::PerDeviceAvailabilityRestriction, :perdeviceavailabilityrestriction, 9, :group => true
-  optional :bool, :availableIfOwned, 13
-  repeated ::Install, :install, 14
-  optional ::FilterEvaluationInfo, :filterInfo, 16
-  optional ::OwnershipInfo, :ownershipInfo, 17
-end
-
-class FilterEvaluationInfo < ::ProtocolBuffers::Message
-  set_fully_qualified_name "FilterEvaluationInfo"
-
-  repeated ::RuleEvaluation, :ruleEvaluation, 1
-end
-
-class Rule < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Rule"
-
-  optional :bool, :negate, 1
-  optional :int32, :operator, 2
-  optional :int32, :key, 3
-  repeated :string, :stringArg, 4
-  repeated :int64, :longArg, 5
-  repeated :double, :doubleArg, 6
-  repeated ::Rule, :subrule, 7
-  optional :int32, :responseCode, 8
-  optional :string, :comment, 9
-  repeated :fixed64, :stringArgHash, 10
-  repeated :int32, :constArg, 11
-end
-
-class RuleEvaluation < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RuleEvaluation"
-
-  optional ::Rule, :rule, 1
-  repeated :string, :actualStringValue, 2
-  repeated :int64, :actualLongValue, 3
-  repeated :bool, :actualBoolValue, 4
-  repeated :double, :actualDoubleValue, 5
-end
-
-class LibraryAppDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "LibraryAppDetails"
-
-  optional :string, :certificateHash, 2
-  optional :int64, :refundTimeoutTimestampMsec, 3
-  optional :int64, :postDeliveryRefundWindowMsec, 4
-end
-
-class LibraryMutation < ::ProtocolBuffers::Message
-  set_fully_qualified_name "LibraryMutation"
-
-  optional ::Docid, :docid, 1
-  optional :int32, :offerType, 2
-  optional :int64, :documentHash, 3
-  optional :bool, :deleted, 4
-  optional ::LibraryAppDetails, :appDetails, 5
-  optional ::LibrarySubscriptionDetails, :subscriptionDetails, 6
-end
-
-class LibrarySubscriptionDetails < ::ProtocolBuffers::Message
-  set_fully_qualified_name "LibrarySubscriptionDetails"
-
-  optional :int64, :initiationTimestampMsec, 1
-  optional :int64, :validUntilTimestampMsec, 2
-  optional :bool, :autoRenewing, 3
-  optional :int64, :trialUntilTimestampMsec, 4
-end
-
-class LibraryUpdate < ::ProtocolBuffers::Message
-  set_fully_qualified_name "LibraryUpdate"
-
-  optional :int32, :status, 1
-  optional :int32, :corpus, 2
-  optional :bytes, :serverToken, 3
-  repeated ::LibraryMutation, :mutation, 4
-  optional :bool, :hasMore, 5
-  optional :string, :libraryId, 6
-end
-
-class ClientLibraryState < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ClientLibraryState"
-
-  optional :int32, :corpus, 1
-  optional :bytes, :serverToken, 2
-  optional :int64, :hashCodeSum, 3
-  optional :int32, :librarySize, 4
-end
-
-class LibraryReplicationRequest < ::ProtocolBuffers::Message
-  set_fully_qualified_name "LibraryReplicationRequest"
-
-  repeated ::ClientLibraryState, :libraryState, 1
-end
-
-class LibraryReplicationResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "LibraryReplicationResponse"
-
-  repeated ::LibraryUpdate, :update, 1
-end
-
-class ClickLogEvent < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ClickLogEvent"
-
-  optional :int64, :eventTime, 1
-  optional :string, :url, 2
-  optional :string, :listId, 3
-  optional :string, :referrerUrl, 4
-  optional :string, :referrerListId, 5
-end
-
-class LogRequest < ::ProtocolBuffers::Message
-  set_fully_qualified_name "LogRequest"
-
-  repeated ::ClickLogEvent, :clickEvent, 1
-end
-
-class LogResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "LogResponse"
-
-end
-
-class AndroidAppNotificationData < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AndroidAppNotificationData"
-
-  optional :int32, :versionCode, 1
-  optional :string, :assetId, 2
-end
-
-class InAppNotificationData < ::ProtocolBuffers::Message
-  set_fully_qualified_name "InAppNotificationData"
-
-  optional :string, :checkoutOrderId, 1
-  optional :string, :inAppNotificationId, 2
-end
-
-class LibraryDirtyData < ::ProtocolBuffers::Message
-  set_fully_qualified_name "LibraryDirtyData"
-
-  optional :int32, :backend, 1
-end
-
-class Notification < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Notification"
-
-  optional :int32, :notificationType, 1
-  optional :int64, :timestamp, 3
-  optional ::Docid, :docid, 4
-  optional :string, :docTitle, 5
-  optional :string, :userEmail, 6
-  optional ::AndroidAppNotificationData, :appData, 7
-  optional ::AndroidAppDeliveryData, :appDeliveryData, 8
-  optional ::PurchaseRemovalData, :purchaseRemovalData, 9
-  optional ::UserNotificationData, :userNotificationData, 10
-  optional ::InAppNotificationData, :inAppNotificationData, 11
-  optional ::PurchaseDeclinedData, :purchaseDeclinedData, 12
-  optional :string, :notificationId, 13
-  optional ::LibraryUpdate, :libraryUpdate, 14
-  optional ::LibraryDirtyData, :libraryDirtyData, 15
-end
-
-class PurchaseDeclinedData < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchaseDeclinedData"
-
-  optional :int32, :reason, 1
-  optional :bool, :showNotification, 2
-end
-
-class PurchaseRemovalData < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchaseRemovalData"
-
-  optional :bool, :malicious, 1
-end
-
-class UserNotificationData < ::ProtocolBuffers::Message
-  set_fully_qualified_name "UserNotificationData"
-
-  optional :string, :notificationTitle, 1
-  optional :string, :notificationText, 2
-  optional :string, :tickerText, 3
-  optional :string, :dialogTitle, 4
-  optional :string, :dialogText, 5
-end
-
-class PlusOneResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PlusOneResponse"
-
-end
-
-class RateSuggestedContentResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RateSuggestedContentResponse"
-
-end
-
-class AggregateRating < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AggregateRating"
-
-  optional :int32, :type, 1
-  optional :float, :starRating, 2
-  optional :uint64, :ratingsCount, 3
-  optional :uint64, :oneStarRatings, 4
-  optional :uint64, :twoStarRatings, 5
-  optional :uint64, :threeStarRatings, 6
-  optional :uint64, :fourStarRatings, 7
-  optional :uint64, :fiveStarRatings, 8
-  optional :uint64, :thumbsUpCount, 9
-  optional :uint64, :thumbsDownCount, 10
-  optional :uint64, :commentCount, 11
-  optional :double, :bayesianMeanRating, 12
-end
-
-class DirectPurchase < ::ProtocolBuffers::Message
-  set_fully_qualified_name "DirectPurchase"
-
-  optional :string, :detailsUrl, 1
-  optional :string, :purchaseDocid, 2
-  optional :string, :parentDocid, 3
-  optional :int32, :offerType, 4
-end
-
-class ResolveLinkResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ResolveLinkResponse"
-
-  optional :string, :detailsUrl, 1
-  optional :string, :browseUrl, 2
-  optional :string, :searchUrl, 3
-  optional ::DirectPurchase, :directPurchase, 4
-  optional :string, :homeUrl, 5
-end
-
-class Payload < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Payload"
-
-  optional ::ListResponse, :listResponse, 1
-  optional ::DetailsResponse, :detailsResponse, 2
-  optional ::ReviewResponse, :reviewResponse, 3
-  optional ::BuyResponse, :buyResponse, 4
-  optional ::SearchResponse, :searchResponse, 5
-  optional ::TocResponse, :tocResponse, 6
-  optional ::BrowseResponse, :browseResponse, 7
-  optional ::PurchaseStatusResponse, :purchaseStatusResponse, 8
-  optional ::UpdateInstrumentResponse, :updateInstrumentResponse, 9
-  optional ::LogResponse, :logResponse, 10
-  optional ::CheckInstrumentResponse, :checkInstrumentResponse, 11
-  optional ::PlusOneResponse, :plusOneResponse, 12
-  optional ::FlagContentResponse, :flagContentResponse, 13
-  optional ::AckNotificationResponse, :ackNotificationResponse, 14
-  optional ::InitiateAssociationResponse, :initiateAssociationResponse, 15
-  optional ::VerifyAssociationResponse, :verifyAssociationResponse, 16
-  optional ::LibraryReplicationResponse, :libraryReplicationResponse, 17
-  optional ::RevokeResponse, :revokeResponse, 18
-  optional ::BulkDetailsResponse, :bulkDetailsResponse, 19
-  optional ::ResolveLinkResponse, :resolveLinkResponse, 20
-  optional ::DeliveryResponse, :deliveryResponse, 21
-  optional ::AcceptTosResponse, :acceptTosResponse, 22
-  optional ::RateSuggestedContentResponse, :rateSuggestedContentResponse, 23
-  optional ::CheckPromoOfferResponse, :checkPromoOfferResponse, 24
-end
-
-class PreFetch < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PreFetch"
-
-  optional :string, :url, 1
-  optional :bytes, :response, 2
-  optional :string, :etag, 3
-  optional :int64, :ttl, 4
-  optional :int64, :softTtl, 5
-end
-
-class ResponseWrapper < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ResponseWrapper"
-
-  optional ::Payload, :payload, 1
-  optional ::ServerCommands, :commands, 2
-  repeated ::PreFetch, :preFetch, 3
-  repeated ::Notification, :notification, 4
-end
-
-class ServerCommands < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ServerCommands"
-
-  optional :bool, :clearCache, 1
-  optional :string, :displayErrorMessage, 2
-  optional :string, :logErrorStacktrace, 3
-end
-
-class GetReviewsResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetReviewsResponse"
-
-  repeated ::Review, :review, 1
-  optional :int64, :matchingCount, 2
-end
-
-class Review < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Review"
-
-  optional :string, :authorName, 1
-  optional :string, :url, 2
-  optional :string, :source, 3
-  optional :string, :documentVersion, 4
-  optional :int64, :timestampMsec, 5
-  optional :int32, :starRating, 6
-  optional :string, :title, 7
-  optional :string, :comment, 8
-  optional :string, :commentId, 9
-  optional :string, :deviceName, 19
-  optional :string, :replyText, 29
-  optional :int64, :replyTimestampMsec, 30
-end
-
-class ReviewResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ReviewResponse"
-
-  optional ::GetReviewsResponse, :getResponse, 1
-  optional :string, :nextPageUrl, 2
-end
-
-class RevokeResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RevokeResponse"
-
-  optional ::LibraryUpdate, :libraryUpdate, 1
-end
-
-class RelatedSearch < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RelatedSearch"
-
-  optional :string, :searchUrl, 1
-  optional :string, :header, 2
-  optional :int32, :backendId, 3
-  optional :int32, :docType, 4
-  optional :bool, :current, 5
-end
-
-class SearchResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "SearchResponse"
-
-  optional :string, :originalQuery, 1
-  optional :string, :suggestedQuery, 2
-  optional :bool, :aggregateQuery, 3
-  repeated ::Bucket, :bucket, 4
-  repeated ::DocV2, :doc, 5
-  repeated ::RelatedSearch, :relatedSearch, 6
-end
-
-class CorpusMetadata < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CorpusMetadata"
-
-  optional :int32, :backend, 1
-  optional :string, :name, 2
-  optional :string, :landingUrl, 3
-  optional :string, :libraryName, 4
-end
-
-class Experiments < ::ProtocolBuffers::Message
-  set_fully_qualified_name "Experiments"
-
-  repeated :string, :experimentId, 1
-end
-
-class TocResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "TocResponse"
-
-  repeated ::CorpusMetadata, :corpus, 1
-  optional :int32, :tosVersionDeprecated, 2
-  optional :string, :tosContent, 3
-  optional :string, :homeUrl, 4
-  optional ::Experiments, :experiments, 5
-  optional :string, :tosCheckboxTextMarketingEmails, 6
-  optional :string, :tosToken, 7
-  optional ::UserSettings, :userSettings, 8
-  optional :string, :iconOverrideUrl, 9
-end
-
-class UserSettings < ::ProtocolBuffers::Message
-  set_fully_qualified_name "UserSettings"
-
-  optional :bool, :tosCheckboxMarketingEmailsOptedIn, 1
-end
-
-class AcceptTosResponse < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AcceptTosResponse"
-
-end
-
-class AckNotificationsRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AckNotificationsRequestProto"
-
-  repeated :string, :notificationId, 1
-  optional ::SignatureHashProto, :signatureHash, 2
-  repeated :string, :nackNotificationId, 3
-end
-
-class AckNotificationsResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AckNotificationsResponseProto"
-
-end
-
-class AddressProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AddressProto"
-
-  optional :string, :address1, 1
-  optional :string, :address2, 2
-  optional :string, :city, 3
-  optional :string, :state, 4
-  optional :string, :postalCode, 5
-  optional :string, :country, 6
-  optional :string, :name, 7
-  optional :string, :type, 8
-  optional :string, :phone, 9
-end
-
-class AppDataProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AppDataProto"
-
-  optional :string, :key, 1
-  optional :string, :value, 2
-end
-
-class AppSuggestionProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AppSuggestionProto"
-
-  optional ::ExternalAssetProto, :assetInfo, 1
-end
-
-class AssetIdentifierProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AssetIdentifierProto"
-
-  optional :string, :packageName, 1
-  optional :int32, :versionCode, 2
-  optional :string, :assetId, 3
-end
-
-class AssetsRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AssetsRequestProto"
-
-  optional :int32, :assetType, 1
-  optional :string, :query, 2
-  optional :string, :categoryId, 3
-  repeated :string, :assetId, 4
-  optional :bool, :retrieveVendingHistory, 5
-  optional :bool, :retrieveExtendedInfo, 6
-  optional :int32, :sortOrder, 7
-  optional :int64, :startIndex, 8
-  optional :int64, :numEntries, 9
-  optional :int32, :viewFilter, 10
-  optional :string, :rankingType, 11
-  optional :bool, :retrieveCarrierChannel, 12
-  repeated :string, :pendingDownloadAssetId, 13
-  optional :bool, :reconstructVendingHistory, 14
-  optional :bool, :unfilteredResults, 15
-  repeated :string, :badgeId, 16
-end
-
-class AssetsResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "AssetsResponseProto"
-
-  repeated ::ExternalAssetProto, :asset, 1
-  optional :int64, :numTotalEntries, 2
-  optional :string, :correctedQuery, 3
-  repeated ::ExternalAssetProto, :altAsset, 4
-  optional :int64, :numCorrectedEntries, 5
-  optional :string, :header, 6
-  optional :int32, :listType, 7
-end
-
-class BillingEventRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "BillingEventRequestProto"
-
-  optional :int32, :eventType, 1
-  optional :string, :billingParametersId, 2
-  optional :bool, :resultSuccess, 3
-  optional :string, :clientMessage, 4
-  optional ::ExternalCarrierBillingInstrumentProto, :carrierInstrument, 5
-end
-
-class BillingEventResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "BillingEventResponseProto"
-
-end
-
-class BillingParameterProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "BillingParameterProto"
-
-  optional :string, :id, 1
-  optional :string, :name, 2
-  repeated :string, :mncMcc, 3
-  repeated :string, :backendUrl, 4
-  optional :string, :iconId, 5
-  optional :int32, :billingInstrumentType, 6
-  optional :string, :applicationId, 7
-  optional :string, :tosUrl, 8
-  optional :bool, :instrumentTosRequired, 9
-  optional :int32, :apiVersion, 10
-  optional :bool, :perTransactionCredentialsRequired, 11
-  optional :bool, :sendSubscriberIdWithCarrierBillingRequests, 12
-  optional :int32, :deviceAssociationMethod, 13
-  optional :string, :userTokenRequestMessage, 14
-  optional :string, :userTokenRequestAddress, 15
-  optional :bool, :passphraseRequired, 16
-end
-
-class CarrierBillingCredentialsProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CarrierBillingCredentialsProto"
-
-  optional :string, :credentials, 1
-  optional :int64, :credentialsTimeout, 2
-end
-
-class CategoryProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CategoryProto"
-
-  optional :int32, :assetType, 2
-  optional :string, :categoryId, 3
-  optional :string, :categoryDisplay, 4
-  optional :string, :categorySubtitle, 5
-  repeated :string, :promotedAssetsNew, 6
-  repeated :string, :promotedAssetsHome, 7
-  repeated ::CategoryProto, :subCategories, 8
-  repeated :string, :promotedAssetsPaid, 9
-  repeated :string, :promotedAssetsFree, 10
-end
-
-class CheckForNotificationsRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CheckForNotificationsRequestProto"
-
-  optional :int64, :alarmDuration, 1
-end
-
-class CheckForNotificationsResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CheckForNotificationsResponseProto"
-
-end
-
-class CheckLicenseRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CheckLicenseRequestProto"
-
-  optional :string, :packageName, 1
-  optional :int32, :versionCode, 2
-  optional :int64, :nonce, 3
-end
-
-class CheckLicenseResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CheckLicenseResponseProto"
-
-  optional :int32, :responseCode, 1
-  optional :string, :signedData, 2
-  optional :string, :signature, 3
-end
-
-class CommentsRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CommentsRequestProto"
-
-  optional :string, :assetId, 1
-  optional :int64, :startIndex, 2
-  optional :int64, :numEntries, 3
-  optional :bool, :shouldReturnSelfComment, 4
-  optional :string, :assetReferrer, 5
-end
-
-class CommentsResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "CommentsResponseProto"
-
-  repeated ::ExternalCommentProto, :comment, 1
-  optional :int64, :numTotalEntries, 2
-  optional ::ExternalCommentProto, :selfComment, 3
-end
-
-class ContentSyncRequestProto < ::ProtocolBuffers::Message
-  # forward declarations
-  class AssetInstallState < ::ProtocolBuffers::Message; end
-  class SystemApp < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "ContentSyncRequestProto"
-
-  # nested messages
-  class AssetInstallState < ::ProtocolBuffers::Message
-    set_fully_qualified_name "ContentSyncRequestProto.AssetInstallState"
-
-    optional :string, :assetId, 3
-    optional :int32, :assetState, 4
-    optional :int64, :installTime, 5
-    optional :int64, :uninstallTime, 6
-    optional :string, :packageName, 7
-    optional :int32, :versionCode, 8
-    optional :string, :assetReferrer, 9
-  end
-
-  class SystemApp < ::ProtocolBuffers::Message
-    set_fully_qualified_name "ContentSyncRequestProto.SystemApp"
-
-    optional :string, :packageName, 11
-    optional :int32, :versionCode, 12
-    repeated :string, :certificateHash, 13
-  end
-
-  optional :bool, :incremental, 1
-  repeated ::ContentSyncRequestProto::AssetInstallState, :assetinstallstate, 2, :group => true
-  repeated ::ContentSyncRequestProto::SystemApp, :systemapp, 10, :group => true
-  optional :int32, :sideloadedAppCount, 14
-end
-
-class ContentSyncResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ContentSyncResponseProto"
-
-  optional :int32, :numUpdatesAvailable, 1
-end
-
-class DataMessageProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "DataMessageProto"
-
-  optional :string, :category, 1
-  repeated ::AppDataProto, :appData, 3
-end
-
-class DownloadInfoProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "DownloadInfoProto"
-
-  optional :int64, :apkSize, 1
-  repeated ::FileMetadataProto, :additionalFile, 2
-end
-
-class ExternalAssetProto < ::ProtocolBuffers::Message
-  # forward declarations
-  class PurchaseInformation < ::ProtocolBuffers::Message; end
-  class ExtendedInfo < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "ExternalAssetProto"
-
-  # nested messages
-  class PurchaseInformation < ::ProtocolBuffers::Message
-    set_fully_qualified_name "ExternalAssetProto.PurchaseInformation"
-
-    optional :int64, :purchaseTime, 10
-    optional :int64, :refundTimeoutTime, 11
-    optional :int32, :refundStartPolicy, 45
-    optional :int64, :refundWindowDuration, 46
-  end
-
-  class ExtendedInfo < ::ProtocolBuffers::Message
-    # forward declarations
-    class PackageDependency < ::ProtocolBuffers::Message; end
-
-    set_fully_qualified_name "ExternalAssetProto.ExtendedInfo"
-
-    # nested messages
-    class PackageDependency < ::ProtocolBuffers::Message
-      set_fully_qualified_name "ExternalAssetProto.ExtendedInfo.PackageDependency"
-
-      optional :string, :packageName, 41
-      optional :bool, :skipPermissions, 42
+    class AndroidAppDeliveryData < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AndroidAppDeliveryData"
+
+      optional :int64, :downloadSize, 1
+      optional :string, :signature, 2
+      optional :string, :downloadUrl, 3
+      repeated ::ApkDownloader::ProtocolBuffers::AppFileMetadata, :additionalFile, 4
+      repeated ::ApkDownloader::ProtocolBuffers::HttpCookie, :downloadAuthCookie, 5
+      optional :bool, :forwardLocked, 6
+      optional :int64, :refundTimeout, 7
+      optional :bool, :serverInitiated, 8
+      optional :int64, :postInstallRefundWindowMillis, 9
+      optional :bool, :immediateStartNeeded, 10
+      optional ::ApkDownloader::ProtocolBuffers::AndroidAppPatchData, :patchData, 11
+      optional ::ApkDownloader::ProtocolBuffers::EncryptionParams, :encryptionParams, 12
     end
 
-    optional :string, :description, 13
-    optional :int64, :downloadCount, 14
-    repeated :string, :applicationPermissionId, 15
-    optional :int64, :requiredInstallationSize, 16
-    optional :string, :packageName, 17
-    optional :string, :category, 18
-    optional :bool, :forwardLocked, 19
-    optional :string, :contactEmail, 20
-    optional :bool, :everInstalledByUser, 21
-    optional :string, :downloadCountString, 23
-    optional :string, :contactPhone, 26
-    optional :string, :contactWebsite, 27
-    optional :bool, :nextPurchaseRefundable, 28
-    optional :int32, :numScreenshots, 30
-    optional :string, :promotionalDescription, 31
-    optional :int32, :serverAssetState, 34
-    optional :int32, :contentRatingLevel, 36
-    optional :string, :contentRatingString, 37
-    optional :string, :recentChanges, 38
-    repeated ::ExternalAssetProto::ExtendedInfo::PackageDependency, :packagedependency, 39, :group => true
-    optional :string, :videoLink, 43
-    optional ::DownloadInfoProto, :downloadInfo, 49
-  end
-
-  optional :string, :id, 1
-  optional :string, :title, 2
-  optional :int32, :assetType, 3
-  optional :string, :owner, 4
-  optional :string, :version, 5
-  optional :string, :price, 6
-  optional :string, :averageRating, 7
-  optional :int64, :numRatings, 8
-  optional ::ExternalAssetProto::PurchaseInformation, :purchaseinformation, 9, :group => true
-  optional ::ExternalAssetProto::ExtendedInfo, :extendedinfo, 12, :group => true
-  optional :string, :ownerId, 22
-  optional :string, :packageName, 24
-  optional :int32, :versionCode, 25
-  optional :bool, :bundledAsset, 29
-  optional :string, :priceCurrency, 32
-  optional :int64, :priceMicros, 33
-  optional :string, :filterReason, 35
-  optional :string, :actualSellerPrice, 40
-  repeated ::ExternalBadgeProto, :appBadge, 47
-  repeated ::ExternalBadgeProto, :ownerBadge, 48
-end
-
-class ExternalBadgeImageProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ExternalBadgeImageProto"
-
-  optional :int32, :usage, 1
-  optional :string, :url, 2
-end
-
-class ExternalBadgeProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ExternalBadgeProto"
-
-  optional :string, :localizedTitle, 1
-  optional :string, :localizedDescription, 2
-  repeated ::ExternalBadgeImageProto, :badgeImage, 3
-  optional :string, :searchId, 4
-end
-
-class ExternalCarrierBillingInstrumentProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ExternalCarrierBillingInstrumentProto"
-
-  optional :string, :instrumentKey, 1
-  optional :string, :subscriberIdentifier, 2
-  optional :string, :accountType, 3
-  optional :string, :subscriberCurrency, 4
-  optional :uint64, :transactionLimit, 5
-  optional :string, :subscriberName, 6
-  optional :string, :address1, 7
-  optional :string, :address2, 8
-  optional :string, :city, 9
-  optional :string, :state, 10
-  optional :string, :postalCode, 11
-  optional :string, :country, 12
-  optional ::EncryptedSubscriberInfo, :encryptedSubscriberInfo, 13
-end
-
-class ExternalCommentProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ExternalCommentProto"
-
-  optional :string, :body, 1
-  optional :int32, :rating, 2
-  optional :string, :creatorName, 3
-  optional :int64, :creationTime, 4
-  optional :string, :creatorId, 5
-end
-
-class ExternalCreditCard < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ExternalCreditCard"
-
-  optional :string, :type, 1
-  optional :string, :lastDigits, 2
-  optional :int32, :expYear, 3
-  optional :int32, :expMonth, 4
-  optional :string, :personName, 5
-  optional :string, :countryCode, 6
-  optional :string, :postalCode, 7
-  optional :bool, :makeDefault, 8
-  optional :string, :address1, 9
-  optional :string, :address2, 10
-  optional :string, :city, 11
-  optional :string, :state, 12
-  optional :string, :phone, 13
-end
-
-class ExternalPaypalInstrumentProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ExternalPaypalInstrumentProto"
-
-  optional :string, :instrumentKey, 1
-  optional :string, :preapprovalKey, 2
-  optional :string, :paypalEmail, 3
-  optional ::AddressProto, :paypalAddress, 4
-  optional :bool, :multiplePaypalInstrumentsSupported, 5
-end
-
-class FileMetadataProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "FileMetadataProto"
-
-  optional :int32, :fileType, 1
-  optional :int32, :versionCode, 2
-  optional :int64, :size, 3
-  optional :string, :downloadUrl, 4
-end
-
-class GetAddressSnippetRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetAddressSnippetRequestProto"
-
-  optional ::EncryptedSubscriberInfo, :encryptedSubscriberInfo, 1
-end
-
-class GetAddressSnippetResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetAddressSnippetResponseProto"
-
-  optional :string, :addressSnippet, 1
-end
-
-class GetAssetRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetAssetRequestProto"
-
-  optional :string, :assetId, 1
-  optional :string, :directDownloadKey, 2
-end
-
-class GetAssetResponseProto < ::ProtocolBuffers::Message
-  # forward declarations
-  class InstallAsset < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "GetAssetResponseProto"
-
-  # nested messages
-  class InstallAsset < ::ProtocolBuffers::Message
-    set_fully_qualified_name "GetAssetResponseProto.InstallAsset"
-
-    optional :string, :assetId, 2
-    optional :string, :assetName, 3
-    optional :string, :assetType, 4
-    optional :string, :assetPackage, 5
-    optional :string, :blobUrl, 6
-    optional :string, :assetSignature, 7
-    optional :int64, :assetSize, 8
-    optional :int64, :refundTimeoutMillis, 9
-    optional :bool, :forwardLocked, 10
-    optional :bool, :secured, 11
-    optional :int32, :versionCode, 12
-    optional :string, :downloadAuthCookieName, 13
-    optional :string, :downloadAuthCookieValue, 14
-    optional :int64, :postInstallRefundWindowMillis, 16
-  end
-
-  optional ::GetAssetResponseProto::InstallAsset, :installasset, 1, :group => true
-  repeated ::FileMetadataProto, :additionalFile, 15
-end
-
-class GetCarrierInfoRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetCarrierInfoRequestProto"
-
-end
-
-class GetCarrierInfoResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetCarrierInfoResponseProto"
-
-  optional :bool, :carrierChannelEnabled, 1
-  optional :bytes, :carrierLogoIcon, 2
-  optional :bytes, :carrierBanner, 3
-  optional :string, :carrierSubtitle, 4
-  optional :string, :carrierTitle, 5
-  optional :int32, :carrierImageDensity, 6
-end
-
-class GetCategoriesRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetCategoriesRequestProto"
-
-  optional :bool, :prefetchPromoData, 1
-end
-
-class GetCategoriesResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetCategoriesResponseProto"
-
-  repeated ::CategoryProto, :categories, 1
-end
-
-class GetImageRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetImageRequestProto"
-
-  optional :string, :assetId, 1
-  optional :int32, :imageUsage, 3
-  optional :string, :imageId, 4
-  optional :int32, :screenPropertyWidth, 5
-  optional :int32, :screenPropertyHeight, 6
-  optional :int32, :screenPropertyDensity, 7
-  optional :int32, :productType, 8
-end
-
-class GetImageResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetImageResponseProto"
-
-  optional :bytes, :imageData, 1
-  optional :int32, :imageDensity, 2
-end
-
-class GetMarketMetadataRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetMarketMetadataRequestProto"
-
-  optional :int64, :lastRequestTime, 1
-  optional ::DeviceConfigurationProto, :deviceConfiguration, 2
-  optional :bool, :deviceRoaming, 3
-  repeated :string, :marketSignatureHash, 4
-  optional :int32, :contentRating, 5
-  optional :string, :deviceModelName, 6
-  optional :string, :deviceManufacturerName, 7
-end
-
-class GetMarketMetadataResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetMarketMetadataResponseProto"
-
-  optional :int32, :latestClientVersionCode, 1
-  optional :string, :latestClientUrl, 2
-  optional :bool, :paidAppsEnabled, 3
-  repeated ::BillingParameterProto, :billingParameter, 4
-  optional :bool, :commentPostEnabled, 5
-  optional :bool, :billingEventsEnabled, 6
-  optional :string, :warningMessage, 7
-  optional :bool, :inAppBillingEnabled, 8
-  optional :int32, :inAppBillingMaxApiVersion, 9
-end
-
-class GetSubCategoriesRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "GetSubCategoriesRequestProto"
-
-  optional :int32, :assetType, 1
-end
-
-class GetSubCategoriesResponseProto < ::ProtocolBuffers::Message
-  # forward declarations
-  class SubCategory < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "GetSubCategoriesResponseProto"
-
-  # nested messages
-  class SubCategory < ::ProtocolBuffers::Message
-    set_fully_qualified_name "GetSubCategoriesResponseProto.SubCategory"
-
-    optional :string, :subCategoryDisplay, 2
-    optional :string, :subCategoryId, 3
-  end
-
-  repeated ::GetSubCategoriesResponseProto::SubCategory, :subcategory, 1, :group => true
-end
-
-class InAppPurchaseInformationRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "InAppPurchaseInformationRequestProto"
-
-  optional ::SignatureHashProto, :signatureHash, 1
-  optional :int64, :nonce, 2
-  repeated :string, :notificationId, 3
-  optional :string, :signatureAlgorithm, 4
-  optional :int32, :billingApiVersion, 5
-end
-
-class InAppPurchaseInformationResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "InAppPurchaseInformationResponseProto"
-
-  optional ::SignedDataProto, :signedResponse, 1
-  repeated ::StatusBarNotificationProto, :statusBarNotification, 2
-  optional ::PurchaseResultProto, :purchaseResult, 3
-end
-
-class InAppRestoreTransactionsRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "InAppRestoreTransactionsRequestProto"
-
-  optional ::SignatureHashProto, :signatureHash, 1
-  optional :int64, :nonce, 2
-  optional :string, :signatureAlgorithm, 3
-  optional :int32, :billingApiVersion, 4
-end
-
-class InAppRestoreTransactionsResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "InAppRestoreTransactionsResponseProto"
-
-  optional ::SignedDataProto, :signedResponse, 1
-  optional ::PurchaseResultProto, :purchaseResult, 2
-end
-
-class ModifyCommentRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ModifyCommentRequestProto"
-
-  optional :string, :assetId, 1
-  optional ::ExternalCommentProto, :comment, 2
-  optional :bool, :deleteComment, 3
-  optional :bool, :flagAsset, 4
-  optional :int32, :flagType, 5
-  optional :string, :flagMessage, 6
-  optional :bool, :nonFlagFlow, 7
-end
-
-class ModifyCommentResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ModifyCommentResponseProto"
-
-end
-
-class PaypalCountryInfoProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalCountryInfoProto"
-
-  optional :bool, :birthDateRequired, 1
-  optional :string, :tosText, 2
-  optional :string, :billingAgreementText, 3
-  optional :string, :preTosText, 4
-end
-
-class PaypalCreateAccountRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalCreateAccountRequestProto"
-
-  optional :string, :firstName, 1
-  optional :string, :lastName, 2
-  optional ::AddressProto, :address, 3
-  optional :string, :birthDate, 4
-end
-
-class PaypalCreateAccountResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalCreateAccountResponseProto"
-
-  optional :string, :createAccountKey, 1
-end
-
-class PaypalCredentialsProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalCredentialsProto"
-
-  optional :string, :preapprovalKey, 1
-  optional :string, :paypalEmail, 2
-end
-
-class PaypalMassageAddressRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalMassageAddressRequestProto"
-
-  optional ::AddressProto, :address, 1
-end
-
-class PaypalMassageAddressResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalMassageAddressResponseProto"
-
-  optional ::AddressProto, :address, 1
-end
-
-class PaypalPreapprovalCredentialsRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalPreapprovalCredentialsRequestProto"
-
-  optional :string, :gaiaAuthToken, 1
-  optional :string, :billingInstrumentId, 2
-end
-
-class PaypalPreapprovalCredentialsResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalPreapprovalCredentialsResponseProto"
-
-  optional :int32, :resultCode, 1
-  optional :string, :paypalAccountKey, 2
-  optional :string, :paypalEmail, 3
-end
-
-class PaypalPreapprovalDetailsRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalPreapprovalDetailsRequestProto"
-
-  optional :bool, :getAddress, 1
-  optional :string, :preapprovalKey, 2
-end
-
-class PaypalPreapprovalDetailsResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalPreapprovalDetailsResponseProto"
-
-  optional :string, :paypalEmail, 1
-  optional ::AddressProto, :address, 2
-end
-
-class PaypalPreapprovalRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalPreapprovalRequestProto"
-
-end
-
-class PaypalPreapprovalResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PaypalPreapprovalResponseProto"
-
-  optional :string, :preapprovalKey, 1
-end
-
-class PendingNotificationsProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PendingNotificationsProto"
-
-  repeated ::DataMessageProto, :notification, 1
-  optional :int64, :nextCheckMillis, 2
-end
-
-class PrefetchedBundleProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PrefetchedBundleProto"
-
-  optional ::SingleRequestProto, :request, 1
-  optional ::SingleResponseProto, :response, 2
-end
-
-class PurchaseCartInfoProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchaseCartInfoProto"
-
-  optional :string, :itemPrice, 1
-  optional :string, :taxInclusive, 2
-  optional :string, :taxExclusive, 3
-  optional :string, :total, 4
-  optional :string, :taxMessage, 5
-  optional :string, :footerMessage, 6
-  optional :string, :priceCurrency, 7
-  optional :int64, :priceMicros, 8
-end
-
-class PurchaseInfoProto < ::ProtocolBuffers::Message
-  # forward declarations
-  class BillingInstruments < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "PurchaseInfoProto"
-
-  # nested messages
-  class BillingInstruments < ::ProtocolBuffers::Message
-    # forward declarations
-    class BillingInstrument < ::ProtocolBuffers::Message; end
-
-    set_fully_qualified_name "PurchaseInfoProto.BillingInstruments"
-
-    # nested messages
-    class BillingInstrument < ::ProtocolBuffers::Message
-      set_fully_qualified_name "PurchaseInfoProto.BillingInstruments.BillingInstrument"
-
-      optional :string, :id, 5
-      optional :string, :name, 6
-      optional :bool, :isInvalid, 7
-      optional :int32, :instrumentType, 11
-      optional :int32, :instrumentStatus, 14
+    class AndroidAppPatchData < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AndroidAppPatchData"
+
+      optional :int32, :baseVersionCode, 1
+      optional :string, :baseSignature, 2
+      optional :string, :downloadUrl, 3
+      optional :int32, :patchFormat, 4
+      optional :int64, :maxPatchSize, 5
     end
 
-    repeated ::PurchaseInfoProto::BillingInstruments::BillingInstrument, :billinginstrument, 4, :group => true
-    optional :string, :defaultBillingInstrumentId, 8
-  end
+    class AppFileMetadata < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AppFileMetadata"
 
-  optional :string, :transactionId, 1
-  optional ::PurchaseCartInfoProto, :cartInfo, 2
-  optional ::PurchaseInfoProto::BillingInstruments, :billinginstruments, 3, :group => true
-  repeated :int32, :errorInputFields, 9
-  optional :string, :refundPolicy, 10
-  optional :bool, :userCanAddGdd, 12
-  repeated :int32, :eligibleInstrumentTypes, 13
-  optional :string, :orderId, 15
-end
+      optional :int32, :fileType, 1
+      optional :int32, :versionCode, 2
+      optional :int64, :size, 3
+      optional :string, :downloadUrl, 4
+    end
 
-class PurchaseMetadataRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchaseMetadataRequestProto"
+    class EncryptionParams < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.EncryptionParams"
 
-  optional :bool, :deprecatedRetrieveBillingCountries, 1
-  optional :int32, :billingInstrumentType, 2
-end
+      optional :int32, :version, 1
+      optional :string, :encryptionKey, 2
+      optional :string, :hmacKey, 3
+    end
 
-class PurchaseMetadataResponseProto < ::ProtocolBuffers::Message
-  # forward declarations
-  class Countries < ::ProtocolBuffers::Message; end
+    class HttpCookie < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.HttpCookie"
 
-  set_fully_qualified_name "PurchaseMetadataResponseProto"
+      optional :string, :name, 1
+      optional :string, :value, 2
+    end
 
-  # nested messages
-  class Countries < ::ProtocolBuffers::Message
-    # forward declarations
-    class Country < ::ProtocolBuffers::Message; end
+    class Address < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Address"
 
-    set_fully_qualified_name "PurchaseMetadataResponseProto.Countries"
+      optional :string, :name, 1
+      optional :string, :addressLine1, 2
+      optional :string, :addressLine2, 3
+      optional :string, :city, 4
+      optional :string, :state, 5
+      optional :string, :postalCode, 6
+      optional :string, :postalCountry, 7
+      optional :string, :dependentLocality, 8
+      optional :string, :sortingCode, 9
+      optional :string, :languageCode, 10
+      optional :string, :phoneNumber, 11
+      optional :bool, :isReduced, 12
+      optional :string, :firstName, 13
+      optional :string, :lastName, 14
+      optional :string, :email, 15
+    end
 
-    # nested messages
-    class Country < ::ProtocolBuffers::Message
+    class BookAuthor < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BookAuthor"
+
+      optional :string, :name, 1
+      optional :string, :deprecatedQuery, 2
+      optional ::ApkDownloader::ProtocolBuffers::Docid, :docid, 3
+    end
+
+    class BookDetails < ::ProtocolBuffers::Message
       # forward declarations
-      class InstrumentAddressSpec < ::ProtocolBuffers::Message; end
+      class Identifier < ::ProtocolBuffers::Message; end
 
-      set_fully_qualified_name "PurchaseMetadataResponseProto.Countries.Country"
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BookDetails"
 
       # nested messages
-      class InstrumentAddressSpec < ::ProtocolBuffers::Message
-        set_fully_qualified_name "PurchaseMetadataResponseProto.Countries.Country.InstrumentAddressSpec"
+      class Identifier < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BookDetails.Identifier"
 
-        optional :int32, :instrumentFamily, 8
-        optional ::BillingAddressSpec, :billingAddressSpec, 9
+        optional :int32, :type, 19
+        optional :string, :identifier, 20
       end
 
-      optional :string, :countryCode, 3
-      optional :string, :countryName, 4
-      optional ::PaypalCountryInfoProto, :paypalCountryInfo, 5
-      optional :bool, :allowsReducedBillingAddress, 6
-      repeated ::PurchaseMetadataResponseProto::Countries::Country::InstrumentAddressSpec, :instrumentaddressspec, 7, :group => true
+      repeated ::ApkDownloader::ProtocolBuffers::BookSubject, :subject, 3
+      optional :string, :publisher, 4
+      optional :string, :publicationDate, 5
+      optional :string, :isbn, 6
+      optional :int32, :numberOfPages, 7
+      optional :string, :subtitle, 8
+      repeated ::ApkDownloader::ProtocolBuffers::BookAuthor, :author, 9
+      optional :string, :readerUrl, 10
+      optional :string, :downloadEpubUrl, 11
+      optional :string, :downloadPdfUrl, 12
+      optional :string, :acsEpubTokenUrl, 13
+      optional :string, :acsPdfTokenUrl, 14
+      optional :bool, :epubAvailable, 15
+      optional :bool, :pdfAvailable, 16
+      optional :string, :aboutTheAuthor, 17
+      repeated ::ApkDownloader::ProtocolBuffers::BookDetails::Identifier, :identifier, 18, :group => true
     end
 
-    repeated ::PurchaseMetadataResponseProto::Countries::Country, :country, 2, :group => true
+    class BookSubject < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BookSubject"
+
+      optional :string, :name, 1
+      optional :string, :query, 2
+      optional :string, :subjectId, 3
+    end
+
+    class BrowseLink < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BrowseLink"
+
+      optional :string, :name, 1
+      optional :string, :dataUrl, 3
+    end
+
+    class BrowseResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BrowseResponse"
+
+      optional :string, :contentsUrl, 1
+      optional :string, :promoUrl, 2
+      repeated ::ApkDownloader::ProtocolBuffers::BrowseLink, :category, 3
+      repeated ::ApkDownloader::ProtocolBuffers::BrowseLink, :breadcrumb, 4
+    end
+
+    class AddressChallenge < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AddressChallenge"
+
+      optional :string, :responseAddressParam, 1
+      optional :string, :responseCheckboxesParam, 2
+      optional :string, :title, 3
+      optional :string, :descriptionHtml, 4
+      repeated ::ApkDownloader::ProtocolBuffers::FormCheckbox, :checkbox, 5
+      optional ::ApkDownloader::ProtocolBuffers::Address, :address, 6
+      repeated ::ApkDownloader::ProtocolBuffers::InputValidationError, :errorInputField, 7
+      optional :string, :errorHtml, 8
+      repeated :int32, :requiredField, 9
+    end
+
+    class AuthenticationChallenge < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AuthenticationChallenge"
+
+      optional :int32, :authenticationType, 1
+      optional :string, :responseAuthenticationTypeParam, 2
+      optional :string, :responseRetryCountParam, 3
+      optional :string, :pinHeaderText, 4
+      optional :string, :pinDescriptionTextHtml, 5
+      optional :string, :gaiaHeaderText, 6
+      optional :string, :gaiaDescriptionTextHtml, 7
+    end
+
+    class BuyResponse < ::ProtocolBuffers::Message
+      # forward declarations
+      class CheckoutInfo < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BuyResponse"
+
+      # nested messages
+      class CheckoutInfo < ::ProtocolBuffers::Message
+        # forward declarations
+        class CheckoutOption < ::ProtocolBuffers::Message; end
+
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BuyResponse.CheckoutInfo"
+
+        # nested messages
+        class CheckoutOption < ::ProtocolBuffers::Message
+          set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BuyResponse.CheckoutInfo.CheckoutOption"
+
+          optional :string, :formOfPayment, 6
+          optional :string, :encodedAdjustedCart, 7
+          optional :string, :instrumentId, 15
+          repeated ::ApkDownloader::ProtocolBuffers::LineItem, :item, 16
+          repeated ::ApkDownloader::ProtocolBuffers::LineItem, :subItem, 17
+          optional ::ApkDownloader::ProtocolBuffers::LineItem, :total, 18
+          repeated :string, :footerHtml, 19
+          optional :int32, :instrumentFamily, 29
+          repeated :int32, :deprecatedInstrumentInapplicableReason, 30
+          optional :bool, :selectedInstrument, 32
+          optional ::ApkDownloader::ProtocolBuffers::LineItem, :summary, 33
+          repeated :string, :footnoteHtml, 35
+          optional ::ApkDownloader::ProtocolBuffers::Instrument, :instrument, 43
+          optional :string, :purchaseCookie, 45
+          repeated :string, :disabledReason, 48
+        end
+
+        optional ::ApkDownloader::ProtocolBuffers::LineItem, :item, 3
+        repeated ::ApkDownloader::ProtocolBuffers::LineItem, :subItem, 4
+        repeated ::ApkDownloader::ProtocolBuffers::BuyResponse::CheckoutInfo::CheckoutOption, :checkoutoption, 5, :group => true
+        optional :string, :deprecatedCheckoutUrl, 10
+        optional :string, :addInstrumentUrl, 11
+        repeated :string, :footerHtml, 20
+        repeated :int32, :eligibleInstrumentFamily, 31
+        repeated :string, :footnoteHtml, 36
+        repeated ::ApkDownloader::ProtocolBuffers::Instrument, :eligibleInstrument, 44
+      end
+
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseNotificationResponse, :purchaseResponse, 1
+      optional ::ApkDownloader::ProtocolBuffers::BuyResponse::CheckoutInfo, :checkoutinfo, 2, :group => true
+      optional :string, :continueViaUrl, 8
+      optional :string, :purchaseStatusUrl, 9
+      optional :string, :checkoutServiceId, 12
+      optional :bool, :checkoutTokenRequired, 13
+      optional :string, :baseCheckoutUrl, 14
+      repeated :string, :tosCheckboxHtml, 37
+      optional :int32, :iabPermissionError, 38
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseStatusResponse, :purchaseStatusResponse, 39
+      optional :string, :purchaseCookie, 46
+      optional ::ApkDownloader::ProtocolBuffers::Challenge, :challenge, 49
+    end
+
+    class Challenge < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Challenge"
+
+      optional ::ApkDownloader::ProtocolBuffers::AddressChallenge, :addressChallenge, 1
+      optional ::ApkDownloader::ProtocolBuffers::AuthenticationChallenge, :authenticationChallenge, 2
+    end
+
+    class FormCheckbox < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.FormCheckbox"
+
+      optional :string, :description, 1
+      optional :bool, :checked, 2
+      optional :bool, :required, 3
+    end
+
+    class LineItem < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.LineItem"
+
+      optional :string, :name, 1
+      optional :string, :description, 2
+      optional ::ApkDownloader::ProtocolBuffers::Offer, :offer, 3
+      optional ::ApkDownloader::ProtocolBuffers::Money, :amount, 4
+    end
+
+    class Money < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Money"
+
+      optional :int64, :micros, 1
+      optional :string, :currencyCode, 2
+      optional :string, :formattedAmount, 3
+    end
+
+    class PurchaseNotificationResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseNotificationResponse"
+
+      optional :int32, :status, 1
+      optional ::ApkDownloader::ProtocolBuffers::DebugInfo, :debugInfo, 2
+      optional :string, :localizedErrorMessage, 3
+      optional :string, :purchaseId, 4
+    end
+
+    class PurchaseStatusResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseStatusResponse"
+
+      optional :int32, :status, 1
+      optional :string, :statusMsg, 2
+      optional :string, :statusTitle, 3
+      optional :string, :briefMessage, 4
+      optional :string, :infoUrl, 5
+      optional ::ApkDownloader::ProtocolBuffers::LibraryUpdate, :libraryUpdate, 6
+      optional ::ApkDownloader::ProtocolBuffers::Instrument, :rejectedInstrument, 7
+      optional ::ApkDownloader::ProtocolBuffers::AndroidAppDeliveryData, :appDeliveryData, 8
+    end
+
+    class CheckInstrumentResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CheckInstrumentResponse"
+
+      optional :bool, :userHasValidInstrument, 1
+      optional :bool, :checkoutTokenRequired, 2
+      repeated ::ApkDownloader::ProtocolBuffers::Instrument, :instrument, 4
+      repeated ::ApkDownloader::ProtocolBuffers::Instrument, :eligibleInstrument, 5
+    end
+
+    class UpdateInstrumentRequest < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.UpdateInstrumentRequest"
+
+      optional ::ApkDownloader::ProtocolBuffers::Instrument, :instrument, 1
+      optional :string, :checkoutToken, 2
+    end
+
+    class UpdateInstrumentResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.UpdateInstrumentResponse"
+
+      optional :int32, :result, 1
+      optional :string, :instrumentId, 2
+      optional :string, :userMessageHtml, 3
+      repeated ::ApkDownloader::ProtocolBuffers::InputValidationError, :errorInputField, 4
+      optional :bool, :checkoutTokenRequired, 5
+      optional ::ApkDownloader::ProtocolBuffers::RedeemedPromoOffer, :redeemedOffer, 6
+    end
+
+    class InitiateAssociationResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.InitiateAssociationResponse"
+
+      optional :string, :userToken, 1
+    end
+
+    class VerifyAssociationResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.VerifyAssociationResponse"
+
+      optional :int32, :status, 1
+      optional ::ApkDownloader::ProtocolBuffers::Address, :billingAddress, 2
+      optional ::ApkDownloader::ProtocolBuffers::CarrierTos, :carrierTos, 3
+    end
+
+    class AddCreditCardPromoOffer < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AddCreditCardPromoOffer"
+
+      optional :string, :headerText, 1
+      optional :string, :descriptionHtml, 2
+      optional ::ApkDownloader::ProtocolBuffers::Image, :image, 3
+      optional :string, :introductoryTextHtml, 4
+      optional :string, :offerTitle, 5
+      optional :string, :noActionDescription, 6
+      optional :string, :termsAndConditionsHtml, 7
+    end
+
+    class AvailablePromoOffer < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AvailablePromoOffer"
+
+      optional ::ApkDownloader::ProtocolBuffers::AddCreditCardPromoOffer, :addCreditCardOffer, 1
+    end
+
+    class CheckPromoOfferResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CheckPromoOfferResponse"
+
+      repeated ::ApkDownloader::ProtocolBuffers::AvailablePromoOffer, :availableOffer, 1
+      optional ::ApkDownloader::ProtocolBuffers::RedeemedPromoOffer, :redeemedOffer, 2
+      optional :bool, :checkoutTokenRequired, 3
+    end
+
+    class RedeemedPromoOffer < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RedeemedPromoOffer"
+
+      optional :string, :headerText, 1
+      optional :string, :descriptionHtml, 2
+      optional ::ApkDownloader::ProtocolBuffers::Image, :image, 3
+    end
+
+    class Docid < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Docid"
+
+      optional :string, :backendDocid, 1
+      optional :int32, :type, 2
+      optional :int32, :backend, 3
+    end
+
+    class Install < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Install"
+
+      optional :fixed64, :androidId, 1
+      optional :int32, :version, 2
+      optional :bool, :bundled, 3
+    end
+
+    class Offer < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Offer"
+
+      optional :int64, :micros, 1
+      optional :string, :currencyCode, 2
+      optional :string, :formattedAmount, 3
+      repeated ::ApkDownloader::ProtocolBuffers::Offer, :convertedPrice, 4
+      optional :bool, :checkoutFlowRequired, 5
+      optional :int64, :fullPriceMicros, 6
+      optional :string, :formattedFullAmount, 7
+      optional :int32, :offerType, 8
+      optional ::ApkDownloader::ProtocolBuffers::RentalTerms, :rentalTerms, 9
+      optional :int64, :onSaleDate, 10
+      repeated :string, :promotionLabel, 11
+      optional ::ApkDownloader::ProtocolBuffers::SubscriptionTerms, :subscriptionTerms, 12
+      optional :string, :formattedName, 13
+      optional :string, :formattedDescription, 14
+    end
+
+    class OwnershipInfo < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.OwnershipInfo"
+
+      optional :int64, :initiationTimestampMsec, 1
+      optional :int64, :validUntilTimestampMsec, 2
+      optional :bool, :autoRenewing, 3
+      optional :int64, :refundTimeoutTimestampMsec, 4
+      optional :int64, :postDeliveryRefundWindowMsec, 5
+    end
+
+    class RentalTerms < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RentalTerms"
+
+      optional :int32, :grantPeriodSeconds, 1
+      optional :int32, :activatePeriodSeconds, 2
+    end
+
+    class SubscriptionTerms < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.SubscriptionTerms"
+
+      optional ::ApkDownloader::ProtocolBuffers::TimePeriod, :recurringPeriod, 1
+      optional ::ApkDownloader::ProtocolBuffers::TimePeriod, :trialPeriod, 2
+    end
+
+    class TimePeriod < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.TimePeriod"
+
+      optional :int32, :unit, 1
+      optional :int32, :count, 2
+    end
+
+    class BillingAddressSpec < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BillingAddressSpec"
+
+      optional :int32, :billingAddressType, 1
+      repeated :int32, :requiredField, 2
+    end
+
+    class CarrierBillingCredentials < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CarrierBillingCredentials"
+
+      optional :string, :value, 1
+      optional :int64, :expiration, 2
+    end
+
+    class CarrierBillingInstrument < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CarrierBillingInstrument"
+
+      optional :string, :instrumentKey, 1
+      optional :string, :accountType, 2
+      optional :string, :currencyCode, 3
+      optional :int64, :transactionLimit, 4
+      optional :string, :subscriberIdentifier, 5
+      optional ::ApkDownloader::ProtocolBuffers::EncryptedSubscriberInfo, :encryptedSubscriberInfo, 6
+      optional ::ApkDownloader::ProtocolBuffers::CarrierBillingCredentials, :credentials, 7
+      optional ::ApkDownloader::ProtocolBuffers::CarrierTos, :acceptedCarrierTos, 8
+    end
+
+    class CarrierBillingInstrumentStatus < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CarrierBillingInstrumentStatus"
+
+      optional ::ApkDownloader::ProtocolBuffers::CarrierTos, :carrierTos, 1
+      optional :bool, :associationRequired, 2
+      optional :bool, :passwordRequired, 3
+      optional ::ApkDownloader::ProtocolBuffers::PasswordPrompt, :carrierPasswordPrompt, 4
+      optional :int32, :apiVersion, 5
+      optional :string, :name, 6
+    end
+
+    class CarrierTos < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CarrierTos"
+
+      optional ::ApkDownloader::ProtocolBuffers::CarrierTosEntry, :dcbTos, 1
+      optional ::ApkDownloader::ProtocolBuffers::CarrierTosEntry, :piiTos, 2
+      optional :bool, :needsDcbTosAcceptance, 3
+      optional :bool, :needsPiiTosAcceptance, 4
+    end
+
+    class CarrierTosEntry < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CarrierTosEntry"
+
+      optional :string, :url, 1
+      optional :string, :version, 2
+    end
+
+    class CreditCardInstrument < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CreditCardInstrument"
+
+      optional :int32, :type, 1
+      optional :string, :escrowHandle, 2
+      optional :string, :lastDigits, 3
+      optional :int32, :expirationMonth, 4
+      optional :int32, :expirationYear, 5
+      repeated ::ApkDownloader::ProtocolBuffers::EfeParam, :escrowEfeParam, 6
+    end
+
+    class EfeParam < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.EfeParam"
+
+      optional :int32, :key, 1
+      optional :string, :value, 2
+    end
+
+    class InputValidationError < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.InputValidationError"
+
+      optional :int32, :inputField, 1
+      optional :string, :errorMessage, 2
+    end
+
+    class Instrument < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Instrument"
+
+      optional :string, :instrumentId, 1
+      optional ::ApkDownloader::ProtocolBuffers::Address, :billingAddress, 2
+      optional ::ApkDownloader::ProtocolBuffers::CreditCardInstrument, :creditCard, 3
+      optional ::ApkDownloader::ProtocolBuffers::CarrierBillingInstrument, :carrierBilling, 4
+      optional ::ApkDownloader::ProtocolBuffers::BillingAddressSpec, :billingAddressSpec, 5
+      optional :int32, :instrumentFamily, 6
+      optional ::ApkDownloader::ProtocolBuffers::CarrierBillingInstrumentStatus, :carrierBillingStatus, 7
+      optional :string, :displayTitle, 8
+    end
+
+    class PasswordPrompt < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PasswordPrompt"
+
+      optional :string, :prompt, 1
+      optional :string, :forgotPasswordUrl, 2
+    end
+
+    class ContainerMetadata < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ContainerMetadata"
+
+      optional :string, :browseUrl, 1
+      optional :string, :nextPageUrl, 2
+      optional :double, :relevance, 3
+      optional :int64, :estimatedResults, 4
+      optional :string, :analyticsCookie, 5
+      optional :bool, :ordered, 6
+    end
+
+    class FlagContentResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.FlagContentResponse"
+
+    end
+
+    class DebugInfo < ::ProtocolBuffers::Message
+      # forward declarations
+      class Timing < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DebugInfo"
+
+      # nested messages
+      class Timing < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DebugInfo.Timing"
+
+        optional :string, :name, 3
+        optional :double, :timeInMs, 4
+      end
+
+      repeated :string, :message, 1
+      repeated ::ApkDownloader::ProtocolBuffers::DebugInfo::Timing, :timing, 2, :group => true
+    end
+
+    class DeliveryResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DeliveryResponse"
+
+      optional :int32, :status, 1
+      optional ::ApkDownloader::ProtocolBuffers::AndroidAppDeliveryData, :appDeliveryData, 2
+    end
+
+    class BulkDetailsEntry < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BulkDetailsEntry"
+
+      optional ::ApkDownloader::ProtocolBuffers::DocV2, :doc, 1
+    end
+
+    class BulkDetailsRequest < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BulkDetailsRequest"
+
+      repeated :string, :docid, 1
+      optional :bool, :includeChildDocs, 2
+    end
+
+    class BulkDetailsResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BulkDetailsResponse"
+
+      repeated ::ApkDownloader::ProtocolBuffers::BulkDetailsEntry, :entry, 1
+    end
+
+    class DetailsResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DetailsResponse"
+
+      optional ::ApkDownloader::ProtocolBuffers::DocV1, :docV1, 1
+      optional :string, :analyticsCookie, 2
+      optional ::ApkDownloader::ProtocolBuffers::Review, :userReview, 3
+      optional ::ApkDownloader::ProtocolBuffers::DocV2, :docV2, 4
+      optional :string, :footerHtml, 5
+    end
+
+    class DeviceConfigurationProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DeviceConfigurationProto"
+
+      optional :int32, :touchScreen, 1
+      optional :int32, :keyboard, 2
+      optional :int32, :navigation, 3
+      optional :int32, :screenLayout, 4
+      optional :bool, :hasHardKeyboard, 5
+      optional :bool, :hasFiveWayNavigation, 6
+      optional :int32, :screenDensity, 7
+      optional :int32, :glEsVersion, 8
+      repeated :string, :systemSharedLibrary, 9
+      repeated :string, :systemAvailableFeature, 10
+      repeated :string, :nativePlatform, 11
+      optional :int32, :screenWidth, 12
+      optional :int32, :screenHeight, 13
+      repeated :string, :systemSupportedLocale, 14
+      repeated :string, :glExtension, 15
+      optional :int32, :deviceClass, 16
+      optional :int32, :maxApkDownloadSizeMb, 17
+    end
+
+    class Document < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Document"
+
+      optional ::ApkDownloader::ProtocolBuffers::Docid, :docid, 1
+      optional ::ApkDownloader::ProtocolBuffers::Docid, :fetchDocid, 2
+      optional ::ApkDownloader::ProtocolBuffers::Docid, :sampleDocid, 3
+      optional :string, :title, 4
+      optional :string, :url, 5
+      repeated :string, :snippet, 6
+      optional ::ApkDownloader::ProtocolBuffers::Offer, :priceDeprecated, 7
+      optional ::ApkDownloader::ProtocolBuffers::Availability, :availability, 9
+      repeated ::ApkDownloader::ProtocolBuffers::Image, :image, 10
+      repeated ::ApkDownloader::ProtocolBuffers::Document, :child, 11
+      optional ::ApkDownloader::ProtocolBuffers::AggregateRating, :aggregateRating, 13
+      repeated ::ApkDownloader::ProtocolBuffers::Offer, :offer, 14
+      repeated ::ApkDownloader::ProtocolBuffers::TranslatedText, :translatedSnippet, 15
+      repeated ::ApkDownloader::ProtocolBuffers::DocumentVariant, :documentVariant, 16
+      repeated :string, :categoryId, 17
+      repeated ::ApkDownloader::ProtocolBuffers::Document, :decoration, 18
+      repeated ::ApkDownloader::ProtocolBuffers::Document, :parent, 19
+      optional :string, :privacyPolicyUrl, 20
+    end
+
+    class DocumentVariant < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DocumentVariant"
+
+      optional :int32, :variationType, 1
+      optional ::ApkDownloader::ProtocolBuffers::Rule, :rule, 2
+      optional :string, :title, 3
+      repeated :string, :snippet, 4
+      optional :string, :recentChanges, 5
+      repeated ::ApkDownloader::ProtocolBuffers::TranslatedText, :autoTranslation, 6
+      repeated ::ApkDownloader::ProtocolBuffers::Offer, :offer, 7
+      optional :int64, :channelId, 9
+      repeated ::ApkDownloader::ProtocolBuffers::Document, :child, 10
+      repeated ::ApkDownloader::ProtocolBuffers::Document, :decoration, 11
+    end
+
+    class Image < ::ProtocolBuffers::Message
+      # forward declarations
+      class Dimension < ::ProtocolBuffers::Message; end
+      class Citation < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Image"
+
+      # nested messages
+      class Dimension < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Image.Dimension"
+
+        optional :int32, :width, 3
+        optional :int32, :height, 4
+      end
+
+      class Citation < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Image.Citation"
+
+        optional :string, :titleLocalized, 11
+        optional :string, :url, 12
+      end
+
+      optional :int32, :imageType, 1
+      optional ::ApkDownloader::ProtocolBuffers::Image::Dimension, :dimension, 2, :group => true
+      optional :string, :imageUrl, 5
+      optional :string, :altTextLocalized, 6
+      optional :string, :secureUrl, 7
+      optional :int32, :positionInSequence, 8
+      optional :bool, :supportsFifeUrlOptions, 9
+      optional ::ApkDownloader::ProtocolBuffers::Image::Citation, :citation, 10, :group => true
+    end
+
+    class TranslatedText < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.TranslatedText"
+
+      optional :string, :text, 1
+      optional :string, :sourceLocale, 2
+      optional :string, :targetLocale, 3
+    end
+
+    class Badge < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Badge"
+
+      optional :string, :title, 1
+      repeated ::ApkDownloader::ProtocolBuffers::Image, :image, 2
+      optional :string, :browseUrl, 3
+    end
+
+    class ContainerWithBanner < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ContainerWithBanner"
+
+      optional :string, :colorThemeArgb, 1
+    end
+
+    class DealOfTheDay < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DealOfTheDay"
+
+      optional :string, :featuredHeader, 1
+      optional :string, :colorThemeArgb, 2
+    end
+
+    class EditorialSeriesContainer < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.EditorialSeriesContainer"
+
+      optional :string, :seriesTitle, 1
+      optional :string, :seriesSubtitle, 2
+      optional :string, :episodeTitle, 3
+      optional :string, :episodeSubtitle, 4
+      optional :string, :colorThemeArgb, 5
+    end
+
+    class Link < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Link"
+
+      optional :string, :uri, 1
+    end
+
+    class PlusOneData < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PlusOneData"
+
+      optional :bool, :setByUser, 1
+      optional :int64, :total, 2
+      optional :int64, :circlesTotal, 3
+      repeated ::ApkDownloader::ProtocolBuffers::PlusPerson, :circlesPeople, 4
+    end
+
+    class PlusPerson < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PlusPerson"
+
+      optional :string, :displayName, 2
+      optional :string, :profileImageUrl, 4
+    end
+
+    class PromotedDoc < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PromotedDoc"
+
+      optional :string, :title, 1
+      optional :string, :subtitle, 2
+      repeated ::ApkDownloader::ProtocolBuffers::Image, :image, 3
+      optional :string, :descriptionHtml, 4
+      optional :string, :detailsUrl, 5
+    end
+
+    class Reason < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Reason"
+
+      optional :string, :briefReason, 1
+      optional :string, :detailedReason, 2
+      optional :string, :uniqueId, 3
+    end
+
+    class SectionMetadata < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.SectionMetadata"
+
+      optional :string, :header, 1
+      optional :string, :listUrl, 2
+      optional :string, :browseUrl, 3
+      optional :string, :descriptionHtml, 4
+    end
+
+    class SeriesAntenna < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.SeriesAntenna"
+
+      optional :string, :seriesTitle, 1
+      optional :string, :seriesSubtitle, 2
+      optional :string, :episodeTitle, 3
+      optional :string, :episodeSubtitle, 4
+      optional :string, :colorThemeArgb, 5
+      optional ::ApkDownloader::ProtocolBuffers::SectionMetadata, :sectionTracks, 6
+      optional ::ApkDownloader::ProtocolBuffers::SectionMetadata, :sectionAlbums, 7
+    end
+
+    class Template < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Template"
+
+      optional ::ApkDownloader::ProtocolBuffers::SeriesAntenna, :seriesAntenna, 1
+      optional ::ApkDownloader::ProtocolBuffers::TileTemplate, :tileGraphic2X1, 2
+      optional ::ApkDownloader::ProtocolBuffers::TileTemplate, :tileGraphic4X2, 3
+      optional ::ApkDownloader::ProtocolBuffers::TileTemplate, :tileGraphicColoredTitle2X1, 4
+      optional ::ApkDownloader::ProtocolBuffers::TileTemplate, :tileGraphicUpperLeftTitle2X1, 5
+      optional ::ApkDownloader::ProtocolBuffers::TileTemplate, :tileDetailsReflectedGraphic2X2, 6
+      optional ::ApkDownloader::ProtocolBuffers::TileTemplate, :tileFourBlock4X2, 7
+      optional ::ApkDownloader::ProtocolBuffers::ContainerWithBanner, :containerWithBanner, 8
+      optional ::ApkDownloader::ProtocolBuffers::DealOfTheDay, :dealOfTheDay, 9
+      optional ::ApkDownloader::ProtocolBuffers::TileTemplate, :tileGraphicColoredTitle4X2, 10
+      optional ::ApkDownloader::ProtocolBuffers::EditorialSeriesContainer, :editorialSeriesContainer, 11
+    end
+
+    class TileTemplate < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.TileTemplate"
+
+      optional :string, :colorThemeArgb, 1
+      optional :string, :colorTextArgb, 2
+    end
+
+    class Warning < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Warning"
+
+      optional :string, :localizedMessage, 1
+    end
+
+    class AlbumDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AlbumDetails"
+
+      optional :string, :name, 1
+      optional ::ApkDownloader::ProtocolBuffers::MusicDetails, :details, 2
+      optional ::ApkDownloader::ProtocolBuffers::ArtistDetails, :displayArtist, 3
+    end
+
+    class AppDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AppDetails"
+
+      optional :string, :developerName, 1
+      optional :int32, :majorVersionNumber, 2
+      optional :int32, :versionCode, 3
+      optional :string, :versionString, 4
+      optional :string, :title, 5
+      repeated :string, :appCategory, 7
+      optional :int32, :contentRating, 8
+      optional :int64, :installationSize, 9
+      repeated :string, :permission, 10
+      optional :string, :developerEmail, 11
+      optional :string, :developerWebsite, 12
+      optional :string, :numDownloads, 13
+      optional :string, :packageName, 14
+      optional :string, :recentChangesHtml, 15
+      optional :string, :uploadDate, 16
+      repeated ::ApkDownloader::ProtocolBuffers::FileMetadata, :file, 17
+      optional :string, :appType, 18
+    end
+
+    class ArtistDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ArtistDetails"
+
+      optional :string, :detailsUrl, 1
+      optional :string, :name, 2
+      optional ::ApkDownloader::ProtocolBuffers::ArtistExternalLinks, :externalLinks, 3
+    end
+
+    class ArtistExternalLinks < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ArtistExternalLinks"
+
+      repeated :string, :websiteUrl, 1
+      optional :string, :googlePlusProfileUrl, 2
+      optional :string, :youtubeChannelUrl, 3
+    end
+
+    class DocumentDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DocumentDetails"
+
+      optional ::ApkDownloader::ProtocolBuffers::AppDetails, :appDetails, 1
+      optional ::ApkDownloader::ProtocolBuffers::AlbumDetails, :albumDetails, 2
+      optional ::ApkDownloader::ProtocolBuffers::ArtistDetails, :artistDetails, 3
+      optional ::ApkDownloader::ProtocolBuffers::SongDetails, :songDetails, 4
+      optional ::ApkDownloader::ProtocolBuffers::BookDetails, :bookDetails, 5
+      optional ::ApkDownloader::ProtocolBuffers::VideoDetails, :videoDetails, 6
+      optional ::ApkDownloader::ProtocolBuffers::SubscriptionDetails, :subscriptionDetails, 7
+      optional ::ApkDownloader::ProtocolBuffers::MagazineDetails, :magazineDetails, 8
+      optional ::ApkDownloader::ProtocolBuffers::TvShowDetails, :tvShowDetails, 9
+      optional ::ApkDownloader::ProtocolBuffers::TvSeasonDetails, :tvSeasonDetails, 10
+      optional ::ApkDownloader::ProtocolBuffers::TvEpisodeDetails, :tvEpisodeDetails, 11
+    end
+
+    class FileMetadata < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.FileMetadata"
+
+      optional :int32, :fileType, 1
+      optional :int32, :versionCode, 2
+      optional :int64, :size, 3
+    end
+
+    class MagazineDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.MagazineDetails"
+
+      optional :string, :parentDetailsUrl, 1
+      optional :string, :deviceAvailabilityDescriptionHtml, 2
+      optional :string, :psvDescription, 3
+      optional :string, :deliveryFrequencyDescription, 4
+    end
+
+    class MusicDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.MusicDetails"
+
+      optional :int32, :censoring, 1
+      optional :int32, :durationSec, 2
+      optional :string, :originalReleaseDate, 3
+      optional :string, :label, 4
+      repeated ::ApkDownloader::ProtocolBuffers::ArtistDetails, :artist, 5
+      repeated :string, :genre, 6
+      optional :string, :releaseDate, 7
+      repeated :int32, :releaseType, 8
+    end
+
+    class SongDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.SongDetails"
+
+      optional :string, :name, 1
+      optional ::ApkDownloader::ProtocolBuffers::MusicDetails, :details, 2
+      optional :string, :albumName, 3
+      optional :int32, :trackNumber, 4
+      optional :string, :previewUrl, 5
+      optional ::ApkDownloader::ProtocolBuffers::ArtistDetails, :displayArtist, 6
+    end
+
+    class SubscriptionDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.SubscriptionDetails"
+
+      optional :int32, :subscriptionPeriod, 1
+    end
+
+    class Trailer < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Trailer"
+
+      optional :string, :trailerId, 1
+      optional :string, :title, 2
+      optional :string, :thumbnailUrl, 3
+      optional :string, :watchUrl, 4
+      optional :string, :duration, 5
+    end
+
+    class TvEpisodeDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.TvEpisodeDetails"
+
+      optional :string, :parentDetailsUrl, 1
+      optional :int32, :episodeIndex, 2
+      optional :string, :releaseDate, 3
+    end
+
+    class TvSeasonDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.TvSeasonDetails"
+
+      optional :string, :parentDetailsUrl, 1
+      optional :int32, :seasonIndex, 2
+      optional :string, :releaseDate, 3
+      optional :string, :broadcaster, 4
+    end
+
+    class TvShowDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.TvShowDetails"
+
+      optional :int32, :seasonCount, 1
+      optional :int32, :startYear, 2
+      optional :int32, :endYear, 3
+      optional :string, :broadcaster, 4
+    end
+
+    class VideoCredit < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.VideoCredit"
+
+      optional :int32, :creditType, 1
+      optional :string, :credit, 2
+      repeated :string, :name, 3
+    end
+
+    class VideoDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.VideoDetails"
+
+      repeated ::ApkDownloader::ProtocolBuffers::VideoCredit, :credit, 1
+      optional :string, :duration, 2
+      optional :string, :releaseDate, 3
+      optional :string, :contentRating, 4
+      optional :int64, :likes, 5
+      optional :int64, :dislikes, 6
+      repeated :string, :genre, 7
+      repeated ::ApkDownloader::ProtocolBuffers::Trailer, :trailer, 8
+      repeated ::ApkDownloader::ProtocolBuffers::VideoRentalTerm, :rentalTerm, 9
+    end
+
+    class VideoRentalTerm < ::ProtocolBuffers::Message
+      # forward declarations
+      class Term < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.VideoRentalTerm"
+
+      # nested messages
+      class Term < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.VideoRentalTerm.Term"
+
+        optional :string, :header, 5
+        optional :string, :body, 6
+      end
+
+      optional :int32, :offerType, 1
+      optional :string, :offerAbbreviation, 2
+      optional :string, :rentalHeader, 3
+      repeated ::ApkDownloader::ProtocolBuffers::VideoRentalTerm::Term, :term, 4, :group => true
+    end
+
+    class Bucket < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Bucket"
+
+      repeated ::ApkDownloader::ProtocolBuffers::DocV1, :document, 1
+      optional :bool, :multiCorpus, 2
+      optional :string, :title, 3
+      optional :string, :iconUrl, 4
+      optional :string, :fullContentsUrl, 5
+      optional :double, :relevance, 6
+      optional :int64, :estimatedResults, 7
+      optional :string, :analyticsCookie, 8
+      optional :string, :fullContentsListUrl, 9
+      optional :string, :nextPageUrl, 10
+      optional :bool, :ordered, 11
+    end
+
+    class ListResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ListResponse"
+
+      repeated ::ApkDownloader::ProtocolBuffers::Bucket, :bucket, 1
+      repeated ::ApkDownloader::ProtocolBuffers::DocV2, :doc, 2
+    end
+
+    class DocV1 < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DocV1"
+
+      optional ::ApkDownloader::ProtocolBuffers::Document, :finskyDoc, 1
+      optional :string, :docid, 2
+      optional :string, :detailsUrl, 3
+      optional :string, :reviewsUrl, 4
+      optional :string, :relatedListUrl, 5
+      optional :string, :moreByListUrl, 6
+      optional :string, :shareUrl, 7
+      optional :string, :creator, 8
+      optional ::ApkDownloader::ProtocolBuffers::DocumentDetails, :details, 9
+      optional :string, :descriptionHtml, 10
+      optional :string, :relatedBrowseUrl, 11
+      optional :string, :moreByBrowseUrl, 12
+      optional :string, :relatedHeader, 13
+      optional :string, :moreByHeader, 14
+      optional :string, :title, 15
+      optional ::ApkDownloader::ProtocolBuffers::PlusOneData, :plusOneData, 16
+      optional :string, :warningMessage, 17
+    end
+
+    class Annotations < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Annotations"
+
+      optional ::ApkDownloader::ProtocolBuffers::SectionMetadata, :sectionRelated, 1
+      optional ::ApkDownloader::ProtocolBuffers::SectionMetadata, :sectionMoreBy, 2
+      optional ::ApkDownloader::ProtocolBuffers::PlusOneData, :plusOneData, 3
+      repeated ::ApkDownloader::ProtocolBuffers::Warning, :warning, 4
+      optional ::ApkDownloader::ProtocolBuffers::SectionMetadata, :sectionBodyOfWork, 5
+      optional ::ApkDownloader::ProtocolBuffers::SectionMetadata, :sectionCoreContent, 6
+      optional ::ApkDownloader::ProtocolBuffers::Template, :template, 7
+      repeated ::ApkDownloader::ProtocolBuffers::Badge, :badgeForCreator, 8
+      repeated ::ApkDownloader::ProtocolBuffers::Badge, :badgeForDoc, 9
+      optional ::ApkDownloader::ProtocolBuffers::Link, :link, 10
+      optional ::ApkDownloader::ProtocolBuffers::SectionMetadata, :sectionCrossSell, 11
+      optional ::ApkDownloader::ProtocolBuffers::SectionMetadata, :sectionRelatedDocType, 12
+      repeated ::ApkDownloader::ProtocolBuffers::PromotedDoc, :promotedDoc, 13
+      optional :string, :offerNote, 14
+      repeated ::ApkDownloader::ProtocolBuffers::DocV2, :subscription, 16
+      optional ::ApkDownloader::ProtocolBuffers::Reason, :reason, 17
+      optional :string, :privacyPolicyUrl, 18
+    end
+
+    class DocV2 < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DocV2"
+
+      optional :string, :docid, 1
+      optional :string, :backendDocid, 2
+      optional :int32, :docType, 3
+      optional :int32, :backendId, 4
+      optional :string, :title, 5
+      optional :string, :creator, 6
+      optional :string, :descriptionHtml, 7
+      repeated ::ApkDownloader::ProtocolBuffers::Offer, :offer, 8
+      optional ::ApkDownloader::ProtocolBuffers::Availability, :availability, 9
+      repeated ::ApkDownloader::ProtocolBuffers::Image, :image, 10
+      repeated ::ApkDownloader::ProtocolBuffers::DocV2, :child, 11
+      optional ::ApkDownloader::ProtocolBuffers::ContainerMetadata, :containerMetadata, 12
+      optional ::ApkDownloader::ProtocolBuffers::DocumentDetails, :details, 13
+      optional ::ApkDownloader::ProtocolBuffers::AggregateRating, :aggregateRating, 14
+      optional ::ApkDownloader::ProtocolBuffers::Annotations, :annotations, 15
+      optional :string, :detailsUrl, 16
+      optional :string, :shareUrl, 17
+      optional :string, :reviewsUrl, 18
+      optional :string, :backendUrl, 19
+      optional :string, :purchaseDetailsUrl, 20
+      optional :bool, :detailsReusable, 21
+      optional :string, :subtitle, 22
+    end
+
+    class EncryptedSubscriberInfo < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.EncryptedSubscriberInfo"
+
+      optional :string, :data, 1
+      optional :string, :encryptedKey, 2
+      optional :string, :signature, 3
+      optional :string, :initVector, 4
+      optional :int32, :googleKeyVersion, 5
+      optional :int32, :carrierKeyVersion, 6
+    end
+
+    class Availability < ::ProtocolBuffers::Message
+      # forward declarations
+      class PerDeviceAvailabilityRestriction < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Availability"
+
+      # nested messages
+      class PerDeviceAvailabilityRestriction < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Availability.PerDeviceAvailabilityRestriction"
+
+        optional :fixed64, :androidId, 10
+        optional :int32, :deviceRestriction, 11
+        optional :int64, :channelId, 12
+        optional ::ApkDownloader::ProtocolBuffers::FilterEvaluationInfo, :filterInfo, 15
+      end
+
+      optional :int32, :restriction, 5
+      optional :int32, :offerType, 6
+      optional ::ApkDownloader::ProtocolBuffers::Rule, :rule, 7
+      repeated ::ApkDownloader::ProtocolBuffers::Availability::PerDeviceAvailabilityRestriction, :perdeviceavailabilityrestriction, 9, :group => true
+      optional :bool, :availableIfOwned, 13
+      repeated ::ApkDownloader::ProtocolBuffers::Install, :install, 14
+      optional ::ApkDownloader::ProtocolBuffers::FilterEvaluationInfo, :filterInfo, 16
+      optional ::ApkDownloader::ProtocolBuffers::OwnershipInfo, :ownershipInfo, 17
+    end
+
+    class FilterEvaluationInfo < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.FilterEvaluationInfo"
+
+      repeated ::ApkDownloader::ProtocolBuffers::RuleEvaluation, :ruleEvaluation, 1
+    end
+
+    class Rule < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Rule"
+
+      optional :bool, :negate, 1
+      optional :int32, :operator, 2
+      optional :int32, :key, 3
+      repeated :string, :stringArg, 4
+      repeated :int64, :longArg, 5
+      repeated :double, :doubleArg, 6
+      repeated ::ApkDownloader::ProtocolBuffers::Rule, :subrule, 7
+      optional :int32, :responseCode, 8
+      optional :string, :comment, 9
+      repeated :fixed64, :stringArgHash, 10
+      repeated :int32, :constArg, 11
+    end
+
+    class RuleEvaluation < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RuleEvaluation"
+
+      optional ::ApkDownloader::ProtocolBuffers::Rule, :rule, 1
+      repeated :string, :actualStringValue, 2
+      repeated :int64, :actualLongValue, 3
+      repeated :bool, :actualBoolValue, 4
+      repeated :double, :actualDoubleValue, 5
+    end
+
+    class LibraryAppDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.LibraryAppDetails"
+
+      optional :string, :certificateHash, 2
+      optional :int64, :refundTimeoutTimestampMsec, 3
+      optional :int64, :postDeliveryRefundWindowMsec, 4
+    end
+
+    class LibraryMutation < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.LibraryMutation"
+
+      optional ::ApkDownloader::ProtocolBuffers::Docid, :docid, 1
+      optional :int32, :offerType, 2
+      optional :int64, :documentHash, 3
+      optional :bool, :deleted, 4
+      optional ::ApkDownloader::ProtocolBuffers::LibraryAppDetails, :appDetails, 5
+      optional ::ApkDownloader::ProtocolBuffers::LibrarySubscriptionDetails, :subscriptionDetails, 6
+    end
+
+    class LibrarySubscriptionDetails < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.LibrarySubscriptionDetails"
+
+      optional :int64, :initiationTimestampMsec, 1
+      optional :int64, :validUntilTimestampMsec, 2
+      optional :bool, :autoRenewing, 3
+      optional :int64, :trialUntilTimestampMsec, 4
+    end
+
+    class LibraryUpdate < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.LibraryUpdate"
+
+      optional :int32, :status, 1
+      optional :int32, :corpus, 2
+      optional :bytes, :serverToken, 3
+      repeated ::ApkDownloader::ProtocolBuffers::LibraryMutation, :mutation, 4
+      optional :bool, :hasMore, 5
+      optional :string, :libraryId, 6
+    end
+
+    class ClientLibraryState < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ClientLibraryState"
+
+      optional :int32, :corpus, 1
+      optional :bytes, :serverToken, 2
+      optional :int64, :hashCodeSum, 3
+      optional :int32, :librarySize, 4
+    end
+
+    class LibraryReplicationRequest < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.LibraryReplicationRequest"
+
+      repeated ::ApkDownloader::ProtocolBuffers::ClientLibraryState, :libraryState, 1
+    end
+
+    class LibraryReplicationResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.LibraryReplicationResponse"
+
+      repeated ::ApkDownloader::ProtocolBuffers::LibraryUpdate, :update, 1
+    end
+
+    class ClickLogEvent < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ClickLogEvent"
+
+      optional :int64, :eventTime, 1
+      optional :string, :url, 2
+      optional :string, :listId, 3
+      optional :string, :referrerUrl, 4
+      optional :string, :referrerListId, 5
+    end
+
+    class LogRequest < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.LogRequest"
+
+      repeated ::ApkDownloader::ProtocolBuffers::ClickLogEvent, :clickEvent, 1
+    end
+
+    class LogResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.LogResponse"
+
+    end
+
+    class AndroidAppNotificationData < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AndroidAppNotificationData"
+
+      optional :int32, :versionCode, 1
+      optional :string, :assetId, 2
+    end
+
+    class InAppNotificationData < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.InAppNotificationData"
+
+      optional :string, :checkoutOrderId, 1
+      optional :string, :inAppNotificationId, 2
+    end
+
+    class LibraryDirtyData < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.LibraryDirtyData"
+
+      optional :int32, :backend, 1
+    end
+
+    class Notification < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Notification"
+
+      optional :int32, :notificationType, 1
+      optional :int64, :timestamp, 3
+      optional ::ApkDownloader::ProtocolBuffers::Docid, :docid, 4
+      optional :string, :docTitle, 5
+      optional :string, :userEmail, 6
+      optional ::ApkDownloader::ProtocolBuffers::AndroidAppNotificationData, :appData, 7
+      optional ::ApkDownloader::ProtocolBuffers::AndroidAppDeliveryData, :appDeliveryData, 8
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseRemovalData, :purchaseRemovalData, 9
+      optional ::ApkDownloader::ProtocolBuffers::UserNotificationData, :userNotificationData, 10
+      optional ::ApkDownloader::ProtocolBuffers::InAppNotificationData, :inAppNotificationData, 11
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseDeclinedData, :purchaseDeclinedData, 12
+      optional :string, :notificationId, 13
+      optional ::ApkDownloader::ProtocolBuffers::LibraryUpdate, :libraryUpdate, 14
+      optional ::ApkDownloader::ProtocolBuffers::LibraryDirtyData, :libraryDirtyData, 15
+    end
+
+    class PurchaseDeclinedData < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseDeclinedData"
+
+      optional :int32, :reason, 1
+      optional :bool, :showNotification, 2
+    end
+
+    class PurchaseRemovalData < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseRemovalData"
+
+      optional :bool, :malicious, 1
+    end
+
+    class UserNotificationData < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.UserNotificationData"
+
+      optional :string, :notificationTitle, 1
+      optional :string, :notificationText, 2
+      optional :string, :tickerText, 3
+      optional :string, :dialogTitle, 4
+      optional :string, :dialogText, 5
+    end
+
+    class PlusOneResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PlusOneResponse"
+
+    end
+
+    class RateSuggestedContentResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RateSuggestedContentResponse"
+
+    end
+
+    class AggregateRating < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AggregateRating"
+
+      optional :int32, :type, 1
+      optional :float, :starRating, 2
+      optional :uint64, :ratingsCount, 3
+      optional :uint64, :oneStarRatings, 4
+      optional :uint64, :twoStarRatings, 5
+      optional :uint64, :threeStarRatings, 6
+      optional :uint64, :fourStarRatings, 7
+      optional :uint64, :fiveStarRatings, 8
+      optional :uint64, :thumbsUpCount, 9
+      optional :uint64, :thumbsDownCount, 10
+      optional :uint64, :commentCount, 11
+      optional :double, :bayesianMeanRating, 12
+    end
+
+    class DirectPurchase < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DirectPurchase"
+
+      optional :string, :detailsUrl, 1
+      optional :string, :purchaseDocid, 2
+      optional :string, :parentDocid, 3
+      optional :int32, :offerType, 4
+    end
+
+    class ResolveLinkResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ResolveLinkResponse"
+
+      optional :string, :detailsUrl, 1
+      optional :string, :browseUrl, 2
+      optional :string, :searchUrl, 3
+      optional ::ApkDownloader::ProtocolBuffers::DirectPurchase, :directPurchase, 4
+      optional :string, :homeUrl, 5
+    end
+
+    class Payload < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Payload"
+
+      optional ::ApkDownloader::ProtocolBuffers::ListResponse, :listResponse, 1
+      optional ::ApkDownloader::ProtocolBuffers::DetailsResponse, :detailsResponse, 2
+      optional ::ApkDownloader::ProtocolBuffers::ReviewResponse, :reviewResponse, 3
+      optional ::ApkDownloader::ProtocolBuffers::BuyResponse, :buyResponse, 4
+      optional ::ApkDownloader::ProtocolBuffers::SearchResponse, :searchResponse, 5
+      optional ::ApkDownloader::ProtocolBuffers::TocResponse, :tocResponse, 6
+      optional ::ApkDownloader::ProtocolBuffers::BrowseResponse, :browseResponse, 7
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseStatusResponse, :purchaseStatusResponse, 8
+      optional ::ApkDownloader::ProtocolBuffers::UpdateInstrumentResponse, :updateInstrumentResponse, 9
+      optional ::ApkDownloader::ProtocolBuffers::LogResponse, :logResponse, 10
+      optional ::ApkDownloader::ProtocolBuffers::CheckInstrumentResponse, :checkInstrumentResponse, 11
+      optional ::ApkDownloader::ProtocolBuffers::PlusOneResponse, :plusOneResponse, 12
+      optional ::ApkDownloader::ProtocolBuffers::FlagContentResponse, :flagContentResponse, 13
+      optional ::ApkDownloader::ProtocolBuffers::AckNotificationResponse, :ackNotificationResponse, 14
+      optional ::ApkDownloader::ProtocolBuffers::InitiateAssociationResponse, :initiateAssociationResponse, 15
+      optional ::ApkDownloader::ProtocolBuffers::VerifyAssociationResponse, :verifyAssociationResponse, 16
+      optional ::ApkDownloader::ProtocolBuffers::LibraryReplicationResponse, :libraryReplicationResponse, 17
+      optional ::ApkDownloader::ProtocolBuffers::RevokeResponse, :revokeResponse, 18
+      optional ::ApkDownloader::ProtocolBuffers::BulkDetailsResponse, :bulkDetailsResponse, 19
+      optional ::ApkDownloader::ProtocolBuffers::ResolveLinkResponse, :resolveLinkResponse, 20
+      optional ::ApkDownloader::ProtocolBuffers::DeliveryResponse, :deliveryResponse, 21
+      optional ::ApkDownloader::ProtocolBuffers::AcceptTosResponse, :acceptTosResponse, 22
+      optional ::ApkDownloader::ProtocolBuffers::RateSuggestedContentResponse, :rateSuggestedContentResponse, 23
+      optional ::ApkDownloader::ProtocolBuffers::CheckPromoOfferResponse, :checkPromoOfferResponse, 24
+    end
+
+    class PreFetch < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PreFetch"
+
+      optional :string, :url, 1
+      optional :bytes, :response, 2
+      optional :string, :etag, 3
+      optional :int64, :ttl, 4
+      optional :int64, :softTtl, 5
+    end
+
+    class ResponseWrapper < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ResponseWrapper"
+
+      optional ::ApkDownloader::ProtocolBuffers::Payload, :payload, 1
+      optional ::ApkDownloader::ProtocolBuffers::ServerCommands, :commands, 2
+      repeated ::ApkDownloader::ProtocolBuffers::PreFetch, :preFetch, 3
+      repeated ::ApkDownloader::ProtocolBuffers::Notification, :notification, 4
+    end
+
+    class ServerCommands < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ServerCommands"
+
+      optional :bool, :clearCache, 1
+      optional :string, :displayErrorMessage, 2
+      optional :string, :logErrorStacktrace, 3
+    end
+
+    class GetReviewsResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetReviewsResponse"
+
+      repeated ::ApkDownloader::ProtocolBuffers::Review, :review, 1
+      optional :int64, :matchingCount, 2
+    end
+
+    class Review < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Review"
+
+      optional :string, :authorName, 1
+      optional :string, :url, 2
+      optional :string, :source, 3
+      optional :string, :documentVersion, 4
+      optional :int64, :timestampMsec, 5
+      optional :int32, :starRating, 6
+      optional :string, :title, 7
+      optional :string, :comment, 8
+      optional :string, :commentId, 9
+      optional :string, :deviceName, 19
+      optional :string, :replyText, 29
+      optional :int64, :replyTimestampMsec, 30
+    end
+
+    class ReviewResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ReviewResponse"
+
+      optional ::ApkDownloader::ProtocolBuffers::GetReviewsResponse, :getResponse, 1
+      optional :string, :nextPageUrl, 2
+    end
+
+    class RevokeResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RevokeResponse"
+
+      optional ::ApkDownloader::ProtocolBuffers::LibraryUpdate, :libraryUpdate, 1
+    end
+
+    class RelatedSearch < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RelatedSearch"
+
+      optional :string, :searchUrl, 1
+      optional :string, :header, 2
+      optional :int32, :backendId, 3
+      optional :int32, :docType, 4
+      optional :bool, :current, 5
+    end
+
+    class SearchResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.SearchResponse"
+
+      optional :string, :originalQuery, 1
+      optional :string, :suggestedQuery, 2
+      optional :bool, :aggregateQuery, 3
+      repeated ::ApkDownloader::ProtocolBuffers::Bucket, :bucket, 4
+      repeated ::ApkDownloader::ProtocolBuffers::DocV2, :doc, 5
+      repeated ::ApkDownloader::ProtocolBuffers::RelatedSearch, :relatedSearch, 6
+    end
+
+    class CorpusMetadata < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CorpusMetadata"
+
+      optional :int32, :backend, 1
+      optional :string, :name, 2
+      optional :string, :landingUrl, 3
+      optional :string, :libraryName, 4
+    end
+
+    class Experiments < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.Experiments"
+
+      repeated :string, :experimentId, 1
+    end
+
+    class TocResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.TocResponse"
+
+      repeated ::ApkDownloader::ProtocolBuffers::CorpusMetadata, :corpus, 1
+      optional :int32, :tosVersionDeprecated, 2
+      optional :string, :tosContent, 3
+      optional :string, :homeUrl, 4
+      optional ::ApkDownloader::ProtocolBuffers::Experiments, :experiments, 5
+      optional :string, :tosCheckboxTextMarketingEmails, 6
+      optional :string, :tosToken, 7
+      optional ::ApkDownloader::ProtocolBuffers::UserSettings, :userSettings, 8
+      optional :string, :iconOverrideUrl, 9
+    end
+
+    class UserSettings < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.UserSettings"
+
+      optional :bool, :tosCheckboxMarketingEmailsOptedIn, 1
+    end
+
+    class AcceptTosResponse < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AcceptTosResponse"
+
+    end
+
+    class AckNotificationsRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AckNotificationsRequestProto"
+
+      repeated :string, :notificationId, 1
+      optional ::ApkDownloader::ProtocolBuffers::SignatureHashProto, :signatureHash, 2
+      repeated :string, :nackNotificationId, 3
+    end
+
+    class AckNotificationsResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AckNotificationsResponseProto"
+
+    end
+
+    class AddressProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AddressProto"
+
+      optional :string, :address1, 1
+      optional :string, :address2, 2
+      optional :string, :city, 3
+      optional :string, :state, 4
+      optional :string, :postalCode, 5
+      optional :string, :country, 6
+      optional :string, :name, 7
+      optional :string, :type, 8
+      optional :string, :phone, 9
+    end
+
+    class AppDataProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AppDataProto"
+
+      optional :string, :key, 1
+      optional :string, :value, 2
+    end
+
+    class AppSuggestionProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AppSuggestionProto"
+
+      optional ::ApkDownloader::ProtocolBuffers::ExternalAssetProto, :assetInfo, 1
+    end
+
+    class AssetIdentifierProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AssetIdentifierProto"
+
+      optional :string, :packageName, 1
+      optional :int32, :versionCode, 2
+      optional :string, :assetId, 3
+    end
+
+    class AssetsRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AssetsRequestProto"
+
+      optional :int32, :assetType, 1
+      optional :string, :query, 2
+      optional :string, :categoryId, 3
+      repeated :string, :assetId, 4
+      optional :bool, :retrieveVendingHistory, 5
+      optional :bool, :retrieveExtendedInfo, 6
+      optional :int32, :sortOrder, 7
+      optional :int64, :startIndex, 8
+      optional :int64, :numEntries, 9
+      optional :int32, :viewFilter, 10
+      optional :string, :rankingType, 11
+      optional :bool, :retrieveCarrierChannel, 12
+      repeated :string, :pendingDownloadAssetId, 13
+      optional :bool, :reconstructVendingHistory, 14
+      optional :bool, :unfilteredResults, 15
+      repeated :string, :badgeId, 16
+    end
+
+    class AssetsResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.AssetsResponseProto"
+
+      repeated ::ApkDownloader::ProtocolBuffers::ExternalAssetProto, :asset, 1
+      optional :int64, :numTotalEntries, 2
+      optional :string, :correctedQuery, 3
+      repeated ::ApkDownloader::ProtocolBuffers::ExternalAssetProto, :altAsset, 4
+      optional :int64, :numCorrectedEntries, 5
+      optional :string, :header, 6
+      optional :int32, :listType, 7
+    end
+
+    class BillingEventRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BillingEventRequestProto"
+
+      optional :int32, :eventType, 1
+      optional :string, :billingParametersId, 2
+      optional :bool, :resultSuccess, 3
+      optional :string, :clientMessage, 4
+      optional ::ApkDownloader::ProtocolBuffers::ExternalCarrierBillingInstrumentProto, :carrierInstrument, 5
+    end
+
+    class BillingEventResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BillingEventResponseProto"
+
+    end
+
+    class BillingParameterProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.BillingParameterProto"
+
+      optional :string, :id, 1
+      optional :string, :name, 2
+      repeated :string, :mncMcc, 3
+      repeated :string, :backendUrl, 4
+      optional :string, :iconId, 5
+      optional :int32, :billingInstrumentType, 6
+      optional :string, :applicationId, 7
+      optional :string, :tosUrl, 8
+      optional :bool, :instrumentTosRequired, 9
+      optional :int32, :apiVersion, 10
+      optional :bool, :perTransactionCredentialsRequired, 11
+      optional :bool, :sendSubscriberIdWithCarrierBillingRequests, 12
+      optional :int32, :deviceAssociationMethod, 13
+      optional :string, :userTokenRequestMessage, 14
+      optional :string, :userTokenRequestAddress, 15
+      optional :bool, :passphraseRequired, 16
+    end
+
+    class CarrierBillingCredentialsProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CarrierBillingCredentialsProto"
+
+      optional :string, :credentials, 1
+      optional :int64, :credentialsTimeout, 2
+    end
+
+    class CategoryProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CategoryProto"
+
+      optional :int32, :assetType, 2
+      optional :string, :categoryId, 3
+      optional :string, :categoryDisplay, 4
+      optional :string, :categorySubtitle, 5
+      repeated :string, :promotedAssetsNew, 6
+      repeated :string, :promotedAssetsHome, 7
+      repeated ::ApkDownloader::ProtocolBuffers::CategoryProto, :subCategories, 8
+      repeated :string, :promotedAssetsPaid, 9
+      repeated :string, :promotedAssetsFree, 10
+    end
+
+    class CheckForNotificationsRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CheckForNotificationsRequestProto"
+
+      optional :int64, :alarmDuration, 1
+    end
+
+    class CheckForNotificationsResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CheckForNotificationsResponseProto"
+
+    end
+
+    class CheckLicenseRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CheckLicenseRequestProto"
+
+      optional :string, :packageName, 1
+      optional :int32, :versionCode, 2
+      optional :int64, :nonce, 3
+    end
+
+    class CheckLicenseResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CheckLicenseResponseProto"
+
+      optional :int32, :responseCode, 1
+      optional :string, :signedData, 2
+      optional :string, :signature, 3
+    end
+
+    class CommentsRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CommentsRequestProto"
+
+      optional :string, :assetId, 1
+      optional :int64, :startIndex, 2
+      optional :int64, :numEntries, 3
+      optional :bool, :shouldReturnSelfComment, 4
+      optional :string, :assetReferrer, 5
+    end
+
+    class CommentsResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.CommentsResponseProto"
+
+      repeated ::ApkDownloader::ProtocolBuffers::ExternalCommentProto, :comment, 1
+      optional :int64, :numTotalEntries, 2
+      optional ::ApkDownloader::ProtocolBuffers::ExternalCommentProto, :selfComment, 3
+    end
+
+    class ContentSyncRequestProto < ::ProtocolBuffers::Message
+      # forward declarations
+      class AssetInstallState < ::ProtocolBuffers::Message; end
+      class SystemApp < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ContentSyncRequestProto"
+
+      # nested messages
+      class AssetInstallState < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ContentSyncRequestProto.AssetInstallState"
+
+        optional :string, :assetId, 3
+        optional :int32, :assetState, 4
+        optional :int64, :installTime, 5
+        optional :int64, :uninstallTime, 6
+        optional :string, :packageName, 7
+        optional :int32, :versionCode, 8
+        optional :string, :assetReferrer, 9
+      end
+
+      class SystemApp < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ContentSyncRequestProto.SystemApp"
+
+        optional :string, :packageName, 11
+        optional :int32, :versionCode, 12
+        repeated :string, :certificateHash, 13
+      end
+
+      optional :bool, :incremental, 1
+      repeated ::ApkDownloader::ProtocolBuffers::ContentSyncRequestProto::AssetInstallState, :assetinstallstate, 2, :group => true
+      repeated ::ApkDownloader::ProtocolBuffers::ContentSyncRequestProto::SystemApp, :systemapp, 10, :group => true
+      optional :int32, :sideloadedAppCount, 14
+    end
+
+    class ContentSyncResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ContentSyncResponseProto"
+
+      optional :int32, :numUpdatesAvailable, 1
+    end
+
+    class DataMessageProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DataMessageProto"
+
+      optional :string, :category, 1
+      repeated ::ApkDownloader::ProtocolBuffers::AppDataProto, :appData, 3
+    end
+
+    class DownloadInfoProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.DownloadInfoProto"
+
+      optional :int64, :apkSize, 1
+      repeated ::ApkDownloader::ProtocolBuffers::FileMetadataProto, :additionalFile, 2
+    end
+
+    class ExternalAssetProto < ::ProtocolBuffers::Message
+      # forward declarations
+      class PurchaseInformation < ::ProtocolBuffers::Message; end
+      class ExtendedInfo < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ExternalAssetProto"
+
+      # nested messages
+      class PurchaseInformation < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ExternalAssetProto.PurchaseInformation"
+
+        optional :int64, :purchaseTime, 10
+        optional :int64, :refundTimeoutTime, 11
+        optional :int32, :refundStartPolicy, 45
+        optional :int64, :refundWindowDuration, 46
+      end
+
+      class ExtendedInfo < ::ProtocolBuffers::Message
+        # forward declarations
+        class PackageDependency < ::ProtocolBuffers::Message; end
+
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ExternalAssetProto.ExtendedInfo"
+
+        # nested messages
+        class PackageDependency < ::ProtocolBuffers::Message
+          set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ExternalAssetProto.ExtendedInfo.PackageDependency"
+
+          optional :string, :packageName, 41
+          optional :bool, :skipPermissions, 42
+        end
+
+        optional :string, :description, 13
+        optional :int64, :downloadCount, 14
+        repeated :string, :applicationPermissionId, 15
+        optional :int64, :requiredInstallationSize, 16
+        optional :string, :packageName, 17
+        optional :string, :category, 18
+        optional :bool, :forwardLocked, 19
+        optional :string, :contactEmail, 20
+        optional :bool, :everInstalledByUser, 21
+        optional :string, :downloadCountString, 23
+        optional :string, :contactPhone, 26
+        optional :string, :contactWebsite, 27
+        optional :bool, :nextPurchaseRefundable, 28
+        optional :int32, :numScreenshots, 30
+        optional :string, :promotionalDescription, 31
+        optional :int32, :serverAssetState, 34
+        optional :int32, :contentRatingLevel, 36
+        optional :string, :contentRatingString, 37
+        optional :string, :recentChanges, 38
+        repeated ::ApkDownloader::ProtocolBuffers::ExternalAssetProto::ExtendedInfo::PackageDependency, :packagedependency, 39, :group => true
+        optional :string, :videoLink, 43
+        optional ::ApkDownloader::ProtocolBuffers::DownloadInfoProto, :downloadInfo, 49
+      end
+
+      optional :string, :id, 1
+      optional :string, :title, 2
+      optional :int32, :assetType, 3
+      optional :string, :owner, 4
+      optional :string, :version, 5
+      optional :string, :price, 6
+      optional :string, :averageRating, 7
+      optional :int64, :numRatings, 8
+      optional ::ApkDownloader::ProtocolBuffers::ExternalAssetProto::PurchaseInformation, :purchaseinformation, 9, :group => true
+      optional ::ApkDownloader::ProtocolBuffers::ExternalAssetProto::ExtendedInfo, :extendedinfo, 12, :group => true
+      optional :string, :ownerId, 22
+      optional :string, :packageName, 24
+      optional :int32, :versionCode, 25
+      optional :bool, :bundledAsset, 29
+      optional :string, :priceCurrency, 32
+      optional :int64, :priceMicros, 33
+      optional :string, :filterReason, 35
+      optional :string, :actualSellerPrice, 40
+      repeated ::ApkDownloader::ProtocolBuffers::ExternalBadgeProto, :appBadge, 47
+      repeated ::ApkDownloader::ProtocolBuffers::ExternalBadgeProto, :ownerBadge, 48
+    end
+
+    class ExternalBadgeImageProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ExternalBadgeImageProto"
+
+      optional :int32, :usage, 1
+      optional :string, :url, 2
+    end
+
+    class ExternalBadgeProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ExternalBadgeProto"
+
+      optional :string, :localizedTitle, 1
+      optional :string, :localizedDescription, 2
+      repeated ::ApkDownloader::ProtocolBuffers::ExternalBadgeImageProto, :badgeImage, 3
+      optional :string, :searchId, 4
+    end
+
+    class ExternalCarrierBillingInstrumentProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ExternalCarrierBillingInstrumentProto"
+
+      optional :string, :instrumentKey, 1
+      optional :string, :subscriberIdentifier, 2
+      optional :string, :accountType, 3
+      optional :string, :subscriberCurrency, 4
+      optional :uint64, :transactionLimit, 5
+      optional :string, :subscriberName, 6
+      optional :string, :address1, 7
+      optional :string, :address2, 8
+      optional :string, :city, 9
+      optional :string, :state, 10
+      optional :string, :postalCode, 11
+      optional :string, :country, 12
+      optional ::ApkDownloader::ProtocolBuffers::EncryptedSubscriberInfo, :encryptedSubscriberInfo, 13
+    end
+
+    class ExternalCommentProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ExternalCommentProto"
+
+      optional :string, :body, 1
+      optional :int32, :rating, 2
+      optional :string, :creatorName, 3
+      optional :int64, :creationTime, 4
+      optional :string, :creatorId, 5
+    end
+
+    class ExternalCreditCard < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ExternalCreditCard"
+
+      optional :string, :type, 1
+      optional :string, :lastDigits, 2
+      optional :int32, :expYear, 3
+      optional :int32, :expMonth, 4
+      optional :string, :personName, 5
+      optional :string, :countryCode, 6
+      optional :string, :postalCode, 7
+      optional :bool, :makeDefault, 8
+      optional :string, :address1, 9
+      optional :string, :address2, 10
+      optional :string, :city, 11
+      optional :string, :state, 12
+      optional :string, :phone, 13
+    end
+
+    class ExternalPaypalInstrumentProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ExternalPaypalInstrumentProto"
+
+      optional :string, :instrumentKey, 1
+      optional :string, :preapprovalKey, 2
+      optional :string, :paypalEmail, 3
+      optional ::ApkDownloader::ProtocolBuffers::AddressProto, :paypalAddress, 4
+      optional :bool, :multiplePaypalInstrumentsSupported, 5
+    end
+
+    class FileMetadataProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.FileMetadataProto"
+
+      optional :int32, :fileType, 1
+      optional :int32, :versionCode, 2
+      optional :int64, :size, 3
+      optional :string, :downloadUrl, 4
+    end
+
+    class GetAddressSnippetRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetAddressSnippetRequestProto"
+
+      optional ::ApkDownloader::ProtocolBuffers::EncryptedSubscriberInfo, :encryptedSubscriberInfo, 1
+    end
+
+    class GetAddressSnippetResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetAddressSnippetResponseProto"
+
+      optional :string, :addressSnippet, 1
+    end
+
+    class GetAssetRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetAssetRequestProto"
+
+      optional :string, :assetId, 1
+      optional :string, :directDownloadKey, 2
+    end
+
+    class GetAssetResponseProto < ::ProtocolBuffers::Message
+      # forward declarations
+      class InstallAsset < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetAssetResponseProto"
+
+      # nested messages
+      class InstallAsset < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetAssetResponseProto.InstallAsset"
+
+        optional :string, :assetId, 2
+        optional :string, :assetName, 3
+        optional :string, :assetType, 4
+        optional :string, :assetPackage, 5
+        optional :string, :blobUrl, 6
+        optional :string, :assetSignature, 7
+        optional :int64, :assetSize, 8
+        optional :int64, :refundTimeoutMillis, 9
+        optional :bool, :forwardLocked, 10
+        optional :bool, :secured, 11
+        optional :int32, :versionCode, 12
+        optional :string, :downloadAuthCookieName, 13
+        optional :string, :downloadAuthCookieValue, 14
+        optional :int64, :postInstallRefundWindowMillis, 16
+      end
+
+      optional ::ApkDownloader::ProtocolBuffers::GetAssetResponseProto::InstallAsset, :installasset, 1, :group => true
+      repeated ::ApkDownloader::ProtocolBuffers::FileMetadataProto, :additionalFile, 15
+    end
+
+    class GetCarrierInfoRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetCarrierInfoRequestProto"
+
+    end
+
+    class GetCarrierInfoResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetCarrierInfoResponseProto"
+
+      optional :bool, :carrierChannelEnabled, 1
+      optional :bytes, :carrierLogoIcon, 2
+      optional :bytes, :carrierBanner, 3
+      optional :string, :carrierSubtitle, 4
+      optional :string, :carrierTitle, 5
+      optional :int32, :carrierImageDensity, 6
+    end
+
+    class GetCategoriesRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetCategoriesRequestProto"
+
+      optional :bool, :prefetchPromoData, 1
+    end
+
+    class GetCategoriesResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetCategoriesResponseProto"
+
+      repeated ::ApkDownloader::ProtocolBuffers::CategoryProto, :categories, 1
+    end
+
+    class GetImageRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetImageRequestProto"
+
+      optional :string, :assetId, 1
+      optional :int32, :imageUsage, 3
+      optional :string, :imageId, 4
+      optional :int32, :screenPropertyWidth, 5
+      optional :int32, :screenPropertyHeight, 6
+      optional :int32, :screenPropertyDensity, 7
+      optional :int32, :productType, 8
+    end
+
+    class GetImageResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetImageResponseProto"
+
+      optional :bytes, :imageData, 1
+      optional :int32, :imageDensity, 2
+    end
+
+    class GetMarketMetadataRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetMarketMetadataRequestProto"
+
+      optional :int64, :lastRequestTime, 1
+      optional ::ApkDownloader::ProtocolBuffers::DeviceConfigurationProto, :deviceConfiguration, 2
+      optional :bool, :deviceRoaming, 3
+      repeated :string, :marketSignatureHash, 4
+      optional :int32, :contentRating, 5
+      optional :string, :deviceModelName, 6
+      optional :string, :deviceManufacturerName, 7
+    end
+
+    class GetMarketMetadataResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetMarketMetadataResponseProto"
+
+      optional :int32, :latestClientVersionCode, 1
+      optional :string, :latestClientUrl, 2
+      optional :bool, :paidAppsEnabled, 3
+      repeated ::ApkDownloader::ProtocolBuffers::BillingParameterProto, :billingParameter, 4
+      optional :bool, :commentPostEnabled, 5
+      optional :bool, :billingEventsEnabled, 6
+      optional :string, :warningMessage, 7
+      optional :bool, :inAppBillingEnabled, 8
+      optional :int32, :inAppBillingMaxApiVersion, 9
+    end
+
+    class GetSubCategoriesRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetSubCategoriesRequestProto"
+
+      optional :int32, :assetType, 1
+    end
+
+    class GetSubCategoriesResponseProto < ::ProtocolBuffers::Message
+      # forward declarations
+      class SubCategory < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetSubCategoriesResponseProto"
+
+      # nested messages
+      class SubCategory < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.GetSubCategoriesResponseProto.SubCategory"
+
+        optional :string, :subCategoryDisplay, 2
+        optional :string, :subCategoryId, 3
+      end
+
+      repeated ::ApkDownloader::ProtocolBuffers::GetSubCategoriesResponseProto::SubCategory, :subcategory, 1, :group => true
+    end
+
+    class InAppPurchaseInformationRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.InAppPurchaseInformationRequestProto"
+
+      optional ::ApkDownloader::ProtocolBuffers::SignatureHashProto, :signatureHash, 1
+      optional :int64, :nonce, 2
+      repeated :string, :notificationId, 3
+      optional :string, :signatureAlgorithm, 4
+      optional :int32, :billingApiVersion, 5
+    end
+
+    class InAppPurchaseInformationResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.InAppPurchaseInformationResponseProto"
+
+      optional ::ApkDownloader::ProtocolBuffers::SignedDataProto, :signedResponse, 1
+      repeated ::ApkDownloader::ProtocolBuffers::StatusBarNotificationProto, :statusBarNotification, 2
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseResultProto, :purchaseResult, 3
+    end
+
+    class InAppRestoreTransactionsRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.InAppRestoreTransactionsRequestProto"
+
+      optional ::ApkDownloader::ProtocolBuffers::SignatureHashProto, :signatureHash, 1
+      optional :int64, :nonce, 2
+      optional :string, :signatureAlgorithm, 3
+      optional :int32, :billingApiVersion, 4
+    end
+
+    class InAppRestoreTransactionsResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.InAppRestoreTransactionsResponseProto"
+
+      optional ::ApkDownloader::ProtocolBuffers::SignedDataProto, :signedResponse, 1
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseResultProto, :purchaseResult, 2
+    end
+
+    class ModifyCommentRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ModifyCommentRequestProto"
+
+      optional :string, :assetId, 1
+      optional ::ApkDownloader::ProtocolBuffers::ExternalCommentProto, :comment, 2
+      optional :bool, :deleteComment, 3
+      optional :bool, :flagAsset, 4
+      optional :int32, :flagType, 5
+      optional :string, :flagMessage, 6
+      optional :bool, :nonFlagFlow, 7
+    end
+
+    class ModifyCommentResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ModifyCommentResponseProto"
+
+    end
+
+    class PaypalCountryInfoProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalCountryInfoProto"
+
+      optional :bool, :birthDateRequired, 1
+      optional :string, :tosText, 2
+      optional :string, :billingAgreementText, 3
+      optional :string, :preTosText, 4
+    end
+
+    class PaypalCreateAccountRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalCreateAccountRequestProto"
+
+      optional :string, :firstName, 1
+      optional :string, :lastName, 2
+      optional ::ApkDownloader::ProtocolBuffers::AddressProto, :address, 3
+      optional :string, :birthDate, 4
+    end
+
+    class PaypalCreateAccountResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalCreateAccountResponseProto"
+
+      optional :string, :createAccountKey, 1
+    end
+
+    class PaypalCredentialsProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalCredentialsProto"
+
+      optional :string, :preapprovalKey, 1
+      optional :string, :paypalEmail, 2
+    end
+
+    class PaypalMassageAddressRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalMassageAddressRequestProto"
+
+      optional ::ApkDownloader::ProtocolBuffers::AddressProto, :address, 1
+    end
+
+    class PaypalMassageAddressResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalMassageAddressResponseProto"
+
+      optional ::ApkDownloader::ProtocolBuffers::AddressProto, :address, 1
+    end
+
+    class PaypalPreapprovalCredentialsRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalPreapprovalCredentialsRequestProto"
+
+      optional :string, :gaiaAuthToken, 1
+      optional :string, :billingInstrumentId, 2
+    end
+
+    class PaypalPreapprovalCredentialsResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalPreapprovalCredentialsResponseProto"
+
+      optional :int32, :resultCode, 1
+      optional :string, :paypalAccountKey, 2
+      optional :string, :paypalEmail, 3
+    end
+
+    class PaypalPreapprovalDetailsRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalPreapprovalDetailsRequestProto"
+
+      optional :bool, :getAddress, 1
+      optional :string, :preapprovalKey, 2
+    end
+
+    class PaypalPreapprovalDetailsResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalPreapprovalDetailsResponseProto"
+
+      optional :string, :paypalEmail, 1
+      optional ::ApkDownloader::ProtocolBuffers::AddressProto, :address, 2
+    end
+
+    class PaypalPreapprovalRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalPreapprovalRequestProto"
+
+    end
+
+    class PaypalPreapprovalResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PaypalPreapprovalResponseProto"
+
+      optional :string, :preapprovalKey, 1
+    end
+
+    class PendingNotificationsProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PendingNotificationsProto"
+
+      repeated ::ApkDownloader::ProtocolBuffers::DataMessageProto, :notification, 1
+      optional :int64, :nextCheckMillis, 2
+    end
+
+    class PrefetchedBundleProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PrefetchedBundleProto"
+
+      optional ::ApkDownloader::ProtocolBuffers::SingleRequestProto, :request, 1
+      optional ::ApkDownloader::ProtocolBuffers::SingleResponseProto, :response, 2
+    end
+
+    class PurchaseCartInfoProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseCartInfoProto"
+
+      optional :string, :itemPrice, 1
+      optional :string, :taxInclusive, 2
+      optional :string, :taxExclusive, 3
+      optional :string, :total, 4
+      optional :string, :taxMessage, 5
+      optional :string, :footerMessage, 6
+      optional :string, :priceCurrency, 7
+      optional :int64, :priceMicros, 8
+    end
+
+    class PurchaseInfoProto < ::ProtocolBuffers::Message
+      # forward declarations
+      class BillingInstruments < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseInfoProto"
+
+      # nested messages
+      class BillingInstruments < ::ProtocolBuffers::Message
+        # forward declarations
+        class BillingInstrument < ::ProtocolBuffers::Message; end
+
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseInfoProto.BillingInstruments"
+
+        # nested messages
+        class BillingInstrument < ::ProtocolBuffers::Message
+          set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseInfoProto.BillingInstruments.BillingInstrument"
+
+          optional :string, :id, 5
+          optional :string, :name, 6
+          optional :bool, :isInvalid, 7
+          optional :int32, :instrumentType, 11
+          optional :int32, :instrumentStatus, 14
+        end
+
+        repeated ::ApkDownloader::ProtocolBuffers::PurchaseInfoProto::BillingInstruments::BillingInstrument, :billinginstrument, 4, :group => true
+        optional :string, :defaultBillingInstrumentId, 8
+      end
+
+      optional :string, :transactionId, 1
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseCartInfoProto, :cartInfo, 2
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseInfoProto::BillingInstruments, :billinginstruments, 3, :group => true
+      repeated :int32, :errorInputFields, 9
+      optional :string, :refundPolicy, 10
+      optional :bool, :userCanAddGdd, 12
+      repeated :int32, :eligibleInstrumentTypes, 13
+      optional :string, :orderId, 15
+    end
+
+    class PurchaseMetadataRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseMetadataRequestProto"
+
+      optional :bool, :deprecatedRetrieveBillingCountries, 1
+      optional :int32, :billingInstrumentType, 2
+    end
+
+    class PurchaseMetadataResponseProto < ::ProtocolBuffers::Message
+      # forward declarations
+      class Countries < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseMetadataResponseProto"
+
+      # nested messages
+      class Countries < ::ProtocolBuffers::Message
+        # forward declarations
+        class Country < ::ProtocolBuffers::Message; end
+
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseMetadataResponseProto.Countries"
+
+        # nested messages
+        class Country < ::ProtocolBuffers::Message
+          # forward declarations
+          class InstrumentAddressSpec < ::ProtocolBuffers::Message; end
+
+          set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseMetadataResponseProto.Countries.Country"
+
+          # nested messages
+          class InstrumentAddressSpec < ::ProtocolBuffers::Message
+            set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseMetadataResponseProto.Countries.Country.InstrumentAddressSpec"
+
+            optional :int32, :instrumentFamily, 8
+            optional ::ApkDownloader::ProtocolBuffers::BillingAddressSpec, :billingAddressSpec, 9
+          end
+
+          optional :string, :countryCode, 3
+          optional :string, :countryName, 4
+          optional ::ApkDownloader::ProtocolBuffers::PaypalCountryInfoProto, :paypalCountryInfo, 5
+          optional :bool, :allowsReducedBillingAddress, 6
+          repeated ::ApkDownloader::ProtocolBuffers::PurchaseMetadataResponseProto::Countries::Country::InstrumentAddressSpec, :instrumentaddressspec, 7, :group => true
+        end
+
+        repeated ::ApkDownloader::ProtocolBuffers::PurchaseMetadataResponseProto::Countries::Country, :country, 2, :group => true
+      end
+
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseMetadataResponseProto::Countries, :countries, 1, :group => true
+    end
+
+    class PurchaseOrderRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseOrderRequestProto"
+
+      optional :string, :gaiaAuthToken, 1
+      optional :string, :assetId, 2
+      optional :string, :transactionId, 3
+      optional :string, :billingInstrumentId, 4
+      optional :bool, :tosAccepted, 5
+      optional ::ApkDownloader::ProtocolBuffers::CarrierBillingCredentialsProto, :carrierBillingCredentials, 6
+      optional :string, :existingOrderId, 7
+      optional :int32, :billingInstrumentType, 8
+      optional :string, :billingParametersId, 9
+      optional ::ApkDownloader::ProtocolBuffers::PaypalCredentialsProto, :paypalCredentials, 10
+      optional ::ApkDownloader::ProtocolBuffers::RiskHeaderInfoProto, :riskHeaderInfo, 11
+      optional :int32, :productType, 12
+      optional ::ApkDownloader::ProtocolBuffers::SignatureHashProto, :signatureHash, 13
+      optional :string, :developerPayload, 14
+    end
+
+    class PurchaseOrderResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseOrderResponseProto"
+
+      optional :int32, :deprecatedResultCode, 1
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseInfoProto, :purchaseInfo, 2
+      optional ::ApkDownloader::ProtocolBuffers::ExternalAssetProto, :asset, 3
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseResultProto, :purchaseResult, 4
+    end
+
+    class PurchasePostRequestProto < ::ProtocolBuffers::Message
+      # forward declarations
+      class BillingInstrumentInfo < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchasePostRequestProto"
+
+      # nested messages
+      class BillingInstrumentInfo < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchasePostRequestProto.BillingInstrumentInfo"
+
+        optional :string, :billingInstrumentId, 5
+        optional ::ApkDownloader::ProtocolBuffers::ExternalCreditCard, :creditCard, 6
+        optional ::ApkDownloader::ProtocolBuffers::ExternalCarrierBillingInstrumentProto, :carrierInstrument, 9
+        optional ::ApkDownloader::ProtocolBuffers::ExternalPaypalInstrumentProto, :paypalInstrument, 10
+      end
+
+      optional :string, :gaiaAuthToken, 1
+      optional :string, :assetId, 2
+      optional :string, :transactionId, 3
+      optional ::ApkDownloader::ProtocolBuffers::PurchasePostRequestProto::BillingInstrumentInfo, :billinginstrumentinfo, 4, :group => true
+      optional :bool, :tosAccepted, 7
+      optional :string, :cbInstrumentKey, 8
+      optional :bool, :paypalAuthConfirmed, 11
+      optional :int32, :productType, 12
+      optional ::ApkDownloader::ProtocolBuffers::SignatureHashProto, :signatureHash, 13
+    end
+
+    class PurchasePostResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchasePostResponseProto"
+
+      optional :int32, :deprecatedResultCode, 1
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseInfoProto, :purchaseInfo, 2
+      optional :string, :termsOfServiceUrl, 3
+      optional :string, :termsOfServiceText, 4
+      optional :string, :termsOfServiceName, 5
+      optional :string, :termsOfServiceCheckboxText, 6
+      optional :string, :termsOfServiceHeaderText, 7
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseResultProto, :purchaseResult, 8
+    end
+
+    class PurchaseProductRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseProductRequestProto"
+
+      optional :int32, :productType, 1
+      optional :string, :productId, 2
+      optional ::ApkDownloader::ProtocolBuffers::SignatureHashProto, :signatureHash, 3
+    end
+
+    class PurchaseProductResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseProductResponseProto"
+
+      optional :string, :title, 1
+      optional :string, :itemTitle, 2
+      optional :string, :itemDescription, 3
+      optional :string, :merchantField, 4
+    end
+
+    class PurchaseResultProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.PurchaseResultProto"
+
+      optional :int32, :resultCode, 1
+      optional :string, :resultCodeMessage, 2
+    end
+
+    class QuerySuggestionProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.QuerySuggestionProto"
+
+      optional :string, :query, 1
+      optional :int32, :estimatedNumResults, 2
+      optional :int32, :queryWeight, 3
+    end
+
+    class QuerySuggestionRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.QuerySuggestionRequestProto"
+
+      optional :string, :query, 1
+      optional :int32, :requestType, 2
+    end
+
+    class QuerySuggestionResponseProto < ::ProtocolBuffers::Message
+      # forward declarations
+      class Suggestion < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.QuerySuggestionResponseProto"
+
+      # nested messages
+      class Suggestion < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.QuerySuggestionResponseProto.Suggestion"
+
+        optional ::ApkDownloader::ProtocolBuffers::AppSuggestionProto, :appSuggestion, 2
+        optional ::ApkDownloader::ProtocolBuffers::QuerySuggestionProto, :querySuggestion, 3
+      end
+
+      repeated ::ApkDownloader::ProtocolBuffers::QuerySuggestionResponseProto::Suggestion, :suggestion, 1, :group => true
+      optional :int32, :estimatedNumAppSuggestions, 4
+      optional :int32, :estimatedNumQuerySuggestions, 5
+    end
+
+    class RateCommentRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RateCommentRequestProto"
+
+      optional :string, :assetId, 1
+      optional :string, :creatorId, 2
+      optional :int32, :commentRating, 3
+    end
+
+    class RateCommentResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RateCommentResponseProto"
+
+    end
+
+    class ReconstructDatabaseRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ReconstructDatabaseRequestProto"
+
+      optional :bool, :retrieveFullHistory, 1
+    end
+
+    class ReconstructDatabaseResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ReconstructDatabaseResponseProto"
+
+      repeated ::ApkDownloader::ProtocolBuffers::AssetIdentifierProto, :asset, 1
+    end
+
+    class RefundRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RefundRequestProto"
+
+      optional :string, :assetId, 1
+    end
+
+    class RefundResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RefundResponseProto"
+
+      optional :int32, :result, 1
+      optional ::ApkDownloader::ProtocolBuffers::ExternalAssetProto, :asset, 2
+      optional :string, :resultDetail, 3
+    end
+
+    class RemoveAssetRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RemoveAssetRequestProto"
+
+      optional :string, :assetId, 1
+    end
+
+    class RequestPropertiesProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RequestPropertiesProto"
+
+      optional :string, :userAuthToken, 1
+      optional :bool, :userAuthTokenSecure, 2
+      optional :int32, :softwareVersion, 3
+      optional :string, :aid, 4
+      optional :string, :productNameAndVersion, 5
+      optional :string, :userLanguage, 6
+      optional :string, :userCountry, 7
+      optional :string, :operatorName, 8
+      optional :string, :simOperatorName, 9
+      optional :string, :operatorNumericName, 10
+      optional :string, :simOperatorNumericName, 11
+      optional :string, :clientId, 12
+      optional :string, :loggingId, 13
+    end
+
+    class RequestProto < ::ProtocolBuffers::Message
+      # forward declarations
+      class Request < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RequestProto"
+
+      # nested messages
+      class Request < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RequestProto.Request"
+
+        optional ::ApkDownloader::ProtocolBuffers::RequestSpecificPropertiesProto, :requestSpecificProperties, 3
+        optional ::ApkDownloader::ProtocolBuffers::AssetsRequestProto, :assetRequest, 4
+        optional ::ApkDownloader::ProtocolBuffers::CommentsRequestProto, :commentsRequest, 5
+        optional ::ApkDownloader::ProtocolBuffers::ModifyCommentRequestProto, :modifyCommentRequest, 6
+        optional ::ApkDownloader::ProtocolBuffers::PurchasePostRequestProto, :purchasePostRequest, 7
+        optional ::ApkDownloader::ProtocolBuffers::PurchaseOrderRequestProto, :purchaseOrderRequest, 8
+        optional ::ApkDownloader::ProtocolBuffers::ContentSyncRequestProto, :contentSyncRequest, 9
+        optional ::ApkDownloader::ProtocolBuffers::GetAssetRequestProto, :getAssetRequest, 10
+        optional ::ApkDownloader::ProtocolBuffers::GetImageRequestProto, :getImageRequest, 11
+        optional ::ApkDownloader::ProtocolBuffers::RefundRequestProto, :refundRequest, 12
+        optional ::ApkDownloader::ProtocolBuffers::PurchaseMetadataRequestProto, :purchaseMetadataRequest, 13
+        optional ::ApkDownloader::ProtocolBuffers::GetSubCategoriesRequestProto, :subCategoriesRequest, 14
+        optional ::ApkDownloader::ProtocolBuffers::UninstallReasonRequestProto, :uninstallReasonRequest, 16
+        optional ::ApkDownloader::ProtocolBuffers::RateCommentRequestProto, :rateCommentRequest, 17
+        optional ::ApkDownloader::ProtocolBuffers::CheckLicenseRequestProto, :checkLicenseRequest, 18
+        optional ::ApkDownloader::ProtocolBuffers::GetMarketMetadataRequestProto, :getMarketMetadataRequest, 19
+        optional ::ApkDownloader::ProtocolBuffers::GetCategoriesRequestProto, :getCategoriesRequest, 21
+        optional ::ApkDownloader::ProtocolBuffers::GetCarrierInfoRequestProto, :getCarrierInfoRequest, 22
+        optional ::ApkDownloader::ProtocolBuffers::RemoveAssetRequestProto, :removeAssetRequest, 23
+        optional ::ApkDownloader::ProtocolBuffers::RestoreApplicationsRequestProto, :restoreApplicationsRequest, 24
+        optional ::ApkDownloader::ProtocolBuffers::QuerySuggestionRequestProto, :querySuggestionRequest, 25
+        optional ::ApkDownloader::ProtocolBuffers::BillingEventRequestProto, :billingEventRequest, 26
+        optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalRequestProto, :paypalPreapprovalRequest, 27
+        optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalDetailsRequestProto, :paypalPreapprovalDetailsRequest, 28
+        optional ::ApkDownloader::ProtocolBuffers::PaypalCreateAccountRequestProto, :paypalCreateAccountRequest, 29
+        optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalCredentialsRequestProto, :paypalPreapprovalCredentialsRequest, 30
+        optional ::ApkDownloader::ProtocolBuffers::InAppRestoreTransactionsRequestProto, :inAppRestoreTransactionsRequest, 31
+        optional ::ApkDownloader::ProtocolBuffers::InAppPurchaseInformationRequestProto, :inAppPurchaseInformationRequest, 32
+        optional ::ApkDownloader::ProtocolBuffers::CheckForNotificationsRequestProto, :checkForNotificationsRequest, 33
+        optional ::ApkDownloader::ProtocolBuffers::AckNotificationsRequestProto, :ackNotificationsRequest, 34
+        optional ::ApkDownloader::ProtocolBuffers::PurchaseProductRequestProto, :purchaseProductRequest, 35
+        optional ::ApkDownloader::ProtocolBuffers::ReconstructDatabaseRequestProto, :reconstructDatabaseRequest, 36
+        optional ::ApkDownloader::ProtocolBuffers::PaypalMassageAddressRequestProto, :paypalMassageAddressRequest, 37
+        optional ::ApkDownloader::ProtocolBuffers::GetAddressSnippetRequestProto, :getAddressSnippetRequest, 38
+      end
+
+      optional ::ApkDownloader::ProtocolBuffers::RequestPropertiesProto, :requestProperties, 1
+      repeated ::ApkDownloader::ProtocolBuffers::RequestProto::Request, :request, 2, :group => true
+    end
+
+    class RequestSpecificPropertiesProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RequestSpecificPropertiesProto"
+
+      optional :string, :ifNoneMatch, 1
+    end
+
+    class ResponsePropertiesProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ResponsePropertiesProto"
+
+      optional :int32, :result, 1
+      optional :int32, :maxAge, 2
+      optional :string, :etag, 3
+      optional :int32, :serverVersion, 4
+      optional :int32, :maxAgeConsumable, 6
+      optional :string, :errorMessage, 7
+      repeated ::ApkDownloader::ProtocolBuffers::InputValidationError, :errorInputField, 8
+    end
+
+    class ResponseProto < ::ProtocolBuffers::Message
+      # forward declarations
+      class Response < ::ProtocolBuffers::Message; end
+
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ResponseProto"
+
+      # nested messages
+      class Response < ::ProtocolBuffers::Message
+        set_fully_qualified_name "ApkDownloader.ProtocolBuffers.ResponseProto.Response"
+
+        optional ::ApkDownloader::ProtocolBuffers::ResponsePropertiesProto, :responseProperties, 2
+        optional ::ApkDownloader::ProtocolBuffers::AssetsResponseProto, :assetsResponse, 3
+        optional ::ApkDownloader::ProtocolBuffers::CommentsResponseProto, :commentsResponse, 4
+        optional ::ApkDownloader::ProtocolBuffers::ModifyCommentResponseProto, :modifyCommentResponse, 5
+        optional ::ApkDownloader::ProtocolBuffers::PurchasePostResponseProto, :purchasePostResponse, 6
+        optional ::ApkDownloader::ProtocolBuffers::PurchaseOrderResponseProto, :purchaseOrderResponse, 7
+        optional ::ApkDownloader::ProtocolBuffers::ContentSyncResponseProto, :contentSyncResponse, 8
+        optional ::ApkDownloader::ProtocolBuffers::GetAssetResponseProto, :getAssetResponse, 9
+        optional ::ApkDownloader::ProtocolBuffers::GetImageResponseProto, :getImageResponse, 10
+        optional ::ApkDownloader::ProtocolBuffers::RefundResponseProto, :refundResponse, 11
+        optional ::ApkDownloader::ProtocolBuffers::PurchaseMetadataResponseProto, :purchaseMetadataResponse, 12
+        optional ::ApkDownloader::ProtocolBuffers::GetSubCategoriesResponseProto, :subCategoriesResponse, 13
+        optional ::ApkDownloader::ProtocolBuffers::UninstallReasonResponseProto, :uninstallReasonResponse, 15
+        optional ::ApkDownloader::ProtocolBuffers::RateCommentResponseProto, :rateCommentResponse, 16
+        optional ::ApkDownloader::ProtocolBuffers::CheckLicenseResponseProto, :checkLicenseResponse, 17
+        optional ::ApkDownloader::ProtocolBuffers::GetMarketMetadataResponseProto, :getMarketMetadataResponse, 18
+        repeated ::ApkDownloader::ProtocolBuffers::PrefetchedBundleProto, :prefetchedBundle, 19
+        optional ::ApkDownloader::ProtocolBuffers::GetCategoriesResponseProto, :getCategoriesResponse, 20
+        optional ::ApkDownloader::ProtocolBuffers::GetCarrierInfoResponseProto, :getCarrierInfoResponse, 21
+        optional ::ApkDownloader::ProtocolBuffers::RestoreApplicationsResponseProto, :restoreApplicationResponse, 23
+        optional ::ApkDownloader::ProtocolBuffers::QuerySuggestionResponseProto, :querySuggestionResponse, 24
+        optional ::ApkDownloader::ProtocolBuffers::BillingEventResponseProto, :billingEventResponse, 25
+        optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalResponseProto, :paypalPreapprovalResponse, 26
+        optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalDetailsResponseProto, :paypalPreapprovalDetailsResponse, 27
+        optional ::ApkDownloader::ProtocolBuffers::PaypalCreateAccountResponseProto, :paypalCreateAccountResponse, 28
+        optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalCredentialsResponseProto, :paypalPreapprovalCredentialsResponse, 29
+        optional ::ApkDownloader::ProtocolBuffers::InAppRestoreTransactionsResponseProto, :inAppRestoreTransactionsResponse, 30
+        optional ::ApkDownloader::ProtocolBuffers::InAppPurchaseInformationResponseProto, :inAppPurchaseInformationResponse, 31
+        optional ::ApkDownloader::ProtocolBuffers::CheckForNotificationsResponseProto, :checkForNotificationsResponse, 32
+        optional ::ApkDownloader::ProtocolBuffers::AckNotificationsResponseProto, :ackNotificationsResponse, 33
+        optional ::ApkDownloader::ProtocolBuffers::PurchaseProductResponseProto, :purchaseProductResponse, 34
+        optional ::ApkDownloader::ProtocolBuffers::ReconstructDatabaseResponseProto, :reconstructDatabaseResponse, 35
+        optional ::ApkDownloader::ProtocolBuffers::PaypalMassageAddressResponseProto, :paypalMassageAddressResponse, 36
+        optional ::ApkDownloader::ProtocolBuffers::GetAddressSnippetResponseProto, :getAddressSnippetResponse, 37
+      end
+
+      repeated ::ApkDownloader::ProtocolBuffers::ResponseProto::Response, :response, 1, :group => true
+      optional ::ApkDownloader::ProtocolBuffers::PendingNotificationsProto, :pendingNotifications, 38
+    end
+
+    class RestoreApplicationsRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RestoreApplicationsRequestProto"
+
+      optional :string, :backupAndroidId, 1
+      optional :string, :tosVersion, 2
+      optional ::ApkDownloader::ProtocolBuffers::DeviceConfigurationProto, :deviceConfiguration, 3
+    end
+
+    class RestoreApplicationsResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RestoreApplicationsResponseProto"
+
+      repeated ::ApkDownloader::ProtocolBuffers::GetAssetResponseProto, :asset, 1
+    end
+
+    class RiskHeaderInfoProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.RiskHeaderInfoProto"
+
+      optional :string, :hashedDeviceInfo, 1
+    end
+
+    class SignatureHashProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.SignatureHashProto"
+
+      optional :string, :packageName, 1
+      optional :int32, :versionCode, 2
+      optional :bytes, :hash, 3
+    end
+
+    class SignedDataProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.SignedDataProto"
+
+      optional :string, :signedData, 1
+      optional :string, :signature, 2
+    end
+
+    class SingleRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.SingleRequestProto"
+
+      optional ::ApkDownloader::ProtocolBuffers::RequestSpecificPropertiesProto, :requestSpecificProperties, 3
+      optional ::ApkDownloader::ProtocolBuffers::AssetsRequestProto, :assetRequest, 4
+      optional ::ApkDownloader::ProtocolBuffers::CommentsRequestProto, :commentsRequest, 5
+      optional ::ApkDownloader::ProtocolBuffers::ModifyCommentRequestProto, :modifyCommentRequest, 6
+      optional ::ApkDownloader::ProtocolBuffers::PurchasePostRequestProto, :purchasePostRequest, 7
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseOrderRequestProto, :purchaseOrderRequest, 8
+      optional ::ApkDownloader::ProtocolBuffers::ContentSyncRequestProto, :contentSyncRequest, 9
+      optional ::ApkDownloader::ProtocolBuffers::GetAssetRequestProto, :getAssetRequest, 10
+      optional ::ApkDownloader::ProtocolBuffers::GetImageRequestProto, :getImageRequest, 11
+      optional ::ApkDownloader::ProtocolBuffers::RefundRequestProto, :refundRequest, 12
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseMetadataRequestProto, :purchaseMetadataRequest, 13
+      optional ::ApkDownloader::ProtocolBuffers::GetSubCategoriesRequestProto, :subCategoriesRequest, 14
+      optional ::ApkDownloader::ProtocolBuffers::UninstallReasonRequestProto, :uninstallReasonRequest, 16
+      optional ::ApkDownloader::ProtocolBuffers::RateCommentRequestProto, :rateCommentRequest, 17
+      optional ::ApkDownloader::ProtocolBuffers::CheckLicenseRequestProto, :checkLicenseRequest, 18
+      optional ::ApkDownloader::ProtocolBuffers::GetMarketMetadataRequestProto, :getMarketMetadataRequest, 19
+      optional ::ApkDownloader::ProtocolBuffers::GetCategoriesRequestProto, :getCategoriesRequest, 21
+      optional ::ApkDownloader::ProtocolBuffers::GetCarrierInfoRequestProto, :getCarrierInfoRequest, 22
+      optional ::ApkDownloader::ProtocolBuffers::RemoveAssetRequestProto, :removeAssetRequest, 23
+      optional ::ApkDownloader::ProtocolBuffers::RestoreApplicationsRequestProto, :restoreApplicationsRequest, 24
+      optional ::ApkDownloader::ProtocolBuffers::QuerySuggestionRequestProto, :querySuggestionRequest, 25
+      optional ::ApkDownloader::ProtocolBuffers::BillingEventRequestProto, :billingEventRequest, 26
+      optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalRequestProto, :paypalPreapprovalRequest, 27
+      optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalDetailsRequestProto, :paypalPreapprovalDetailsRequest, 28
+      optional ::ApkDownloader::ProtocolBuffers::PaypalCreateAccountRequestProto, :paypalCreateAccountRequest, 29
+      optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalCredentialsRequestProto, :paypalPreapprovalCredentialsRequest, 30
+      optional ::ApkDownloader::ProtocolBuffers::InAppRestoreTransactionsRequestProto, :inAppRestoreTransactionsRequest, 31
+      optional ::ApkDownloader::ProtocolBuffers::InAppPurchaseInformationRequestProto, :getInAppPurchaseInformationRequest, 32
+      optional ::ApkDownloader::ProtocolBuffers::CheckForNotificationsRequestProto, :checkForNotificationsRequest, 33
+      optional ::ApkDownloader::ProtocolBuffers::AckNotificationsRequestProto, :ackNotificationsRequest, 34
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseProductRequestProto, :purchaseProductRequest, 35
+      optional ::ApkDownloader::ProtocolBuffers::ReconstructDatabaseRequestProto, :reconstructDatabaseRequest, 36
+      optional ::ApkDownloader::ProtocolBuffers::PaypalMassageAddressRequestProto, :paypalMassageAddressRequest, 37
+      optional ::ApkDownloader::ProtocolBuffers::GetAddressSnippetRequestProto, :getAddressSnippetRequest, 38
+    end
+
+    class SingleResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.SingleResponseProto"
+
+      optional ::ApkDownloader::ProtocolBuffers::ResponsePropertiesProto, :responseProperties, 2
+      optional ::ApkDownloader::ProtocolBuffers::AssetsResponseProto, :assetsResponse, 3
+      optional ::ApkDownloader::ProtocolBuffers::CommentsResponseProto, :commentsResponse, 4
+      optional ::ApkDownloader::ProtocolBuffers::ModifyCommentResponseProto, :modifyCommentResponse, 5
+      optional ::ApkDownloader::ProtocolBuffers::PurchasePostResponseProto, :purchasePostResponse, 6
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseOrderResponseProto, :purchaseOrderResponse, 7
+      optional ::ApkDownloader::ProtocolBuffers::ContentSyncResponseProto, :contentSyncResponse, 8
+      optional ::ApkDownloader::ProtocolBuffers::GetAssetResponseProto, :getAssetResponse, 9
+      optional ::ApkDownloader::ProtocolBuffers::GetImageResponseProto, :getImageResponse, 10
+      optional ::ApkDownloader::ProtocolBuffers::RefundResponseProto, :refundResponse, 11
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseMetadataResponseProto, :purchaseMetadataResponse, 12
+      optional ::ApkDownloader::ProtocolBuffers::GetSubCategoriesResponseProto, :subCategoriesResponse, 13
+      optional ::ApkDownloader::ProtocolBuffers::UninstallReasonResponseProto, :uninstallReasonResponse, 15
+      optional ::ApkDownloader::ProtocolBuffers::RateCommentResponseProto, :rateCommentResponse, 16
+      optional ::ApkDownloader::ProtocolBuffers::CheckLicenseResponseProto, :checkLicenseResponse, 17
+      optional ::ApkDownloader::ProtocolBuffers::GetMarketMetadataResponseProto, :getMarketMetadataResponse, 18
+      optional ::ApkDownloader::ProtocolBuffers::GetCategoriesResponseProto, :getCategoriesResponse, 20
+      optional ::ApkDownloader::ProtocolBuffers::GetCarrierInfoResponseProto, :getCarrierInfoResponse, 21
+      optional ::ApkDownloader::ProtocolBuffers::RestoreApplicationsResponseProto, :restoreApplicationResponse, 23
+      optional ::ApkDownloader::ProtocolBuffers::QuerySuggestionResponseProto, :querySuggestionResponse, 24
+      optional ::ApkDownloader::ProtocolBuffers::BillingEventResponseProto, :billingEventResponse, 25
+      optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalResponseProto, :paypalPreapprovalResponse, 26
+      optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalDetailsResponseProto, :paypalPreapprovalDetailsResponse, 27
+      optional ::ApkDownloader::ProtocolBuffers::PaypalCreateAccountResponseProto, :paypalCreateAccountResponse, 28
+      optional ::ApkDownloader::ProtocolBuffers::PaypalPreapprovalCredentialsResponseProto, :paypalPreapprovalCredentialsResponse, 29
+      optional ::ApkDownloader::ProtocolBuffers::InAppRestoreTransactionsResponseProto, :inAppRestoreTransactionsResponse, 30
+      optional ::ApkDownloader::ProtocolBuffers::InAppPurchaseInformationResponseProto, :getInAppPurchaseInformationResponse, 31
+      optional ::ApkDownloader::ProtocolBuffers::CheckForNotificationsResponseProto, :checkForNotificationsResponse, 32
+      optional ::ApkDownloader::ProtocolBuffers::AckNotificationsResponseProto, :ackNotificationsResponse, 33
+      optional ::ApkDownloader::ProtocolBuffers::PurchaseProductResponseProto, :purchaseProductResponse, 34
+      optional ::ApkDownloader::ProtocolBuffers::ReconstructDatabaseResponseProto, :reconstructDatabaseResponse, 35
+      optional ::ApkDownloader::ProtocolBuffers::PaypalMassageAddressResponseProto, :paypalMassageAddressResponse, 36
+      optional ::ApkDownloader::ProtocolBuffers::GetAddressSnippetResponseProto, :getAddressSnippetResponse, 37
+    end
+
+    class StatusBarNotificationProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.StatusBarNotificationProto"
+
+      optional :string, :tickerText, 1
+      optional :string, :contentTitle, 2
+      optional :string, :contentText, 3
+    end
+
+    class UninstallReasonRequestProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.UninstallReasonRequestProto"
+
+      optional :string, :assetId, 1
+      optional :int32, :reason, 2
+    end
+
+    class UninstallReasonResponseProto < ::ProtocolBuffers::Message
+      set_fully_qualified_name "ApkDownloader.ProtocolBuffers.UninstallReasonResponseProto"
+
+    end
+
   end
-
-  optional ::PurchaseMetadataResponseProto::Countries, :countries, 1, :group => true
 end
-
-class PurchaseOrderRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchaseOrderRequestProto"
-
-  optional :string, :gaiaAuthToken, 1
-  optional :string, :assetId, 2
-  optional :string, :transactionId, 3
-  optional :string, :billingInstrumentId, 4
-  optional :bool, :tosAccepted, 5
-  optional ::CarrierBillingCredentialsProto, :carrierBillingCredentials, 6
-  optional :string, :existingOrderId, 7
-  optional :int32, :billingInstrumentType, 8
-  optional :string, :billingParametersId, 9
-  optional ::PaypalCredentialsProto, :paypalCredentials, 10
-  optional ::RiskHeaderInfoProto, :riskHeaderInfo, 11
-  optional :int32, :productType, 12
-  optional ::SignatureHashProto, :signatureHash, 13
-  optional :string, :developerPayload, 14
-end
-
-class PurchaseOrderResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchaseOrderResponseProto"
-
-  optional :int32, :deprecatedResultCode, 1
-  optional ::PurchaseInfoProto, :purchaseInfo, 2
-  optional ::ExternalAssetProto, :asset, 3
-  optional ::PurchaseResultProto, :purchaseResult, 4
-end
-
-class PurchasePostRequestProto < ::ProtocolBuffers::Message
-  # forward declarations
-  class BillingInstrumentInfo < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "PurchasePostRequestProto"
-
-  # nested messages
-  class BillingInstrumentInfo < ::ProtocolBuffers::Message
-    set_fully_qualified_name "PurchasePostRequestProto.BillingInstrumentInfo"
-
-    optional :string, :billingInstrumentId, 5
-    optional ::ExternalCreditCard, :creditCard, 6
-    optional ::ExternalCarrierBillingInstrumentProto, :carrierInstrument, 9
-    optional ::ExternalPaypalInstrumentProto, :paypalInstrument, 10
-  end
-
-  optional :string, :gaiaAuthToken, 1
-  optional :string, :assetId, 2
-  optional :string, :transactionId, 3
-  optional ::PurchasePostRequestProto::BillingInstrumentInfo, :billinginstrumentinfo, 4, :group => true
-  optional :bool, :tosAccepted, 7
-  optional :string, :cbInstrumentKey, 8
-  optional :bool, :paypalAuthConfirmed, 11
-  optional :int32, :productType, 12
-  optional ::SignatureHashProto, :signatureHash, 13
-end
-
-class PurchasePostResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchasePostResponseProto"
-
-  optional :int32, :deprecatedResultCode, 1
-  optional ::PurchaseInfoProto, :purchaseInfo, 2
-  optional :string, :termsOfServiceUrl, 3
-  optional :string, :termsOfServiceText, 4
-  optional :string, :termsOfServiceName, 5
-  optional :string, :termsOfServiceCheckboxText, 6
-  optional :string, :termsOfServiceHeaderText, 7
-  optional ::PurchaseResultProto, :purchaseResult, 8
-end
-
-class PurchaseProductRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchaseProductRequestProto"
-
-  optional :int32, :productType, 1
-  optional :string, :productId, 2
-  optional ::SignatureHashProto, :signatureHash, 3
-end
-
-class PurchaseProductResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchaseProductResponseProto"
-
-  optional :string, :title, 1
-  optional :string, :itemTitle, 2
-  optional :string, :itemDescription, 3
-  optional :string, :merchantField, 4
-end
-
-class PurchaseResultProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "PurchaseResultProto"
-
-  optional :int32, :resultCode, 1
-  optional :string, :resultCodeMessage, 2
-end
-
-class QuerySuggestionProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "QuerySuggestionProto"
-
-  optional :string, :query, 1
-  optional :int32, :estimatedNumResults, 2
-  optional :int32, :queryWeight, 3
-end
-
-class QuerySuggestionRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "QuerySuggestionRequestProto"
-
-  optional :string, :query, 1
-  optional :int32, :requestType, 2
-end
-
-class QuerySuggestionResponseProto < ::ProtocolBuffers::Message
-  # forward declarations
-  class Suggestion < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "QuerySuggestionResponseProto"
-
-  # nested messages
-  class Suggestion < ::ProtocolBuffers::Message
-    set_fully_qualified_name "QuerySuggestionResponseProto.Suggestion"
-
-    optional ::AppSuggestionProto, :appSuggestion, 2
-    optional ::QuerySuggestionProto, :querySuggestion, 3
-  end
-
-  repeated ::QuerySuggestionResponseProto::Suggestion, :suggestion, 1, :group => true
-  optional :int32, :estimatedNumAppSuggestions, 4
-  optional :int32, :estimatedNumQuerySuggestions, 5
-end
-
-class RateCommentRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RateCommentRequestProto"
-
-  optional :string, :assetId, 1
-  optional :string, :creatorId, 2
-  optional :int32, :commentRating, 3
-end
-
-class RateCommentResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RateCommentResponseProto"
-
-end
-
-class ReconstructDatabaseRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ReconstructDatabaseRequestProto"
-
-  optional :bool, :retrieveFullHistory, 1
-end
-
-class ReconstructDatabaseResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ReconstructDatabaseResponseProto"
-
-  repeated ::AssetIdentifierProto, :asset, 1
-end
-
-class RefundRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RefundRequestProto"
-
-  optional :string, :assetId, 1
-end
-
-class RefundResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RefundResponseProto"
-
-  optional :int32, :result, 1
-  optional ::ExternalAssetProto, :asset, 2
-  optional :string, :resultDetail, 3
-end
-
-class RemoveAssetRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RemoveAssetRequestProto"
-
-  optional :string, :assetId, 1
-end
-
-class RequestPropertiesProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RequestPropertiesProto"
-
-  optional :string, :userAuthToken, 1
-  optional :bool, :userAuthTokenSecure, 2
-  optional :int32, :softwareVersion, 3
-  optional :string, :aid, 4
-  optional :string, :productNameAndVersion, 5
-  optional :string, :userLanguage, 6
-  optional :string, :userCountry, 7
-  optional :string, :operatorName, 8
-  optional :string, :simOperatorName, 9
-  optional :string, :operatorNumericName, 10
-  optional :string, :simOperatorNumericName, 11
-  optional :string, :clientId, 12
-  optional :string, :loggingId, 13
-end
-
-class RequestProto < ::ProtocolBuffers::Message
-  # forward declarations
-  class Request < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "RequestProto"
-
-  # nested messages
-  class Request < ::ProtocolBuffers::Message
-    set_fully_qualified_name "RequestProto.Request"
-
-    optional ::RequestSpecificPropertiesProto, :requestSpecificProperties, 3
-    optional ::AssetsRequestProto, :assetRequest, 4
-    optional ::CommentsRequestProto, :commentsRequest, 5
-    optional ::ModifyCommentRequestProto, :modifyCommentRequest, 6
-    optional ::PurchasePostRequestProto, :purchasePostRequest, 7
-    optional ::PurchaseOrderRequestProto, :purchaseOrderRequest, 8
-    optional ::ContentSyncRequestProto, :contentSyncRequest, 9
-    optional ::GetAssetRequestProto, :getAssetRequest, 10
-    optional ::GetImageRequestProto, :getImageRequest, 11
-    optional ::RefundRequestProto, :refundRequest, 12
-    optional ::PurchaseMetadataRequestProto, :purchaseMetadataRequest, 13
-    optional ::GetSubCategoriesRequestProto, :subCategoriesRequest, 14
-    optional ::UninstallReasonRequestProto, :uninstallReasonRequest, 16
-    optional ::RateCommentRequestProto, :rateCommentRequest, 17
-    optional ::CheckLicenseRequestProto, :checkLicenseRequest, 18
-    optional ::GetMarketMetadataRequestProto, :getMarketMetadataRequest, 19
-    optional ::GetCategoriesRequestProto, :getCategoriesRequest, 21
-    optional ::GetCarrierInfoRequestProto, :getCarrierInfoRequest, 22
-    optional ::RemoveAssetRequestProto, :removeAssetRequest, 23
-    optional ::RestoreApplicationsRequestProto, :restoreApplicationsRequest, 24
-    optional ::QuerySuggestionRequestProto, :querySuggestionRequest, 25
-    optional ::BillingEventRequestProto, :billingEventRequest, 26
-    optional ::PaypalPreapprovalRequestProto, :paypalPreapprovalRequest, 27
-    optional ::PaypalPreapprovalDetailsRequestProto, :paypalPreapprovalDetailsRequest, 28
-    optional ::PaypalCreateAccountRequestProto, :paypalCreateAccountRequest, 29
-    optional ::PaypalPreapprovalCredentialsRequestProto, :paypalPreapprovalCredentialsRequest, 30
-    optional ::InAppRestoreTransactionsRequestProto, :inAppRestoreTransactionsRequest, 31
-    optional ::InAppPurchaseInformationRequestProto, :inAppPurchaseInformationRequest, 32
-    optional ::CheckForNotificationsRequestProto, :checkForNotificationsRequest, 33
-    optional ::AckNotificationsRequestProto, :ackNotificationsRequest, 34
-    optional ::PurchaseProductRequestProto, :purchaseProductRequest, 35
-    optional ::ReconstructDatabaseRequestProto, :reconstructDatabaseRequest, 36
-    optional ::PaypalMassageAddressRequestProto, :paypalMassageAddressRequest, 37
-    optional ::GetAddressSnippetRequestProto, :getAddressSnippetRequest, 38
-  end
-
-  optional ::RequestPropertiesProto, :requestProperties, 1
-  repeated ::RequestProto::Request, :request, 2, :group => true
-end
-
-class RequestSpecificPropertiesProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RequestSpecificPropertiesProto"
-
-  optional :string, :ifNoneMatch, 1
-end
-
-class ResponsePropertiesProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "ResponsePropertiesProto"
-
-  optional :int32, :result, 1
-  optional :int32, :maxAge, 2
-  optional :string, :etag, 3
-  optional :int32, :serverVersion, 4
-  optional :int32, :maxAgeConsumable, 6
-  optional :string, :errorMessage, 7
-  repeated ::InputValidationError, :errorInputField, 8
-end
-
-class ResponseProto < ::ProtocolBuffers::Message
-  # forward declarations
-  class Response < ::ProtocolBuffers::Message; end
-
-  set_fully_qualified_name "ResponseProto"
-
-  # nested messages
-  class Response < ::ProtocolBuffers::Message
-    set_fully_qualified_name "ResponseProto.Response"
-
-    optional ::ResponsePropertiesProto, :responseProperties, 2
-    optional ::AssetsResponseProto, :assetsResponse, 3
-    optional ::CommentsResponseProto, :commentsResponse, 4
-    optional ::ModifyCommentResponseProto, :modifyCommentResponse, 5
-    optional ::PurchasePostResponseProto, :purchasePostResponse, 6
-    optional ::PurchaseOrderResponseProto, :purchaseOrderResponse, 7
-    optional ::ContentSyncResponseProto, :contentSyncResponse, 8
-    optional ::GetAssetResponseProto, :getAssetResponse, 9
-    optional ::GetImageResponseProto, :getImageResponse, 10
-    optional ::RefundResponseProto, :refundResponse, 11
-    optional ::PurchaseMetadataResponseProto, :purchaseMetadataResponse, 12
-    optional ::GetSubCategoriesResponseProto, :subCategoriesResponse, 13
-    optional ::UninstallReasonResponseProto, :uninstallReasonResponse, 15
-    optional ::RateCommentResponseProto, :rateCommentResponse, 16
-    optional ::CheckLicenseResponseProto, :checkLicenseResponse, 17
-    optional ::GetMarketMetadataResponseProto, :getMarketMetadataResponse, 18
-    repeated ::PrefetchedBundleProto, :prefetchedBundle, 19
-    optional ::GetCategoriesResponseProto, :getCategoriesResponse, 20
-    optional ::GetCarrierInfoResponseProto, :getCarrierInfoResponse, 21
-    optional ::RestoreApplicationsResponseProto, :restoreApplicationResponse, 23
-    optional ::QuerySuggestionResponseProto, :querySuggestionResponse, 24
-    optional ::BillingEventResponseProto, :billingEventResponse, 25
-    optional ::PaypalPreapprovalResponseProto, :paypalPreapprovalResponse, 26
-    optional ::PaypalPreapprovalDetailsResponseProto, :paypalPreapprovalDetailsResponse, 27
-    optional ::PaypalCreateAccountResponseProto, :paypalCreateAccountResponse, 28
-    optional ::PaypalPreapprovalCredentialsResponseProto, :paypalPreapprovalCredentialsResponse, 29
-    optional ::InAppRestoreTransactionsResponseProto, :inAppRestoreTransactionsResponse, 30
-    optional ::InAppPurchaseInformationResponseProto, :inAppPurchaseInformationResponse, 31
-    optional ::CheckForNotificationsResponseProto, :checkForNotificationsResponse, 32
-    optional ::AckNotificationsResponseProto, :ackNotificationsResponse, 33
-    optional ::PurchaseProductResponseProto, :purchaseProductResponse, 34
-    optional ::ReconstructDatabaseResponseProto, :reconstructDatabaseResponse, 35
-    optional ::PaypalMassageAddressResponseProto, :paypalMassageAddressResponse, 36
-    optional ::GetAddressSnippetResponseProto, :getAddressSnippetResponse, 37
-  end
-
-  repeated ::ResponseProto::Response, :response, 1, :group => true
-  optional ::PendingNotificationsProto, :pendingNotifications, 38
-end
-
-class RestoreApplicationsRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RestoreApplicationsRequestProto"
-
-  optional :string, :backupAndroidId, 1
-  optional :string, :tosVersion, 2
-  optional ::DeviceConfigurationProto, :deviceConfiguration, 3
-end
-
-class RestoreApplicationsResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RestoreApplicationsResponseProto"
-
-  repeated ::GetAssetResponseProto, :asset, 1
-end
-
-class RiskHeaderInfoProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "RiskHeaderInfoProto"
-
-  optional :string, :hashedDeviceInfo, 1
-end
-
-class SignatureHashProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "SignatureHashProto"
-
-  optional :string, :packageName, 1
-  optional :int32, :versionCode, 2
-  optional :bytes, :hash, 3
-end
-
-class SignedDataProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "SignedDataProto"
-
-  optional :string, :signedData, 1
-  optional :string, :signature, 2
-end
-
-class SingleRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "SingleRequestProto"
-
-  optional ::RequestSpecificPropertiesProto, :requestSpecificProperties, 3
-  optional ::AssetsRequestProto, :assetRequest, 4
-  optional ::CommentsRequestProto, :commentsRequest, 5
-  optional ::ModifyCommentRequestProto, :modifyCommentRequest, 6
-  optional ::PurchasePostRequestProto, :purchasePostRequest, 7
-  optional ::PurchaseOrderRequestProto, :purchaseOrderRequest, 8
-  optional ::ContentSyncRequestProto, :contentSyncRequest, 9
-  optional ::GetAssetRequestProto, :getAssetRequest, 10
-  optional ::GetImageRequestProto, :getImageRequest, 11
-  optional ::RefundRequestProto, :refundRequest, 12
-  optional ::PurchaseMetadataRequestProto, :purchaseMetadataRequest, 13
-  optional ::GetSubCategoriesRequestProto, :subCategoriesRequest, 14
-  optional ::UninstallReasonRequestProto, :uninstallReasonRequest, 16
-  optional ::RateCommentRequestProto, :rateCommentRequest, 17
-  optional ::CheckLicenseRequestProto, :checkLicenseRequest, 18
-  optional ::GetMarketMetadataRequestProto, :getMarketMetadataRequest, 19
-  optional ::GetCategoriesRequestProto, :getCategoriesRequest, 21
-  optional ::GetCarrierInfoRequestProto, :getCarrierInfoRequest, 22
-  optional ::RemoveAssetRequestProto, :removeAssetRequest, 23
-  optional ::RestoreApplicationsRequestProto, :restoreApplicationsRequest, 24
-  optional ::QuerySuggestionRequestProto, :querySuggestionRequest, 25
-  optional ::BillingEventRequestProto, :billingEventRequest, 26
-  optional ::PaypalPreapprovalRequestProto, :paypalPreapprovalRequest, 27
-  optional ::PaypalPreapprovalDetailsRequestProto, :paypalPreapprovalDetailsRequest, 28
-  optional ::PaypalCreateAccountRequestProto, :paypalCreateAccountRequest, 29
-  optional ::PaypalPreapprovalCredentialsRequestProto, :paypalPreapprovalCredentialsRequest, 30
-  optional ::InAppRestoreTransactionsRequestProto, :inAppRestoreTransactionsRequest, 31
-  optional ::InAppPurchaseInformationRequestProto, :getInAppPurchaseInformationRequest, 32
-  optional ::CheckForNotificationsRequestProto, :checkForNotificationsRequest, 33
-  optional ::AckNotificationsRequestProto, :ackNotificationsRequest, 34
-  optional ::PurchaseProductRequestProto, :purchaseProductRequest, 35
-  optional ::ReconstructDatabaseRequestProto, :reconstructDatabaseRequest, 36
-  optional ::PaypalMassageAddressRequestProto, :paypalMassageAddressRequest, 37
-  optional ::GetAddressSnippetRequestProto, :getAddressSnippetRequest, 38
-end
-
-class SingleResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "SingleResponseProto"
-
-  optional ::ResponsePropertiesProto, :responseProperties, 2
-  optional ::AssetsResponseProto, :assetsResponse, 3
-  optional ::CommentsResponseProto, :commentsResponse, 4
-  optional ::ModifyCommentResponseProto, :modifyCommentResponse, 5
-  optional ::PurchasePostResponseProto, :purchasePostResponse, 6
-  optional ::PurchaseOrderResponseProto, :purchaseOrderResponse, 7
-  optional ::ContentSyncResponseProto, :contentSyncResponse, 8
-  optional ::GetAssetResponseProto, :getAssetResponse, 9
-  optional ::GetImageResponseProto, :getImageResponse, 10
-  optional ::RefundResponseProto, :refundResponse, 11
-  optional ::PurchaseMetadataResponseProto, :purchaseMetadataResponse, 12
-  optional ::GetSubCategoriesResponseProto, :subCategoriesResponse, 13
-  optional ::UninstallReasonResponseProto, :uninstallReasonResponse, 15
-  optional ::RateCommentResponseProto, :rateCommentResponse, 16
-  optional ::CheckLicenseResponseProto, :checkLicenseResponse, 17
-  optional ::GetMarketMetadataResponseProto, :getMarketMetadataResponse, 18
-  optional ::GetCategoriesResponseProto, :getCategoriesResponse, 20
-  optional ::GetCarrierInfoResponseProto, :getCarrierInfoResponse, 21
-  optional ::RestoreApplicationsResponseProto, :restoreApplicationResponse, 23
-  optional ::QuerySuggestionResponseProto, :querySuggestionResponse, 24
-  optional ::BillingEventResponseProto, :billingEventResponse, 25
-  optional ::PaypalPreapprovalResponseProto, :paypalPreapprovalResponse, 26
-  optional ::PaypalPreapprovalDetailsResponseProto, :paypalPreapprovalDetailsResponse, 27
-  optional ::PaypalCreateAccountResponseProto, :paypalCreateAccountResponse, 28
-  optional ::PaypalPreapprovalCredentialsResponseProto, :paypalPreapprovalCredentialsResponse, 29
-  optional ::InAppRestoreTransactionsResponseProto, :inAppRestoreTransactionsResponse, 30
-  optional ::InAppPurchaseInformationResponseProto, :getInAppPurchaseInformationResponse, 31
-  optional ::CheckForNotificationsResponseProto, :checkForNotificationsResponse, 32
-  optional ::AckNotificationsResponseProto, :ackNotificationsResponse, 33
-  optional ::PurchaseProductResponseProto, :purchaseProductResponse, 34
-  optional ::ReconstructDatabaseResponseProto, :reconstructDatabaseResponse, 35
-  optional ::PaypalMassageAddressResponseProto, :paypalMassageAddressResponse, 36
-  optional ::GetAddressSnippetResponseProto, :getAddressSnippetResponse, 37
-end
-
-class StatusBarNotificationProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "StatusBarNotificationProto"
-
-  optional :string, :tickerText, 1
-  optional :string, :contentTitle, 2
-  optional :string, :contentText, 3
-end
-
-class UninstallReasonRequestProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "UninstallReasonRequestProto"
-
-  optional :string, :assetId, 1
-  optional :int32, :reason, 2
-end
-
-class UninstallReasonResponseProto < ::ProtocolBuffers::Message
-  set_fully_qualified_name "UninstallReasonResponseProto"
-
-end
-
