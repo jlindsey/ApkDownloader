@@ -36,8 +36,9 @@ module ApkDownloader
 
       login_http = Net::HTTP.new LoginUri.host, LoginUri.port
       login_http.use_ssl = true
+      login_http.verify_mode  = OpenSSL::SSL::VERIFY_NONE
 
-      post = Net::HTTP::Post.new LoginUri
+      post = Net::HTTP::Post.new LoginUri.to_s
       post.set_form_data params
       post["Accept-Encoding"] = ""
 
@@ -80,7 +81,9 @@ module ApkDownloader
       raise ArgumentError, 'HTTP redirect too deep' if tries == 0
 
       http = Net::HTTP.new url.host, url.port
-      req = Net::HTTP::Get.new url
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+      req = Net::HTTP::Get.new url.to_s
       req['Accept-Encoding'] = ''
       req['User-Agent'] = 'AndroidDownloadManager/4.1.1 (Linux; U; Android 4.1.1; Nexus S Build/JRO03E)'
       req['Cookie'] = [cookie.name, cookie.value].join('=')
@@ -101,6 +104,7 @@ module ApkDownloader
       if @http.nil?
         @http = Net::HTTP.new GoogleApiUri.host, GoogleApiUri.port
         @http.use_ssl = true
+        @http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       end
 
       api_headers = {
@@ -125,9 +129,9 @@ module ApkDownloader
 
       req = if type == :get
         uri.query = URI.encode_www_form data
-        Net::HTTP::Get.new uri
+        Net::HTTP::Get.new uri.to_s
       else
-        post = Net::HTTP::Post.new uri
+        post = Net::HTTP::Post.new uri.to_s
         post.tap { |p| p.set_form_data data }
       end
 
