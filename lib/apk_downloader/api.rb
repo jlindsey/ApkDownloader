@@ -1,5 +1,6 @@
 require 'net/http'
 require 'tempfile'
+require 'pp'
 
 module ApkDownloader
   class Api
@@ -43,6 +44,12 @@ module ApkDownloader
       post["Accept-Encoding"] = ""
 
       response = login_http.request post
+
+      if ApkDownloader.configuration.debug
+        pp "Login response:"
+        pp response
+      end
+
       if response.body =~ /error/i
         raise "Unable to authenticate with Google"
       elsif response.body.include? "Auth="
@@ -138,6 +145,16 @@ module ApkDownloader
       api_headers.each { |k, v| req[k] = v }
 
       resp = @http.request req
+
+      unless resp.code.to_i == 200 or resp.code.to_i == 302
+        raise "Bad status from Play API"
+      end
+
+      if ApkDownloader.configuration.debug
+        pp "Request response (#{type}):"
+        pp resp
+      end
+
       return ApkDownloader::ProtocolBuffers::ResponseWrapper.new.parse(resp.body)
     end
   end
