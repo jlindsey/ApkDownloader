@@ -147,7 +147,7 @@ module ApkDownloader
       resp = @http.request req
 
       unless resp.code.to_i == 200 or resp.code.to_i == 302
-        raise "Bad status from Play API"
+        raise "Bad status (#{resp.code}) from Play API (#{path}) => #{data}"
       end
 
       if ApkDownloader.configuration.debug
