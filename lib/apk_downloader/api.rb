@@ -88,6 +88,7 @@ module ApkDownloader
       raise ArgumentError, 'HTTP redirect too deep' if tries == 0
 
       http = Net::HTTP.new url.host, url.port
+      http.use_ssl = (url.scheme == 'https')
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
       req = Net::HTTP::Get.new url.to_s
