@@ -1,4 +1,9 @@
 source 'https://rubygems.org'
-
-# Specify your gem's dependencies in apk_downloader.gemspec
 gemspec
+
+group :development do
+  gem 'rake'
+  gem 'pry'
+  gem 'pry-byebug'
+end
+
