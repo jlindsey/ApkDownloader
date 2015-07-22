@@ -1,6 +1,7 @@
 require 'net/http'
 require 'tempfile'
 require 'pp'
+require 'openssl'
 
 module ApkDownloader
   class Api
