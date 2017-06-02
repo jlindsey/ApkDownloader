@@ -123,7 +123,7 @@ module ApkDownloader
         "X-DFE-Unsupported-Experiments" => "nocache:billing.use_charging_poller,market_emails,buyer_currency,prod_baseline,checkin.set_asset_paid_app_field,shekel_test,content_ratings,buyer_currency_in_app,nocache:encrypted_apk,recent_changes",
         "X-DFE-Device-Id" => ApkDownloader.configuration.android_id,
         "X-DFE-Client-Id" => "am-android-google",
-        "User-Agent" => "Android-Finsky/3.7.13 (api=3,versionCode=8013013,sdk=16,device=crespo,hardware=herring,product=soju)",
+        "User-Agent" => "Android-Finsky/5.7.10 (api=3,versionCode=80371000,sdk=19,device=falcon_umts,hardware=qcom,product=falcon_reteu,platformVersionRelease=4.4.4,model=XT1032,buildId=KXB21.14-L1.40,isWideScreen=0)",
         "X-DFE-SmallestScreenWidthDp" => "320",
         "X-DFE-Filter-Level" => "3",
         "Accept-Encoding" => "",
